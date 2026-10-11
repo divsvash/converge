@@ -1,0 +1,21 @@
+employee_id,full_name,city,department,join_date,salary,age,manager_id
+E001,Aarav Sharma,Delhi,Engineering,2023-01-05,75000,29,M010
+E002,Priya Verma,delhi,Engineering,05/01/2023,68000,31,M010
+E003,Rohan Gupta,DELHI,Sales,2022-11-20,52000,26,M011
+E004,  Sneha Reddy ,Bangalore,Engineering,2023-03-15,81000,34,M010
+E005,Vikram Singh,bangalore,Sales,15/03/2023,,45,M011
+E006,Ananya Iyer,Mumbai,Marketing,2022-07-01,61000,28,M012
+E007,Karan Mehta,MUMBAI,Marketing,01/07/2022,63000,,M012
+E008,Aarav Sharma,Delhi,Engineering,2023-01-05,75000,29,M010
+E009,Divya Nair,Chennai,Sales,2023-02-10,54000,27,M011
+E010,Arjun Rao,chennai,Sales,10/02/2023,55000,38,M011
+E011,Neha Kapoor,New Delhi,HR,2022-09-18,47000,33,M013
+E012,Rajesh Kumar,Delhi ,Engineering,2023-04-02,79000,41,M010
+E013,Ishita Desai,Bangalore,Engineering,2022-12-25,600000,30,M010
+E014,Manish Joshi,Pune,Marketing,2023-01-30,58000,29,M012
+E015,Pooja Malhotra,pune,Marketing,30/01/2023,59000,26,M012
+E016,Siddharth Rao,Hyderabad,Sales,2022-10-05,,32,M011
+E017,Kavya Menon,HYDERABAD,Sales,05/10/2022,53000,25,M011
+E018,Aditya Pillai,Chennai,Engineering,2023-05-12,76000,-5,M010
+E019,Meera Bhatt,Delhi,HR,2022-08-08,46000,37,M013
+E020,Sanjay Yadav,Mumbai,Engineering,2023-06-01,82000,36,M010

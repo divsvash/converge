@@ -1,0 +1,33 @@
+{
+  "scenario_id": "S5_dates",
+  "clean_dataset_checksum": "cbb4cf2a23d1d0884d3158236ad0dae8cfecba6d9056f00bd2da49aaff3ae24f",
+  "corrupted_dataset_checksum": "f3899df8bd2ef0544bbe6c8e5185e6d66f4837d46c135c520a2d6ab309609629",
+  "corruption_seed": 42,
+  "cell_corruptions": [
+    {
+      "corruption_id": "S5_dates::C001",
+      "corruption_type": "mixed_date_format",
+      "row_id": "R011",
+      "column": "hire_date",
+      "clean_value": "2023-09-01",
+      "corrupted_value": "01/09/2023"
+    },
+    {
+      "corruption_id": "S5_dates::C002",
+      "corruption_type": "mixed_date_format",
+      "row_id": "R002",
+      "column": "hire_date",
+      "clean_value": "2022-03-20",
+      "corrupted_value": "20/03/2022"
+    },
+    {
+      "corruption_id": "S5_dates::C003",
+      "corruption_type": "mixed_date_format",
+      "row_id": "R001",
+      "column": "hire_date",
+      "clean_value": "2022-01-15",
+      "corrupted_value": "15/01/2022"
+    }
+  ],
+  "duplicate_corruptions": []
+}

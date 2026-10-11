@@ -1,0 +1,33 @@
+{
+  "scenario_id": "S1_whitespace",
+  "clean_dataset_checksum": "cbb4cf2a23d1d0884d3158236ad0dae8cfecba6d9056f00bd2da49aaff3ae24f",
+  "corrupted_dataset_checksum": "c294d634ae5c50125b880b1013aba4998d4d3a10553abf7f2891d0598a82170a",
+  "corruption_seed": 42,
+  "cell_corruptions": [
+    {
+      "corruption_id": "S1_whitespace::C001",
+      "corruption_type": "whitespace",
+      "row_id": "R011",
+      "column": "name",
+      "clean_value": "Keiko Sato",
+      "corrupted_value": "  Keiko Sato"
+    },
+    {
+      "corruption_id": "S1_whitespace::C002",
+      "corruption_type": "whitespace",
+      "row_id": "R002",
+      "column": "name",
+      "clean_value": "Bob Chen",
+      "corrupted_value": "Bob Chen  "
+    },
+    {
+      "corruption_id": "S1_whitespace::C003",
+      "corruption_type": "whitespace",
+      "row_id": "R001",
+      "column": "name",
+      "clean_value": "Alice Martin",
+      "corrupted_value": "  Alice Martin  "
+    }
+  ],
+  "duplicate_corruptions": []
+}

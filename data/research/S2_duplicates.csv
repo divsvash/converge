@@ -1,0 +1,18 @@
+_row_id,name,department,city,hire_date,salary,rating
+R001,Alice Martin,Engineering,London,2022-01-15,72000,4.2
+R002,Bob Chen,Engineering,Berlin,2022-03-20,68000,3.8
+R003,Carol Diaz,Sales,Madrid,2022-05-10,55000,4.5
+R004,David Kim,Sales,Seoul,2022-07-01,58000,3.9
+R005,Elena Rossi,Marketing,Rome,2022-09-12,61000,4.1
+R006,Frank Mueller,Engineering,Berlin,2022-11-05,75000,4.7
+R007,Grace Tanaka,Sales,Tokyo,2023-01-18,53000,3.6
+R008,Henry Okonkwo,Marketing,Lagos,2023-03-22,49000,4.0
+R009,Ingrid Larsson,Engineering,Stockholm,2023-05-30,71000,4.4
+R010,James Wilson,Sales,London,2023-07-14,56000,3.7
+R011,Keiko Sato,Marketing,Tokyo,2023-09-01,52000,4.3
+R012,Liam Murphy,Engineering,Dublin,2023-11-10,69000,3.5
+R013,Maria Santos,Sales,Madrid,2024-01-08,54000,4.6
+R014,Nikolai Petrov,Marketing,Berlin,2024-03-15,60000,4.0
+R015,Olivia Brown,Engineering,London,2024-05-20,73000,4.8
+R016,Keiko Sato,Marketing,Tokyo,2023-09-01,52000,4.3
+R017,Bob Chen,Engineering,Berlin,2022-03-20,68000,3.8
