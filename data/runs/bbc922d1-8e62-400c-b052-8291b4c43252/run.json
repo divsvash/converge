@@ -1,0 +1,30 @@
+{
+  "run_id": "bbc922d1-8e62-400c-b052-8291b4c43252",
+  "dataset_id": "missing_scenario__fad7c495-b07c-4640-9db3-5bd686c899fb__converge",
+  "dataset_path": "/nonexistent/path/does_not_exist.csv",
+  "status": "failed",
+  "profile_result": null,
+  "ai_metadata": null,
+  "recommendation_records": [],
+  "execution_plan": null,
+  "execution_summary": null,
+  "after_profile_result": null,
+  "quality_comparison": null,
+  "recommendation_outcomes": [],
+  "insight_artifact": null,
+  "timeline": [
+    {
+      "status": "ingested",
+      "message": "Dataset 'missing_scenario__fad7c495-b07c-4640-9db3-5bd686c899fb__converge' ingested from /nonexistent/path/does_not_exist.csv.",
+      "timestamp": "2026-10-25T20:06:55.676522Z"
+    },
+    {
+      "status": "failed",
+      "message": "[profiling] AnalysisException: [PATH_NOT_FOUND] Path does not exist: file:/nonexistent/path/does_not_exist.csv.",
+      "timestamp": "2026-10-25T20:06:57.727980Z"
+    }
+  ],
+  "error": "[profiling] AnalysisException: [PATH_NOT_FOUND] Path does not exist: file:/nonexistent/path/does_not_exist.csv.",
+  "created_at": "2026-10-25T20:06:55.676497Z",
+  "updated_at": "2026-10-25T20:06:57.727878Z"
+}

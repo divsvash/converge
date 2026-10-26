@@ -1,0 +1,4 @@
+scenario_id,strategy,provider,model,attempted_runs,successful_runs,failed_runs,success_rate,mean_repair_recall,std_repair_recall,mean_false_modification_rate,mean_issues_before,mean_issues_after,mean_strategy_execution_wall_seconds,mean_total_wall_seconds,mean_input_tokens,mean_output_tokens,mean_total_tokens
+S1_whitespace,ai_only,ollama,qwen2.5-coder:3b,1,0,1,0.0,,,,,,,,,,
+S1_whitespace,converge,ollama,qwen2.5-coder:3b,1,0,1,0.0,,,,,,,,,,
+S1_whitespace,spark_only,,,1,1,0,1.0,1.0,,0.0,1.0,0.0,22.650820479000004,95.002582285,0.0,0.0,0.0

@@ -1,0 +1,10 @@
+run_id,scenario_id,strategy,repetition_index,success,provider,model,prompt_version,total_corruptions,correctly_repaired,incorrectly_repaired,unrepaired,repair_recall,originally_clean_values_modified,false_modification_rate,injected_duplicates_removed,original_rows_lost,all_original_rows_lost,correctly_removed_duplicates,issues_before,issues_after,resolved,improved,unchanged,worsened,introduced,unverified,strategy_execution_wall_seconds,evaluation_wall_seconds,total_wall_seconds,input_tokens,output_tokens,total_tokens,monetary_cost,currency,error
+4034f157-26ec-41c6-afa1-ccd531ac6cd1,S1_whitespace,spark_only,0,True,,,,3,3,0,0,1.0,0,0.0,0,0,0,0,1,0,1,0,0,0,0,0,22.650820479000004,72.259682096,95.002582285,0,0,0,0.0,,
+7ef5601a-a055-4e3e-8695-7e1845f24bcd,S1_whitespace,ai_only,0,False,ollama,qwen2.5-coder:3b,recommendation-prompt-v1,,,,,,,,,,,,,,,,,,,,,,,,,,,,AI provider failed: Ollama request timed out: timed out
+0c4c2173-1509-4438-88d2-7fd2ae775ca9,S1_whitespace,converge,0,False,ollama,qwen2.5-coder:3b,recommendation-prompt-v1,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Stage 'ai_analysis' failed: recommendations[0] failed to parse as a Recommendation: 2 validation errors for Recommendation
+parameters
+  Input should be a valid dictionary [type=dict_type, input_value=[], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.13/v/dict_type
+evidence_refs
+  Input should be a valid list [type=list_type, input_value={'affected_count': 3, 'sa... Chen  ', 'Carol Diaz']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/list_type"

@@ -1,0 +1,61 @@
+{
+  "pilot_id": "pilot_20261026_s1_local",
+  "timestamp": "2026-10-26T13:13:24.007900+00:00",
+  "scenarios": [
+    "S1_whitespace"
+  ],
+  "strategies": [
+    "ai_only",
+    "converge",
+    "spark_only"
+  ],
+  "configuration_ids": [
+    "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3"
+  ],
+  "repetition_count": 1,
+  "total_attempted_runs": 3,
+  "total_succeeded": 1,
+  "total_failed": 2,
+  "provider": "ollama",
+  "model": "qwen2.5-coder:3b",
+  "prompt_version": "recommendation-prompt-v1",
+  "package_version": "0.1.0",
+  "reliability": {
+    "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225": {
+      "experiment_id": "c63f12d8-f0c8-4a08-b023-7b89aab26884",
+      "scenario_id": "S1_whitespace",
+      "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+      "attempted_runs": 1,
+      "successful_runs": 1,
+      "failed_runs": 0,
+      "success_rate": 1.0,
+      "recommendation_consistency": null
+    },
+    "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3": {
+      "experiment_id": "c63f12d8-f0c8-4a08-b023-7b89aab26884",
+      "scenario_id": "S1_whitespace",
+      "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+      "attempted_runs": 1,
+      "successful_runs": 0,
+      "failed_runs": 1,
+      "success_rate": 0.0,
+      "recommendation_consistency": null
+    },
+    "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3": {
+      "experiment_id": "c63f12d8-f0c8-4a08-b023-7b89aab26884",
+      "scenario_id": "S1_whitespace",
+      "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+      "attempted_runs": 1,
+      "successful_runs": 0,
+      "failed_runs": 1,
+      "success_rate": 0.0,
+      "recommendation_consistency": null
+    }
+  },
+  "clean_dataset_checksum": "cbb4cf2a23d1d0884d3158236ad0dae8cfecba6d9056f00bd2da49aaff3ae24f",
+  "scenario_checksums": {
+    "S1_whitespace": "c294d634ae5c50125b880b1013aba4998d4d3a10553abf7f2891d0598a82170a"
+  }
+}

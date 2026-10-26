@@ -1,0 +1,385 @@
+{
+  "run_id": "10a5f8b4-aab4-4d35-8062-a117d49e5c13",
+  "dataset_id": "S1_ws__b8b39402-6f42-4f61-86f4-5e64b8b05cb8__converge",
+  "dataset_path": "C:\\Users\\divya\\AppData\\Local\\Temp\\pytest-of-divya\\pytest-3\\test_ground_truth_evaluator_sa0\\S1_ws.csv",
+  "status": "executing",
+  "profile_result": {
+    "profile": {
+      "dataset_id": "S1_ws__b8b39402-6f42-4f61-86f4-5e64b8b05cb8__converge",
+      "row_count": 15,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "_row_id",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": true,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "R001",
+            "R002",
+            "R003",
+            "R004",
+            "R005"
+          ]
+        },
+        {
+          "name": "name",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 15,
+            "top_values": {
+              "  Alice Martin  ": 1,
+              "Bob Chen  ": 1,
+              "Frank Mueller": 1,
+              "Elena Rossi": 1,
+              "Grace Tanaka": 1,
+              "James Wilson": 1,
+              "  Keiko Sato": 1,
+              "Liam Murphy": 1,
+              "Carol Diaz": 1,
+              "Henry Okonkwo": 1,
+              "Ingrid Larsson": 1,
+              "Maria Santos": 1,
+              "David Kim": 1,
+              "Nikolai Petrov": 1,
+              "Olivia Brown": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 3
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "  Alice Martin  ",
+            "Bob Chen  ",
+            "Carol Diaz",
+            "David Kim",
+            "Elena Rossi"
+          ]
+        },
+        {
+          "name": "department",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 3,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 3,
+            "top_values": {
+              "Engineering": 6,
+              "Sales": 5,
+              "Marketing": 4
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Engineering",
+            "Engineering",
+            "Sales",
+            "Sales",
+            "Marketing"
+          ]
+        },
+        {
+          "name": "city",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 9,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 9,
+            "top_values": {
+              "London": 3,
+              "Berlin": 3,
+              "Madrid": 2,
+              "Tokyo": 2,
+              "Dublin": 1,
+              "Stockholm": 1,
+              "Seoul": 1,
+              "Lagos": 1,
+              "Rome": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "London",
+            "Berlin",
+            "Madrid",
+            "Seoul",
+            "Rome"
+          ]
+        },
+        {
+          "name": "hire_date",
+          "spark_dtype": "date",
+          "semantic_type": "unknown",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "2022-01-15",
+            "2022-03-20",
+            "2022-05-10",
+            "2022-07-01",
+            "2022-09-12"
+          ]
+        },
+        {
+          "name": "salary",
+          "spark_dtype": "int",
+          "semantic_type": "integer",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 49000.0,
+            "max": 75000.0,
+            "mean": 61733.3333,
+            "stddev": 8762.4741,
+            "median_approx": 60000.0,
+            "q1": 54000.0,
+            "q3": 71000.0,
+            "outlier_lower_bound": 28500.0,
+            "outlier_upper_bound": 96500.0,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "72000",
+            "68000",
+            "55000",
+            "58000",
+            "61000"
+          ]
+        },
+        {
+          "name": "rating",
+          "spark_dtype": "double",
+          "semantic_type": "float",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 3.5,
+            "max": 4.8,
+            "mean": 4.14,
+            "stddev": 0.405,
+            "median_approx": 4.1,
+            "q1": 3.8,
+            "q3": 4.5,
+            "outlier_lower_bound": 2.7499999999999996,
+            "outlier_upper_bound": 5.550000000000001,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "4.2",
+            "3.8",
+            "4.5",
+            "3.9",
+            "4.1"
+          ]
+        }
+      ],
+      "duplicate_summary": {
+        "exact_duplicate_row_count": 0,
+        "id_like_columns": [
+          "_row_id"
+        ],
+        "duplicate_candidates": []
+      },
+      "generated_at": "2026-10-25T18:10:44.865129Z"
+    },
+    "evidence": [
+      {
+        "issue_type": "whitespace_or_casing",
+        "columns": [
+          "name"
+        ],
+        "description": "3 values in 'name' have leading/trailing whitespace.",
+        "supporting_data": {
+          "affected_count": 3,
+          "sample_values": [
+            "  Alice Martin  ",
+            "Bob Chen  ",
+            "Carol Diaz",
+            "David Kim",
+            "Elena Rossi"
+          ]
+        }
+      }
+    ]
+  },
+  "ai_metadata": {
+    "provider": "fake-provider",
+    "model": "fake-model-v0",
+    "prompt_version": "fake-prompt-v0",
+    "recommendation_count": 1,
+    "generated_at": "2026-10-25T18:10:44.875120Z"
+  },
+  "recommendation_records": [
+    {
+      "recommendation": {
+        "recommendation_id": "7670cc16-89ee-4854-98a7-f03f393bc583",
+        "operation": "TRIM_WHITESPACE",
+        "target_columns": [
+          "name"
+        ],
+        "parameters": {},
+        "reason": "ws",
+        "evidence_refs": [],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "7670cc16-89ee-4854-98a7-f03f393bc583",
+        "operation": "TRIM_WHITESPACE",
+        "status": "approved_auto",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": true,
+            "message": "'TRIM_WHITESPACE' is a registered P0 operation."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": true,
+            "message": "Not on the forbidden list."
+          },
+          {
+            "rule": "target_columns_exist",
+            "passed": true,
+            "message": "All target column(s) exist: ['name']."
+          },
+          {
+            "rule": "dtype_compatible",
+            "passed": true,
+            "message": "Target column(s) have a compatible semantic type."
+          },
+          {
+            "rule": "parameters_valid",
+            "passed": true,
+            "message": "All declared parameters present, well-typed, and within allowed values."
+          },
+          {
+            "rule": "safety_class_respected",
+            "passed": true,
+            "message": "Operation tier is 'safe'; final status is capped accordingly regardless of other checks."
+          },
+          {
+            "rule": "evidence_exists",
+            "passed": true,
+            "message": "Found 1 matching evidence item(s) in the profile."
+          },
+          {
+            "rule": "evidence_supports_claim",
+            "passed": true,
+            "message": "Recommendation's claims are consistent with the actual profile evidence."
+          },
+          {
+            "rule": "finding_only_not_executable",
+            "passed": true,
+            "message": "Not a finding-only operation."
+          }
+        ],
+        "summary": "Passed all automated checks; eligible for execution once a user explicitly applies it."
+      },
+      "decision": "approved_by_user"
+    }
+  ],
+  "execution_plan": {
+    "run_id": "10a5f8b4-aab4-4d35-8062-a117d49e5c13",
+    "dataset_path": "C:\\Users\\divya\\AppData\\Local\\Temp\\pytest-of-divya\\pytest-3\\test_ground_truth_evaluator_sa0\\S1_ws.csv",
+    "operations": [
+      {
+        "recommendation_id": "7670cc16-89ee-4854-98a7-f03f393bc583",
+        "operation": "TRIM_WHITESPACE",
+        "target_columns": [
+          "name"
+        ],
+        "parameters": {}
+      }
+    ],
+    "created_at": "2026-10-25T18:10:44.883075Z"
+  },
+  "execution_summary": null,
+  "after_profile_result": null,
+  "quality_comparison": null,
+  "recommendation_outcomes": [],
+  "insight_artifact": null,
+  "timeline": [
+    {
+      "status": "ingested",
+      "message": "Dataset 'S1_ws__b8b39402-6f42-4f61-86f4-5e64b8b05cb8__converge' ingested from C:\\Users\\divya\\AppData\\Local\\Temp\\pytest-of-divya\\pytest-3\\test_ground_truth_evaluator_sa0\\S1_ws.csv.",
+      "timestamp": "2026-10-25T18:10:37.434055Z"
+    },
+    {
+      "status": "profiled",
+      "message": "Profiled dataset: 15 rows, 7 columns, 1 evidence item(s).",
+      "timestamp": "2026-10-25T18:10:44.866581Z"
+    },
+    {
+      "status": "ai_analyzed",
+      "message": "AI stage (fake-provider/fake-model-v0) returned 1 recommendation(s).",
+      "timestamp": "2026-10-25T18:10:44.875120Z"
+    },
+    {
+      "status": "validated",
+      "message": "Validated 1 recommendation(s).",
+      "timestamp": "2026-10-25T18:10:44.878534Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "Pipeline is awaiting user approval. No recommendation executes until the user explicitly applies it and execution is explicitly triggered.",
+      "timestamp": "2026-10-25T18:10:44.878534Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=approved_by_user for recommendation '7670cc16-89ee-4854-98a7-f03f393bc583' (operation=TRIM_WHITESPACE). Pipeline status unchanged.",
+      "timestamp": "2026-10-25T18:10:44.881562Z"
+    },
+    {
+      "status": "executing",
+      "message": "Execution plan built with 1 user-approved, validator-eligible operation(s).",
+      "timestamp": "2026-10-25T18:10:44.883075Z"
+    }
+  ],
+  "error": null,
+  "created_at": "2026-10-25T18:10:37.434055Z",
+  "updated_at": "2026-10-25T18:10:44.883075Z"
+}

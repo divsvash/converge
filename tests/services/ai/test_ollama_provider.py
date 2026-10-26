@@ -13,7 +13,10 @@ from converge.core.exceptions import (
     AIProviderResponseError,
     AIProviderTimeoutError,
 )
-from converge.services.ai.ollama_provider import OllamaProvider
+from converge.services.ai.ollama_provider import (
+    OLLAMA_RECOMMENDATION_SCHEMA,
+    OllamaProvider,
+)
 from converge.services.ai.prompts import PROMPT_VERSION
 
 
@@ -44,6 +47,28 @@ def _raw_json_response(recs=None):
         recs = [{"operation": "TRIM_WHITESPACE", "target_columns": ["name"],
                  "parameters": {}, "reason": "test", "evidence_refs": []}]
     return json.dumps({"recommendations": recs})
+
+
+def test_request_uses_structured_ollama_schema(sample_profile):
+    captured = {}
+
+    def capture_post(url, body):
+        captured["url"] = url
+        captured["payload"] = json.loads(body.decode("utf-8"))
+        return _raw_json_response()
+
+    provider = OllamaProvider(
+        model_name="test-model",
+        base_url="http://localhost:11434/",
+        _http_post=capture_post,
+    )
+    provider.generate_recommendations(sample_profile)
+
+    assert captured["url"] == "http://localhost:11434/api/chat"
+    assert captured["payload"]["format"] == OLLAMA_RECOMMENDATION_SCHEMA
+    assert captured["payload"]["stream"] is False
+    assert captured["payload"]["options"]["temperature"] == 0.0
+    assert captured["payload"]["model"] == "test-model"
 
 
 # ---------------------------------------------------------------------------

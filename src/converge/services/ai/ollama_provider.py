@@ -48,7 +48,73 @@ from converge.services.ai.prompts import PROMPT_VERSION, SYSTEM_PROMPT, build_us
 logger = get_logger(__name__)
 
 DEFAULT_BASE_URL = "http://localhost:11434"
-DEFAULT_TIMEOUT_SECONDS = 120.0
+DEFAULT_TIMEOUT_SECONDS = 600.0
+
+OLLAMA_RECOMMENDATION_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "recommendations": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "operation": {"type": "string"},
+                    "target_columns": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                    },
+                    "parameters": {"type": "object"},
+                    "reason": {"type": "string"},
+                    "evidence_refs": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "issue_type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "missing_values",
+                                        "duplicate_rows",
+                                        "categorical_inconsistency",
+                                        "whitespace_or_casing",
+                                        "date_format_inconsistency",
+                                        "outlier_candidate",
+                                        "type_inconsistency",
+                                    ],
+                                },
+                                "columns": {
+                                    "type": "array",
+                                    "items": {"type": "string"},
+                                },
+                                "claim": {"type": "string"},
+                                "claimed_values": {"type": "object"},
+                            },
+                            "required": [
+                                "issue_type",
+                                "columns",
+                                "claim",
+                                "claimed_values",
+                            ],
+                        },
+                    },
+                    "confidence": {
+                        "type": ["number", "null"],
+                        "minimum": 0.0,
+                        "maximum": 1.0,
+                    },
+                },
+                "required": [
+                    "operation",
+                    "target_columns",
+                    "parameters",
+                    "reason",
+                    "evidence_refs",
+                ],
+            },
+        },
+    },
+    "required": ["recommendations"],
+}
 
 
 class OllamaProvider(AIProvider):
@@ -105,7 +171,7 @@ class OllamaProvider(AIProvider):
                 {"role": "user", "content": user_prompt},
             ],
             "stream": False,
-            "format": "json",
+            "format": OLLAMA_RECOMMENDATION_SCHEMA,
             "options": {"temperature": 0.0},
         }
         body = json.dumps(payload).encode("utf-8")

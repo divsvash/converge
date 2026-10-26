@@ -1,0 +1,140 @@
+[
+  {
+    "run_id": "4034f157-26ec-41c6-afa1-ccd531ac6cd1",
+    "experiment_id": "c63f12d8-f0c8-4a08-b023-7b89aab26884",
+    "scenario_id": "S1_whitespace",
+    "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "strategy": "spark_only",
+    "repetition_index": 0,
+    "status": "succeeded",
+    "started_at": "2026-10-26T13:07:45.516443Z",
+    "completed_at": "2026-10-26T13:09:15.021872Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 1,
+        "total_issues_after": 0,
+        "resolved_count": 1,
+        "improved_count": 0,
+        "unchanged_count": 0,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 0,
+        "categorical_variant_total_after": 0,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 22.650820479000004,
+        "evaluation_wall_seconds": 72.259682096,
+        "total_wall_seconds": 95.002582285
+      },
+      "cost": {
+        "monetary_cost": 0.0,
+        "currency": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "ground_truth": {
+        "scenario_id": "S1_whitespace",
+        "total_corruptions": 3,
+        "correctly_repaired": 3,
+        "incorrectly_repaired": 0,
+        "unrepaired": 0,
+        "repair_recall": 1.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "decisions": [
+        {
+          "issue_type": "whitespace_or_casing",
+          "columns": [
+            "name"
+          ],
+          "action": "applied",
+          "operation": "TRIM_WHITESPACE",
+          "reason": "Whitespace is incidental; trimming it is the single correct remediation."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "c294d634ae5c50125b880b1013aba4998d4d3a10553abf7f2891d0598a82170a",
+      "provider": null,
+      "model": null,
+      "model_class": null,
+      "deployment_mode": null,
+      "prompt_version": null,
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "7ef5601a-a055-4e3e-8695-7e1845f24bcd",
+    "experiment_id": "c63f12d8-f0c8-4a08-b023-7b89aab26884",
+    "scenario_id": "S1_whitespace",
+    "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "strategy": "ai_only",
+    "repetition_index": 0,
+    "status": "failed",
+    "started_at": "2026-10-26T13:09:15.023764Z",
+    "completed_at": "2026-10-26T13:11:40.332468Z",
+    "converge_run_id": null,
+    "error": "AI provider failed: Ollama request timed out: timed out",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "c294d634ae5c50125b880b1013aba4998d4d3a10553abf7f2891d0598a82170a",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "0c4c2173-1509-4438-88d2-7fd2ae775ca9",
+    "experiment_id": "c63f12d8-f0c8-4a08-b023-7b89aab26884",
+    "scenario_id": "S1_whitespace",
+    "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+    "strategy": "converge",
+    "repetition_index": 0,
+    "status": "failed",
+    "started_at": "2026-10-26T13:11:40.354873Z",
+    "completed_at": "2026-10-26T13:13:23.870280Z",
+    "converge_run_id": "db10dd3f-4eda-4fdb-a173-046a8b699331",
+    "error": "Stage 'ai_analysis' failed: recommendations[0] failed to parse as a Recommendation: 2 validation errors for Recommendation\nparameters\n  Input should be a valid dictionary [type=dict_type, input_value=[], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/dict_type\nevidence_refs\n  Input should be a valid list [type=list_type, input_value={'affected_count': 3, 'sa... Chen  ', 'Carol Diaz']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "c294d634ae5c50125b880b1013aba4998d4d3a10553abf7f2891d0598a82170a",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  }
+]

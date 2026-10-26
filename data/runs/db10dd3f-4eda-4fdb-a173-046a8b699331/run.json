@@ -1,0 +1,277 @@
+{
+  "run_id": "db10dd3f-4eda-4fdb-a173-046a8b699331",
+  "dataset_id": "S1_whitespace__0c4c2173-1509-4438-88d2-7fd2ae775ca9__converge",
+  "dataset_path": "data/research/S1_whitespace.csv",
+  "status": "failed",
+  "profile_result": {
+    "profile": {
+      "dataset_id": "S1_whitespace__0c4c2173-1509-4438-88d2-7fd2ae775ca9__converge",
+      "row_count": 15,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "_row_id",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": true,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "R001",
+            "R002",
+            "R003",
+            "R004",
+            "R005"
+          ]
+        },
+        {
+          "name": "name",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 15,
+            "top_values": {
+              "  Alice Martin  ": 1,
+              "Bob Chen  ": 1,
+              "Frank Mueller": 1,
+              "Elena Rossi": 1,
+              "Grace Tanaka": 1,
+              "James Wilson": 1,
+              "  Keiko Sato": 1,
+              "Liam Murphy": 1,
+              "Carol Diaz": 1,
+              "Henry Okonkwo": 1,
+              "Ingrid Larsson": 1,
+              "Maria Santos": 1,
+              "David Kim": 1,
+              "Nikolai Petrov": 1,
+              "Olivia Brown": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 3
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "  Alice Martin  ",
+            "Bob Chen  ",
+            "Carol Diaz",
+            "David Kim",
+            "Elena Rossi"
+          ]
+        },
+        {
+          "name": "department",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 3,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 3,
+            "top_values": {
+              "Engineering": 6,
+              "Sales": 5,
+              "Marketing": 4
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Engineering",
+            "Engineering",
+            "Sales",
+            "Sales",
+            "Marketing"
+          ]
+        },
+        {
+          "name": "city",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 9,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 9,
+            "top_values": {
+              "London": 3,
+              "Berlin": 3,
+              "Madrid": 2,
+              "Tokyo": 2,
+              "Dublin": 1,
+              "Stockholm": 1,
+              "Seoul": 1,
+              "Lagos": 1,
+              "Rome": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "London",
+            "Berlin",
+            "Madrid",
+            "Seoul",
+            "Rome"
+          ]
+        },
+        {
+          "name": "hire_date",
+          "spark_dtype": "date",
+          "semantic_type": "unknown",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "2022-01-15",
+            "2022-03-20",
+            "2022-05-10",
+            "2022-07-01",
+            "2022-09-12"
+          ]
+        },
+        {
+          "name": "salary",
+          "spark_dtype": "int",
+          "semantic_type": "integer",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 49000.0,
+            "max": 75000.0,
+            "mean": 61733.3333,
+            "stddev": 8762.4741,
+            "median_approx": 60000.0,
+            "q1": 54000.0,
+            "q3": 71000.0,
+            "outlier_lower_bound": 28500.0,
+            "outlier_upper_bound": 96500.0,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "72000",
+            "68000",
+            "55000",
+            "58000",
+            "61000"
+          ]
+        },
+        {
+          "name": "rating",
+          "spark_dtype": "double",
+          "semantic_type": "float",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 3.5,
+            "max": 4.8,
+            "mean": 4.14,
+            "stddev": 0.405,
+            "median_approx": 4.1,
+            "q1": 3.8,
+            "q3": 4.5,
+            "outlier_lower_bound": 2.7499999999999996,
+            "outlier_upper_bound": 5.550000000000001,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "4.2",
+            "3.8",
+            "4.5",
+            "3.9",
+            "4.1"
+          ]
+        }
+      ],
+      "duplicate_summary": {
+        "exact_duplicate_row_count": 0,
+        "id_like_columns": [
+          "_row_id"
+        ],
+        "duplicate_candidates": []
+      },
+      "generated_at": "2026-10-26T13:12:11.859761Z"
+    },
+    "evidence": [
+      {
+        "issue_type": "whitespace_or_casing",
+        "columns": [
+          "name"
+        ],
+        "description": "3 values in 'name' have leading/trailing whitespace.",
+        "supporting_data": {
+          "affected_count": 3,
+          "sample_values": [
+            "  Alice Martin  ",
+            "Bob Chen  ",
+            "Carol Diaz",
+            "David Kim",
+            "Elena Rossi"
+          ]
+        }
+      }
+    ]
+  },
+  "ai_metadata": null,
+  "recommendation_records": [],
+  "execution_plan": null,
+  "execution_summary": null,
+  "after_profile_result": null,
+  "quality_comparison": null,
+  "recommendation_outcomes": [],
+  "insight_artifact": null,
+  "timeline": [
+    {
+      "status": "ingested",
+      "message": "Dataset 'S1_whitespace__0c4c2173-1509-4438-88d2-7fd2ae775ca9__converge' ingested from data/research/S1_whitespace.csv.",
+      "timestamp": "2026-10-26T13:11:58.348049Z"
+    },
+    {
+      "status": "profiled",
+      "message": "Profiled dataset: 15 rows, 7 columns, 1 evidence item(s).",
+      "timestamp": "2026-10-26T13:12:11.873407Z"
+    },
+    {
+      "status": "failed",
+      "message": "[ai_analysis] AIProviderResponseError: recommendations[0] failed to parse as a Recommendation: 2 validation errors for Recommendation\nparameters\n  Input should be a valid dictionary [type=dict_type, input_value=[], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/dict_type\nevidence_refs\n  Input should be a valid list [type=list_type, input_value={'affected_count': 3, 'sa... Chen  ', 'Carol Diaz']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type",
+      "timestamp": "2026-10-26T13:13:23.842637Z"
+    }
+  ],
+  "error": "[ai_analysis] AIProviderResponseError: recommendations[0] failed to parse as a Recommendation: 2 validation errors for Recommendation\nparameters\n  Input should be a valid dictionary [type=dict_type, input_value=[], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/dict_type\nevidence_refs\n  Input should be a valid list [type=list_type, input_value={'affected_count': 3, 'sa... Chen  ', 'Carol Diaz']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type",
+  "created_at": "2026-10-26T13:11:58.346633Z",
+  "updated_at": "2026-10-26T13:13:23.842605Z"
+}

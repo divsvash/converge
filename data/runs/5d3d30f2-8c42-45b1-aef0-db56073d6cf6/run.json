@@ -1,0 +1,632 @@
+{
+  "run_id": "5d3d30f2-8c42-45b1-aef0-db56073d6cf6",
+  "dataset_id": "sample_hr_scenario__5c66f17b-3fe4-4975-81ce-d3af18e122aa__converge",
+  "dataset_path": "C:\\Users\\divya\\Projects\\converge_fixed\\converge_fixed\\data\\raw\\sample_hr.csv",
+  "status": "executing",
+  "profile_result": {
+    "profile": {
+      "dataset_id": "sample_hr_scenario__5c66f17b-3fe4-4975-81ce-d3af18e122aa__converge",
+      "row_count": 20,
+      "column_count": 8,
+      "columns": [
+        {
+          "name": "employee_id",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 20,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 20,
+          "is_id_like": true,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "E001",
+            "E002",
+            "E003",
+            "E004",
+            "E005"
+          ]
+        },
+        {
+          "name": "full_name",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 20,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 19,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 19,
+            "top_values": {
+              "Aarav Sharma": 2,
+              "Ananya Iyer": 1,
+              "Divya Nair": 1,
+              "Rajesh Kumar": 1,
+              "Pooja Malhotra": 1,
+              "Siddharth Rao": 1,
+              "Kavya Menon": 1,
+              "Aditya Pillai": 1,
+              "Sanjay Yadav": 1,
+              "Priya Verma": 1,
+              "Rohan Gupta": 1,
+              "Neha Kapoor": 1,
+              "Ishita Desai": 1,
+              "Manish Joshi": 1,
+              "  Sneha Reddy ": 1,
+              "Arjun Rao": 1,
+              "Meera Bhatt": 1,
+              "Vikram Singh": 1,
+              "Karan Mehta": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 1
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Aarav Sharma",
+            "Priya Verma",
+            "Rohan Gupta",
+            "  Sneha Reddy ",
+            "Vikram Singh"
+          ]
+        },
+        {
+          "name": "city",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 20,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 15,
+            "top_values": {
+              "Delhi": 3,
+              "Bangalore": 2,
+              "Mumbai": 2,
+              "Chennai": 2,
+              "bangalore": 1,
+              "New Delhi": 1,
+              "Pune": 1,
+              "Delhi ": 1,
+              "HYDERABAD": 1,
+              "delhi": 1,
+              "chennai": 1,
+              "pune": 1,
+              "Hyderabad": 1,
+              "DELHI": 1,
+              "MUMBAI": 1
+            },
+            "variant_groups": [
+              {
+                "normalized_key": "bangalore",
+                "variants": {
+                  "Bangalore": 2,
+                  "bangalore": 1
+                }
+              },
+              {
+                "normalized_key": "delhi",
+                "variants": {
+                  "Delhi ": 1,
+                  "Delhi": 3,
+                  "delhi": 1,
+                  "DELHI": 1
+                }
+              },
+              {
+                "normalized_key": "chennai",
+                "variants": {
+                  "chennai": 1,
+                  "Chennai": 2
+                }
+              },
+              {
+                "normalized_key": "pune",
+                "variants": {
+                  "Pune": 1,
+                  "pune": 1
+                }
+              },
+              {
+                "normalized_key": "mumbai",
+                "variants": {
+                  "Mumbai": 2,
+                  "MUMBAI": 1
+                }
+              },
+              {
+                "normalized_key": "hyderabad",
+                "variants": {
+                  "Hyderabad": 1,
+                  "HYDERABAD": 1
+                }
+              }
+            ],
+            "whitespace_affected_count": 1
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Delhi",
+            "delhi",
+            "DELHI",
+            "Bangalore",
+            "bangalore"
+          ]
+        },
+        {
+          "name": "department",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 20,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 4,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 4,
+            "top_values": {
+              "Engineering": 8,
+              "Sales": 6,
+              "Marketing": 4,
+              "HR": 2
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Engineering",
+            "Engineering",
+            "Sales",
+            "Engineering",
+            "Sales"
+          ]
+        },
+        {
+          "name": "join_date",
+          "spark_dtype": "string",
+          "semantic_type": "date_like_string",
+          "non_null_count": 20,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 19,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": {
+            "detected_patterns": {
+              "YYYY-MM-DD": 14,
+              "DD/MM/YYYY_or_MM/DD/YYYY": 6
+            },
+            "unparseable_count": 0
+          },
+          "sample_values": [
+            "2023-01-05",
+            "05/01/2023",
+            "2022-11-20",
+            "2023-03-15",
+            "15/03/2023"
+          ]
+        },
+        {
+          "name": "salary",
+          "spark_dtype": "int",
+          "semantic_type": "integer",
+          "non_null_count": 18,
+          "null_count": 2,
+          "null_percentage": 10.0,
+          "distinct_count": 18,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 46000.0,
+            "max": 600000.0,
+            "mean": 93555.5556,
+            "stddev": 126941.9609,
+            "median_approx": 61000.0,
+            "q1": 54000.0,
+            "q3": 76000.0,
+            "outlier_lower_bound": 21000.0,
+            "outlier_upper_bound": 109000.0,
+            "outlier_count": 1
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "75000",
+            "68000",
+            "52000",
+            "81000",
+            "61000"
+          ]
+        },
+        {
+          "name": "age",
+          "spark_dtype": "int",
+          "semantic_type": "integer",
+          "non_null_count": 19,
+          "null_count": 1,
+          "null_percentage": 5.0,
+          "distinct_count": 17,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": -5.0,
+            "max": 45.0,
+            "mean": 30.0526,
+            "stddev": 10.0635,
+            "median_approx": 30.0,
+            "q1": 27.0,
+            "q3": 36.0,
+            "outlier_lower_bound": 13.5,
+            "outlier_upper_bound": 49.5,
+            "outlier_count": 1
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "29",
+            "31",
+            "26",
+            "34",
+            "45"
+          ]
+        },
+        {
+          "name": "manager_id",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 20,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 4,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 4,
+            "top_values": {
+              "M010": 8,
+              "M011": 6,
+              "M012": 4,
+              "M013": 2
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "M010",
+            "M010",
+            "M011",
+            "M010",
+            "M011"
+          ]
+        }
+      ],
+      "duplicate_summary": {
+        "exact_duplicate_row_count": 0,
+        "id_like_columns": [
+          "employee_id"
+        ],
+        "duplicate_candidates": [
+          {
+            "criteria_columns": [
+              "full_name",
+              "city",
+              "department",
+              "join_date",
+              "salary",
+              "age",
+              "manager_id"
+            ],
+            "row_refs": [
+              "E001",
+              "E008"
+            ],
+            "occurrence_count": 2
+          }
+        ]
+      },
+      "generated_at": "2026-10-25T17:42:24.622248Z"
+    },
+    "evidence": [
+      {
+        "issue_type": "whitespace_or_casing",
+        "columns": [
+          "full_name"
+        ],
+        "description": "1 values in 'full_name' have leading/trailing whitespace.",
+        "supporting_data": {
+          "affected_count": 1,
+          "sample_values": [
+            "Aarav Sharma",
+            "Priya Verma",
+            "Rohan Gupta",
+            "  Sneha Reddy ",
+            "Vikram Singh"
+          ]
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "city"
+        ],
+        "description": "Column 'city' has 2 distinct raw values that normalize to 'bangalore'.",
+        "supporting_data": {
+          "variants": {
+            "Bangalore": 2,
+            "bangalore": 1
+          }
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "city"
+        ],
+        "description": "Column 'city' has 4 distinct raw values that normalize to 'delhi'.",
+        "supporting_data": {
+          "variants": {
+            "Delhi ": 1,
+            "Delhi": 3,
+            "delhi": 1,
+            "DELHI": 1
+          }
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "city"
+        ],
+        "description": "Column 'city' has 2 distinct raw values that normalize to 'chennai'.",
+        "supporting_data": {
+          "variants": {
+            "chennai": 1,
+            "Chennai": 2
+          }
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "city"
+        ],
+        "description": "Column 'city' has 2 distinct raw values that normalize to 'pune'.",
+        "supporting_data": {
+          "variants": {
+            "Pune": 1,
+            "pune": 1
+          }
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "city"
+        ],
+        "description": "Column 'city' has 2 distinct raw values that normalize to 'mumbai'.",
+        "supporting_data": {
+          "variants": {
+            "Mumbai": 2,
+            "MUMBAI": 1
+          }
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "city"
+        ],
+        "description": "Column 'city' has 2 distinct raw values that normalize to 'hyderabad'.",
+        "supporting_data": {
+          "variants": {
+            "Hyderabad": 1,
+            "HYDERABAD": 1
+          }
+        }
+      },
+      {
+        "issue_type": "whitespace_or_casing",
+        "columns": [
+          "city"
+        ],
+        "description": "1 values in 'city' have leading/trailing whitespace.",
+        "supporting_data": {
+          "affected_count": 1,
+          "sample_values": [
+            "Delhi",
+            "delhi",
+            "DELHI",
+            "Bangalore",
+            "bangalore"
+          ]
+        }
+      },
+      {
+        "issue_type": "date_format_inconsistency",
+        "columns": [
+          "join_date"
+        ],
+        "description": "Column 'join_date' contains 2 different date formats.",
+        "supporting_data": {
+          "detected_patterns": {
+            "YYYY-MM-DD": 14,
+            "DD/MM/YYYY_or_MM/DD/YYYY": 6
+          }
+        }
+      },
+      {
+        "issue_type": "missing_values",
+        "columns": [
+          "salary"
+        ],
+        "description": "2 of 20 rows have a missing value in 'salary' (10.0%).",
+        "supporting_data": {
+          "null_count": 2,
+          "null_percentage": 10.0,
+          "semantic_type": "integer"
+        }
+      },
+      {
+        "issue_type": "outlier_candidate",
+        "columns": [
+          "salary"
+        ],
+        "description": "1 values in 'salary' fall outside the IQR-based bounds [21000.0, 109000.0].",
+        "supporting_data": {
+          "outlier_count": 1,
+          "lower_bound": 21000.0,
+          "upper_bound": 109000.0,
+          "min": 46000.0,
+          "max": 600000.0
+        }
+      },
+      {
+        "issue_type": "missing_values",
+        "columns": [
+          "age"
+        ],
+        "description": "1 of 20 rows have a missing value in 'age' (5.0%).",
+        "supporting_data": {
+          "null_count": 1,
+          "null_percentage": 5.0,
+          "semantic_type": "integer"
+        }
+      },
+      {
+        "issue_type": "outlier_candidate",
+        "columns": [
+          "age"
+        ],
+        "description": "1 values in 'age' fall outside the IQR-based bounds [13.5, 49.5].",
+        "supporting_data": {
+          "outlier_count": 1,
+          "lower_bound": 13.5,
+          "upper_bound": 49.5,
+          "min": -5.0,
+          "max": 45.0
+        }
+      },
+      {
+        "issue_type": "duplicate_rows",
+        "columns": [
+          "full_name",
+          "city",
+          "department",
+          "join_date",
+          "salary",
+          "age",
+          "manager_id"
+        ],
+        "description": "2 rows are identical across 7 column(s) (excluding id-like columns: ['employee_id']).",
+        "supporting_data": {
+          "row_refs": [
+            "E001",
+            "E008"
+          ],
+          "occurrence_count": 2
+        }
+      }
+    ]
+  },
+  "ai_metadata": {
+    "provider": "fake-provider",
+    "model": "fake-model-v0",
+    "prompt_version": "fake-prompt-v0",
+    "recommendation_count": 1,
+    "generated_at": "2026-10-25T17:42:24.625792Z"
+  },
+  "recommendation_records": [
+    {
+      "recommendation": {
+        "recommendation_id": "b37ebec3-bd04-439f-a0fa-17ea2fd19d5e",
+        "operation": "DELETE_COLUMN",
+        "target_columns": [
+          "salary"
+        ],
+        "parameters": {},
+        "reason": "bad",
+        "evidence_refs": [],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "b37ebec3-bd04-439f-a0fa-17ea2fd19d5e",
+        "operation": "DELETE_COLUMN",
+        "status": "rejected",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": false,
+            "message": "'DELETE_COLUMN' is not permitted to execute."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": false,
+            "message": "'DELETE_COLUMN' matches the explicit P0 forbidden/unsupported list and is rejected regardless of parameters or evidence."
+          }
+        ],
+        "summary": "Failed one or more validation checks; not eligible for execution."
+      },
+      "decision": "rejected_by_user"
+    }
+  ],
+  "execution_plan": {
+    "run_id": "5d3d30f2-8c42-45b1-aef0-db56073d6cf6",
+    "dataset_path": "C:\\Users\\divya\\Projects\\converge_fixed\\converge_fixed\\data\\raw\\sample_hr.csv",
+    "operations": [],
+    "created_at": "2026-10-25T17:42:24.635478Z"
+  },
+  "execution_summary": null,
+  "after_profile_result": null,
+  "quality_comparison": null,
+  "recommendation_outcomes": [],
+  "insight_artifact": null,
+  "timeline": [
+    {
+      "status": "ingested",
+      "message": "Dataset 'sample_hr_scenario__5c66f17b-3fe4-4975-81ce-d3af18e122aa__converge' ingested from C:\\Users\\divya\\Projects\\converge_fixed\\converge_fixed\\data\\raw\\sample_hr.csv.",
+      "timestamp": "2026-10-25T17:42:16.358918Z"
+    },
+    {
+      "status": "profiled",
+      "message": "Profiled dataset: 20 rows, 8 columns, 14 evidence item(s).",
+      "timestamp": "2026-10-25T17:42:24.623767Z"
+    },
+    {
+      "status": "ai_analyzed",
+      "message": "AI stage (fake-provider/fake-model-v0) returned 1 recommendation(s).",
+      "timestamp": "2026-10-25T17:42:24.625792Z"
+    },
+    {
+      "status": "validated",
+      "message": "Validated 1 recommendation(s).",
+      "timestamp": "2026-10-25T17:42:24.629817Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "Pipeline is awaiting user approval. No recommendation executes until the user explicitly applies it and execution is explicitly triggered.",
+      "timestamp": "2026-10-25T17:42:24.629817Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=rejected_by_user for recommendation 'b37ebec3-bd04-439f-a0fa-17ea2fd19d5e' (operation=DELETE_COLUMN). Pipeline status unchanged.",
+      "timestamp": "2026-10-25T17:42:24.632895Z"
+    },
+    {
+      "status": "executing",
+      "message": "Execution plan built with 0 user-approved, validator-eligible operation(s).",
+      "timestamp": "2026-10-25T17:42:24.635478Z"
+    }
+  ],
+  "error": null,
+  "created_at": "2026-10-25T17:42:16.358918Z",
+  "updated_at": "2026-10-25T17:42:24.635478Z"
+}

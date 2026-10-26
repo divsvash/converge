@@ -1,0 +1,196 @@
+[
+  {
+    "run_id": "33cd564e-a522-446e-b205-e3483defc942",
+    "experiment_id": "494fe2a1-daec-4df8-a14a-8ba9c2ab1fd7",
+    "scenario_id": "S1_whitespace",
+    "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "strategy": "spark_only",
+    "repetition_index": 0,
+    "status": "succeeded",
+    "started_at": "2026-10-26T17:08:28.254181Z",
+    "completed_at": "2026-10-26T17:14:05.726995Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 1,
+        "total_issues_after": 0,
+        "resolved_count": 1,
+        "improved_count": 0,
+        "unchanged_count": 0,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 0,
+        "categorical_variant_total_after": 0,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 82.517411735,
+        "evaluation_wall_seconds": 264.17029509200006,
+        "total_wall_seconds": 346.79713954499994
+      },
+      "cost": {
+        "monetary_cost": 0.0,
+        "currency": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "ground_truth": {
+        "scenario_id": "S1_whitespace",
+        "total_corruptions": 3,
+        "correctly_repaired": 3,
+        "incorrectly_repaired": 0,
+        "unrepaired": 0,
+        "repair_recall": 1.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "decisions": [
+        {
+          "issue_type": "whitespace_or_casing",
+          "columns": [
+            "name"
+          ],
+          "action": "applied",
+          "operation": "TRIM_WHITESPACE",
+          "reason": "Whitespace is incidental; trimming it is the single correct remediation."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "c294d634ae5c50125b880b1013aba4998d4d3a10553abf7f2891d0598a82170a",
+      "provider": null,
+      "model": null,
+      "model_class": null,
+      "deployment_mode": null,
+      "prompt_version": null,
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "f5fe98db-d6a7-49d0-a71b-3304b875849f",
+    "experiment_id": "494fe2a1-daec-4df8-a14a-8ba9c2ab1fd7",
+    "scenario_id": "S1_whitespace",
+    "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "strategy": "ai_only",
+    "repetition_index": 0,
+    "status": "failed",
+    "started_at": "2026-10-26T17:14:05.727642Z",
+    "completed_at": "2026-10-26T17:25:59.236049Z",
+    "converge_run_id": null,
+    "error": "AI provider failed: Ollama request timed out: timed out",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "c294d634ae5c50125b880b1013aba4998d4d3a10553abf7f2891d0598a82170a",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "2460c445-d897-4c1f-8921-d03b0b7ea2ab",
+    "experiment_id": "494fe2a1-daec-4df8-a14a-8ba9c2ab1fd7",
+    "scenario_id": "S1_whitespace",
+    "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+    "strategy": "converge",
+    "repetition_index": 0,
+    "status": "succeeded",
+    "started_at": "2026-10-26T17:26:00.837547Z",
+    "completed_at": "2026-10-26T17:41:25.727034Z",
+    "converge_run_id": "7ff22ac3-4d80-4953-9ed4-4d09e2aca2d7",
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 1,
+        "total_issues_after": 0,
+        "resolved_count": 1,
+        "improved_count": 0,
+        "unchanged_count": 0,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 0,
+        "categorical_variant_total_after": 0,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 670.569301971,
+        "evaluation_wall_seconds": 250.03914205099954,
+        "total_wall_seconds": 924.7868775450002
+      },
+      "cost": {
+        "monetary_cost": null,
+        "currency": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null
+      },
+      "ground_truth": {
+        "scenario_id": "S1_whitespace",
+        "total_corruptions": 3,
+        "correctly_repaired": 3,
+        "incorrectly_repaired": 0,
+        "unrepaired": 0,
+        "repair_recall": 1.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "note": "Full traceability (profile, evidence, recommendations, validation results, decisions, timeline) is on the referenced PipelineRun -- see converge_run_id -- and is not duplicated here."
+    },
+    "reproducibility": {
+      "dataset_checksum": "c294d634ae5c50125b880b1013aba4998d4d3a10553abf7f2891d0598a82170a",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  }
+]

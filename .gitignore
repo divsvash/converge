@@ -1,0 +1,90 @@
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+wheels/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# ==============================
+# Virtual environments
+# ==============================
+.venv/
+.venv*/
+venv/
+env/
+
+# ==============================
+# Secrets and local configuration
+# ==============================
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+
+# ==============================
+# Editors and operating systems
+# ==============================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# ==============================
+# Logs and temporary files
+# ==============================
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ==============================
+# Spark / Hadoop generated files
+# ==============================
+spark-warehouse/
+metastore_db/
+derby.log
+checkpoint/
+checkpoints/
+artifacts/
+*.parquet.crc
+*.csv.crc
+*.json.crc
+
+# ==============================
+# Local model caches
+# ==============================
+.huggingface/
+.cache/huggingface/
+.cache/torch/
+
+# ==============================
+# Generated experiment outputs
+# Keep research results tracked intentionally.
+# ==============================
+# data/research/results/
+# data/runs/
+# data/processed/
+
+# ==============================
+# Local scratch files
+# ==============================
+normalize_ollama_files.py
