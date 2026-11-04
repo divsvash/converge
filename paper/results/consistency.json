@@ -1,0 +1,26 @@
+{
+ "S1_whitespace": {
+  "converge": 1.0,
+  "ai_only": 1.0
+ },
+ "S2_duplicates": {
+  "converge": 1.0,
+  "ai_only": 1.0
+ },
+ "S3_categorical": {
+  "converge": 1.0,
+  "ai_only": 1.0
+ },
+ "S4_missing": {
+  "converge": 1.0,
+  "ai_only": 1.0
+ },
+ "S5_dates": {
+  "converge": 1.0,
+  "ai_only": 1.0
+ },
+ "S6_mixed": {
+  "converge": 0.667,
+  "ai_only": 0.667
+ }
+}

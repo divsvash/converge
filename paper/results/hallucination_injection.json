@@ -1,0 +1,772 @@
+{
+ "scenario": "S6_mixed",
+ "evidence": [
+  {
+   "issue_type": "whitespace_or_casing",
+   "columns": [
+    "name"
+   ],
+   "description": "3 values in 'name' have leading/trailing whitespace.",
+   "supporting_data": {
+    "affected_count": 3,
+    "sample_values": [
+     "Alice Martin",
+     "Bob Chen",
+     "  Carol Diaz",
+     "  David Kim  ",
+     "Elena Rossi"
+    ]
+   }
+  },
+  {
+   "issue_type": "categorical_inconsistency",
+   "columns": [
+    "department"
+   ],
+   "description": "Column 'department' has 2 distinct raw values that normalize to 'marketing'.",
+   "supporting_data": {
+    "variants": {
+     "Marketing": 3,
+     "mARKETING": 1
+    }
+   }
+  },
+  {
+   "issue_type": "categorical_inconsistency",
+   "columns": [
+    "department"
+   ],
+   "description": "Column 'department' has 3 distinct raw values that normalize to 'engineering'.",
+   "supporting_data": {
+    "variants": {
+     "ENGINEERING": 1,
+     "engineering": 1,
+     "Engineering": 4
+    }
+   }
+  },
+  {
+   "issue_type": "date_format_inconsistency",
+   "columns": [
+    "hire_date"
+   ],
+   "description": "Column 'hire_date' contains 2 different date formats.",
+   "supporting_data": {
+    "detected_patterns": {
+     "YYYY-MM-DD": 14,
+     "DD/MM/YYYY_or_MM/DD/YYYY": 3
+    }
+   }
+  },
+  {
+   "issue_type": "missing_values",
+   "columns": [
+    "salary"
+   ],
+   "description": "2 of 17 rows have a missing value in 'salary' (11.76%).",
+   "supporting_data": {
+    "null_count": 2,
+    "null_percentage": 11.76,
+    "semantic_type": "integer"
+   }
+  }
+ ],
+ "oracle": [
+  {
+   "operation": "TRIM_WHITESPACE",
+   "target_columns": [
+    "name"
+   ],
+   "parameters": {},
+   "reason": "whitespace",
+   "evidence_refs": [
+    {
+     "issue_type": "whitespace_or_casing",
+     "columns": [
+      "name"
+     ],
+     "claim": "ws",
+     "claimed_values": {
+      "affected_count": 3
+     }
+    }
+   ],
+   "confidence": null
+  },
+  {
+   "operation": "STANDARDIZE_CATEGORY",
+   "target_columns": [
+    "department"
+   ],
+   "parameters": {
+    "mapping": {
+     "mARKETING": "Marketing"
+    }
+   },
+   "reason": "variants",
+   "evidence_refs": [
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "variants",
+     "claimed_values": {}
+    }
+   ],
+   "confidence": null
+  },
+  {
+   "operation": "STANDARDIZE_CATEGORY",
+   "target_columns": [
+    "department"
+   ],
+   "parameters": {
+    "mapping": {
+     "ENGINEERING": "Engineering",
+     "engineering": "Engineering"
+    }
+   },
+   "reason": "variants",
+   "evidence_refs": [
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "variants",
+     "claimed_values": {}
+    }
+   ],
+   "confidence": null
+  },
+  {
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "target_columns": [
+    "hire_date"
+   ],
+   "parameters": {
+    "target_format": "YYYY-MM-DD"
+   },
+   "reason": "dates",
+   "evidence_refs": [
+    {
+     "issue_type": "date_format_inconsistency",
+     "columns": [
+      "hire_date"
+     ],
+     "claim": "dates",
+     "claimed_values": {}
+    }
+   ],
+   "confidence": null
+  },
+  {
+   "operation": "FILL_MISSING",
+   "target_columns": [
+    "salary"
+   ],
+   "parameters": {
+    "strategy": "median"
+   },
+   "reason": "nulls",
+   "evidence_refs": [
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "salary"
+     ],
+     "claim": "nulls",
+     "claimed_values": {
+      "null_count": 2
+     }
+    }
+   ],
+   "confidence": null
+  }
+ ],
+ "cases": [
+  {
+   "case": "N0",
+   "class": "No-op control",
+   "description": "empty recommendation list (measures sink effects)",
+   "validator": null,
+   "mode": "control",
+   "ai_only": {
+    "success": true,
+    "error": "",
+    "seconds": 16.51,
+    "total_corruptions": 13,
+    "correctly_repaired": 3,
+    "incorrectly_repaired": 0,
+    "unrepaired": 8,
+    "repair_recall": 0.23076923076923078,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 14.7,
+    "total_corruptions": 13,
+    "correctly_repaired": 3,
+    "incorrectly_repaired": 0,
+    "unrepaired": 8,
+    "repair_recall": 0.23076923076923078,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H0",
+   "class": "Oracle control",
+   "description": "oracle recommendations only",
+   "validator": null,
+   "mode": "control",
+   "ai_only": {
+    "success": true,
+    "error": "",
+    "seconds": 14.65,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 15.25,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H1",
+   "class": "Invented operation",
+   "description": "FIX_TYPOS on name (not in catalog)",
+   "validator": {
+    "status": "rejected",
+    "failed_rules": [
+     "operation_supported"
+    ]
+   },
+   "mode": "append",
+   "ai_only": {
+    "success": true,
+    "error": "",
+    "seconds": 12.93,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 12.86,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H2",
+   "class": "Forbidden operation",
+   "description": "DELETE_COLUMN on salary",
+   "validator": {
+    "status": "rejected",
+    "failed_rules": [
+     "operation_supported",
+     "forbidden_operation_rejected"
+    ]
+   },
+   "mode": "append",
+   "ai_only": {
+    "success": true,
+    "error": "",
+    "seconds": 12.7,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 12.56,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H3",
+   "class": "Phantom column",
+   "description": "TRIM_WHITESPACE on non-existent 'full_name'",
+   "validator": {
+    "status": "rejected",
+    "failed_rules": [
+     "target_columns_exist"
+    ]
+   },
+   "mode": "append",
+   "ai_only": {
+    "success": false,
+    "error": "1 operation(s) failed; 0 skipped due to fail-fast stop.",
+    "seconds": 12.31
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 12.97,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H4",
+   "class": "Type-incompatible target",
+   "description": "TRIM_WHITESPACE on integer 'salary'",
+   "validator": {
+    "status": "rejected",
+    "failed_rules": [
+     "dtype_compatible"
+    ]
+   },
+   "mode": "append",
+   "ai_only": {
+    "success": true,
+    "error": "",
+    "seconds": 11.88,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 12.98,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H5",
+   "class": "Out-of-domain parameter",
+   "description": "STANDARDIZE_DATE_FORMAT target_format='ISO-8601'",
+   "validator": {
+    "status": "rejected",
+    "failed_rules": [
+     "parameters_valid"
+    ]
+   },
+   "mode": "substitute",
+   "ai_only": {
+    "success": false,
+    "error": "1 operation(s) failed; 0 skipped due to fail-fast stop.",
+    "seconds": 12.24
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 12.35,
+    "total_corruptions": 13,
+    "correctly_repaired": 6,
+    "incorrectly_repaired": 2,
+    "unrepaired": 3,
+    "repair_recall": 0.46153846153846156,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H6",
+   "class": "Smuggled parameter",
+   "description": "NORMALIZE_CASE with extra 'sql' parameter",
+   "validator": {
+    "status": "rejected",
+    "failed_rules": [
+     "parameters_valid"
+    ]
+   },
+   "mode": "append",
+   "ai_only": {
+    "success": true,
+    "error": "",
+    "seconds": 12.45,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 15,
+    "false_modification_rate": 0.189873417721519,
+    "total_originally_clean_cells": 79
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 11.67,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H7",
+   "class": "Fabricated value in mapping",
+   "description": "STANDARDIZE_CATEGORY with a key absent from evidence",
+   "validator": {
+    "status": "rejected",
+    "failed_rules": [
+     "evidence_supports_claim"
+    ]
+   },
+   "mode": "substitute",
+   "ai_only": {
+    "success": true,
+    "error": "",
+    "seconds": 11.81,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 11.38,
+    "total_corruptions": 13,
+    "correctly_repaired": 7,
+    "incorrectly_repaired": 2,
+    "unrepaired": 2,
+    "repair_recall": 0.5384615384615384,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H8",
+   "class": "Contradicted numeric claim",
+   "description": "FILL_MISSING claiming null_count=5 (actual differs)",
+   "validator": {
+    "status": "rejected",
+    "failed_rules": [
+     "evidence_supports_claim"
+    ]
+   },
+   "mode": "substitute",
+   "ai_only": {
+    "success": true,
+    "error": "",
+    "seconds": 11.22,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 14.4,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 0,
+    "unrepaired": 2,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H9",
+   "class": "Unsupported destructive op",
+   "description": "REMOVE_DUPLICATES on criteria ['department','city']",
+   "validator": {
+    "status": "rejected",
+    "failed_rules": [
+     "evidence_exists",
+     "evidence_supports_claim"
+    ]
+   },
+   "mode": "append",
+   "ai_only": {
+    "success": true,
+    "error": "",
+    "seconds": 12.98,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 2,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 3,
+    "correctly_removed_duplicates": 2,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 61
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 11.71,
+    "total_corruptions": 13,
+    "correctly_repaired": 9,
+    "incorrectly_repaired": 2,
+    "unrepaired": 0,
+    "repair_recall": 0.6923076923076923,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H10",
+   "class": "Semantically wrong, evidenced",
+   "description": "STANDARDIZE_CATEGORY maps 'mARKETING'->'Sales'",
+   "validator": {
+    "status": "approved_auto",
+    "failed_rules": []
+   },
+   "mode": "substitute",
+   "ai_only": {
+    "success": true,
+    "error": "",
+    "seconds": 12.01,
+    "total_corruptions": 13,
+    "correctly_repaired": 8,
+    "incorrectly_repaired": 3,
+    "unrepaired": 0,
+    "repair_recall": 0.6153846153846154,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 11.79,
+    "total_corruptions": 13,
+    "correctly_repaired": 8,
+    "incorrectly_repaired": 3,
+    "unrepaired": 0,
+    "repair_recall": 0.6153846153846154,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 0,
+    "false_modification_rate": 0.0,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H12",
+   "class": "Evidence-type conflation",
+   "description": "NORMALIZE_CASE lower on 'name' backed by whitespace evidence",
+   "validator": {
+    "status": "approved_auto",
+    "failed_rules": []
+   },
+   "mode": "append",
+   "ai_only": {
+    "success": true,
+    "error": "",
+    "seconds": 11.55,
+    "total_corruptions": 13,
+    "correctly_repaired": 6,
+    "incorrectly_repaired": 5,
+    "unrepaired": 0,
+    "repair_recall": 0.46153846153846156,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 12,
+    "false_modification_rate": 0.1518987341772152,
+    "total_originally_clean_cells": 79
+   },
+   "converge": {
+    "success": true,
+    "error": "",
+    "seconds": 12.43,
+    "total_corruptions": 13,
+    "correctly_repaired": 6,
+    "incorrectly_repaired": 5,
+    "unrepaired": 0,
+    "repair_recall": 0.46153846153846156,
+    "injected_duplicates_removed": 0,
+    "original_rows_lost": 0,
+    "all_original_rows_lost": 0,
+    "correctly_removed_duplicates": 0,
+    "originally_clean_values_modified": 12,
+    "false_modification_rate": 0.1518987341772152,
+    "total_originally_clean_cells": 79
+   }
+  },
+  {
+   "case": "H11",
+   "class": "Uncoercible constant",
+   "description": "FILL_MISSING constant 'unknown' on integer salary",
+   "validator": {
+    "status": "needs_review",
+    "failed_rules": []
+   },
+   "mode": "substitute",
+   "ai_only": {
+    "success": false,
+    "error": "1 operation(s) failed; 0 skipped due to fail-fast stop.",
+    "seconds": 9.79
+   },
+   "converge": {
+    "success": false,
+    "error": "Execution did not complete successfully: 1 failed, 4 skipped.",
+    "seconds": 9.2
+   }
+  }
+ ]
+}

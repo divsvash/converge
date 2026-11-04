@@ -1,0 +1,1937 @@
+{
+ "experiment": "exp_20261104_qwen3b",
+ "summary": {
+  "converge_outcomes": {
+   "Approved (safe tier)": 13,
+   "Rejected: evidence_supports_claim": 8,
+   "Approved (review tier)": 2,
+   "Rejected: evidence_exists": 6,
+   "Rejected: parameters_valid": 6
+  },
+  "converge_ops": {
+   "TRIM_WHITESPACE": 9,
+   "REMOVE_DUPLICATES": 3,
+   "NORMALIZE_CASE": 9,
+   "FILL_MISSING": 6,
+   "STANDARDIZE_DATE_FORMAT": 6,
+   "STANDARDIZE_CATEGORY": 2
+  },
+  "status_transitions_under_fix": {
+   "approved_auto -> approved_auto": 13,
+   "rejected -> needs_review": 1,
+   "needs_review -> needs_review": 2,
+   "rejected -> rejected": 17,
+   "rejected -> approved_auto": 2
+  },
+  "ai_only_ops": {
+   "TRIM_WHITESPACE": 9,
+   "REMOVE_DUPLICATES": 3,
+   "NORMALIZE_CASE": 9,
+   "FILL_MISSING": 6,
+   "STANDARDIZE_DATE_FORMAT": 6,
+   "STANDARDIZE_CATEGORY": 2
+  },
+  "failure_classes": {}
+ },
+ "recommendations": [
+  {
+   "strategy": "converge",
+   "scenario": "S1_whitespace",
+   "rep": 0,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "whitespace_or_casing",
+     "columns": [
+      "name"
+     ],
+     "claim": "affected_count == 3",
+     "claimed_values": {
+      "affected_count": 3
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S1_whitespace",
+   "rep": 1,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "whitespace_or_casing",
+     "columns": [
+      "name"
+     ],
+     "claim": "affected_count",
+     "claimed_values": {
+      "affected_count": 3
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S1_whitespace",
+   "rep": 2,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "whitespace_or_casing",
+     "columns": [
+      "name"
+     ],
+     "claim": "affected_count",
+     "claimed_values": {
+      "affected_count": 3
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S2_duplicates",
+   "rep": 0,
+   "operation": "REMOVE_DUPLICATES",
+   "targets": [
+    "name",
+    "department",
+    "city",
+    "hire_date",
+    "salary",
+    "rating"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "duplicate_rows",
+     "columns": [
+      "name",
+      "department",
+      "city",
+      "hire_date",
+      "salary",
+      "rating"
+     ],
+     "claim": "2 rows are identical across 6 column(s) (excluding id-like columns: ['_row_id']).",
+     "claimed_values": {
+      "row_refs": [
+       "R002",
+       "R017"
+      ],
+      "occurrence_count": 2
+     }
+    },
+    {
+     "issue_type": "duplicate_rows",
+     "columns": [
+      "name",
+      "department",
+      "city",
+      "hire_date",
+      "salary",
+      "rating"
+     ],
+     "claim": "2 rows are identical across 6 column(s) (excluding id-like columns: ['_row_id']).",
+     "claimed_values": {
+      "row_refs": [
+       "R011",
+       "R016"
+      ],
+      "occurrence_count": 2
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_supports_claim",
+   "failed_messages": [
+    "Claimed value for 'row_refs' (['R011', 'R016']) contradicts the actual profile evidence (['R002', 'R017']) for column(s) ['name', 'department', 'city', 'hire_date', 'salary', 'rating']."
+   ],
+   "status_any_match_fix": "needs_review"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S2_duplicates",
+   "rep": 1,
+   "operation": "REMOVE_DUPLICATES",
+   "targets": [
+    "name",
+    "department",
+    "city",
+    "hire_date",
+    "salary",
+    "rating"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "duplicate_rows",
+     "columns": [
+      "name",
+      "department",
+      "city",
+      "hire_date",
+      "salary",
+      "rating"
+     ],
+     "claim": "duplicate_candidates.occurrence_count > 1",
+     "claimed_values": {
+      "duplicate_candidates": [
+       {
+        "criteria_columns": [
+         "name",
+         "department",
+         "city",
+         "hire_date",
+         "salary",
+         "rating"
+        ],
+        "row_refs": [
+         "R002",
+         "R017"
+        ],
+        "occurrence_count": 2
+       },
+       {
+        "criteria_columns": [
+         "name",
+         "department",
+         "city",
+         "hire_date",
+         "salary",
+         "rating"
+        ],
+        "row_refs": [
+         "R011",
+         "R016"
+        ],
+        "occurrence_count": 2
+       }
+      ]
+     }
+    }
+   ],
+   "status": "needs_review",
+   "failed_rules": [],
+   "outcome": "Approved (review tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "needs_review"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S2_duplicates",
+   "rep": 2,
+   "operation": "REMOVE_DUPLICATES",
+   "targets": [
+    "name",
+    "department",
+    "city",
+    "hire_date",
+    "salary",
+    "rating"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "duplicate_rows",
+     "columns": [
+      "name",
+      "department",
+      "city",
+      "hire_date",
+      "salary",
+      "rating"
+     ],
+     "claim": "duplicate_candidates.occurrence_count > 1",
+     "claimed_values": {
+      "duplicate_candidates": [
+       {
+        "criteria_columns": [
+         "name",
+         "department",
+         "city",
+         "hire_date",
+         "salary",
+         "rating"
+        ],
+        "row_refs": [
+         "R002",
+         "R017"
+        ],
+        "occurrence_count": 2
+       },
+       {
+        "criteria_columns": [
+         "name",
+         "department",
+         "city",
+         "hire_date",
+         "salary",
+         "rating"
+        ],
+        "row_refs": [
+         "R011",
+         "R016"
+        ],
+        "occurrence_count": 2
+       }
+      ]
+     }
+    }
+   ],
+   "status": "needs_review",
+   "failed_rules": [],
+   "outcome": "Approved (review tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "needs_review"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S3_categorical",
+   "rep": 0,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "department"
+   ],
+   "parameters": {
+    "target_case": "lower"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "variants: {'Marketing': 3, 'mARKETING': 1, 'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}",
+     "claimed_values": {
+      "variants": {
+       "Marketing": 3,
+       "mARKETING": 1,
+       "ENGINEERING": 1,
+       "engineering": 1,
+       "Engineering": 4
+      }
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_supports_claim",
+   "failed_messages": [
+    "Claimed value for 'variants' ({'Marketing': 3, 'mARKETING': 1, 'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}) contradicts the actual profile evidence ({'Marketing': 3, 'mARKETING': 1}) for column(s) ['department']."
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S3_categorical",
+   "rep": 1,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "department"
+   ],
+   "parameters": {
+    "target_case": "lower"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "The 'department' column has 2 distinct raw values that normalize to 'marketing'.",
+     "claimed_values": {
+      "variants": {
+       "Marketing": 3,
+       "mARKETING": 1
+      }
+     }
+    },
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "The 'department' column has 3 distinct raw values that normalize to 'engineering'.",
+     "claimed_values": {
+      "variants": {
+       "ENGINEERING": 1,
+       "engineering": 1,
+       "Engineering": 4
+      }
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_supports_claim",
+   "failed_messages": [
+    "Claimed value for 'variants' ({'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}) contradicts the actual profile evidence ({'Marketing': 3, 'mARKETING': 1}) for column(s) ['department']."
+   ],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S3_categorical",
+   "rep": 2,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "department"
+   ],
+   "parameters": {
+    "target_case": "lower"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "The 'department' column has 2 distinct raw values that normalize to 'marketing'.",
+     "claimed_values": {
+      "variants": {
+       "Marketing": 3,
+       "mARKETING": 1
+      }
+     }
+    },
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "The 'department' column has 3 distinct raw values that normalize to 'engineering'.",
+     "claimed_values": {
+      "variants": {
+       "ENGINEERING": 1,
+       "engineering": 1,
+       "Engineering": 4
+      }
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_supports_claim",
+   "failed_messages": [
+    "Claimed value for 'variants' ({'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}) contradicts the actual profile evidence ({'Marketing': 3, 'mARKETING': 1}) for column(s) ['department']."
+   ],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S4_missing",
+   "rep": 0,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "name"
+     ],
+     "claim": "The 'name' column has 0 missing values out of 15 rows, indicating no whitespace trimming is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    },
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "department"
+     ],
+     "claim": "The 'department' column has 0 missing values out of 15 rows, indicating no whitespace trimming is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    },
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "city"
+     ],
+     "claim": "The 'city' column has 0 missing values out of 15 rows, indicating no whitespace trimming is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_exists",
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_exists",
+   "failed_messages": [
+    "No matching evidence found in the Spark profile for issue type(s) ['whitespace_or_casing'] on column(s) ['name', 'department', 'city']. The recommendation is not independently supported by the profile.",
+    "Skipped: no evidence was found to check the claim against."
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S4_missing",
+   "rep": 0,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "parameters": {
+    "target_case": "lower"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "name"
+     ],
+     "claim": "The 'name' column has 0 missing values out of 15 rows, indicating no case normalization is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    },
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "department"
+     ],
+     "claim": "The 'department' column has 0 missing values out of 15 rows, indicating no case normalization is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    },
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "city"
+     ],
+     "claim": "The 'city' column has 0 missing values out of 15 rows, indicating no case normalization is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_exists",
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_exists",
+   "failed_messages": [
+    "No matching evidence found in the Spark profile for issue type(s) ['categorical_inconsistency', 'whitespace_or_casing'] on column(s) ['name', 'department', 'city']. The recommendation is not independently supported by the profile.",
+    "Skipped: no evidence was found to check the claim against."
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S4_missing",
+   "rep": 0,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "parameters": {
+    "strategy": "mean",
+    "fill_value": null
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "salary"
+     ],
+     "claim": "The 'salary' column has 2 missing values out of 15 rows, indicating that filling with the mean is appropriate.",
+     "claimed_values": {
+      "null_count": 2,
+      "null_percentage": 13.33
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "parameters_valid"
+   ],
+   "outcome": "Rejected: parameters_valid",
+   "failed_messages": [
+    "parameter 'fill_value' expected type 'str', got 'NoneType'"
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S4_missing",
+   "rep": 1,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "name"
+     ],
+     "claim": "The 'name' column has 0 missing values out of 15 rows, indicating no whitespace trimming is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    },
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "department"
+     ],
+     "claim": "The 'department' column has 0 missing values out of 15 rows, indicating no whitespace trimming is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    },
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "city"
+     ],
+     "claim": "The 'city' column has 0 missing values out of 15 rows, indicating no whitespace trimming is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_exists",
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_exists",
+   "failed_messages": [
+    "No matching evidence found in the Spark profile for issue type(s) ['whitespace_or_casing'] on column(s) ['name', 'department', 'city']. The recommendation is not independently supported by the profile.",
+    "Skipped: no evidence was found to check the claim against."
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S4_missing",
+   "rep": 1,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "parameters": {
+    "target_case": "lower"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "name"
+     ],
+     "claim": "The 'name' column has 0 missing values out of 15 rows, indicating no normalization is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    },
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "department"
+     ],
+     "claim": "The 'department' column has 0 missing values out of 15 rows, indicating no normalization is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    },
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "city"
+     ],
+     "claim": "The 'city' column has 0 missing values out of 15 rows, indicating no normalization is necessary for this column.",
+     "claimed_values": {
+      "null_count": 0,
+      "null_percentage": 0.0
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_exists",
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_exists",
+   "failed_messages": [
+    "No matching evidence found in the Spark profile for issue type(s) ['categorical_inconsistency', 'whitespace_or_casing'] on column(s) ['name', 'department', 'city']. The recommendation is not independently supported by the profile.",
+    "Skipped: no evidence was found to check the claim against."
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S4_missing",
+   "rep": 1,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "parameters": {
+    "strategy": "mean",
+    "fill_value": null
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "salary"
+     ],
+     "claim": "The 'salary' column has 2 missing values out of 15 rows, indicating a mean fill strategy is appropriate.",
+     "claimed_values": {
+      "null_count": 2,
+      "null_percentage": 13.33
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "parameters_valid"
+   ],
+   "outcome": "Rejected: parameters_valid",
+   "failed_messages": [
+    "parameter 'fill_value' expected type 'str', got 'NoneType'"
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S4_missing",
+   "rep": 2,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "whitespace_or_casing",
+     "columns": [
+      "name",
+      "department",
+      "city"
+     ],
+     "claim": "The 'name', 'department', and 'city' columns have whitespace affected counts of 0, indicating no whitespace issues.",
+     "claimed_values": {
+      "name": 0,
+      "department": 0,
+      "city": 0
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_exists",
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_exists",
+   "failed_messages": [
+    "No matching evidence found in the Spark profile for issue type(s) ['whitespace_or_casing'] on column(s) ['name', 'department', 'city']. The recommendation is not independently supported by the profile.",
+    "Skipped: no evidence was found to check the claim against."
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S4_missing",
+   "rep": 2,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "parameters": {
+    "target_case": "lower"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "whitespace_or_casing",
+     "columns": [
+      "name",
+      "department",
+      "city"
+     ],
+     "claim": "The 'name', 'department', and 'city' columns have whitespace affected counts of 0, indicating no whitespace issues.",
+     "claimed_values": {
+      "name": 0,
+      "department": 0,
+      "city": 0
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_exists",
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_exists",
+   "failed_messages": [
+    "No matching evidence found in the Spark profile for issue type(s) ['categorical_inconsistency', 'whitespace_or_casing'] on column(s) ['name', 'department', 'city']. The recommendation is not independently supported by the profile.",
+    "Skipped: no evidence was found to check the claim against."
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S4_missing",
+   "rep": 2,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "parameters": {
+    "strategy": "mean",
+    "fill_value": null
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "salary"
+     ],
+     "claim": "The 'salary' column has 2 missing values, which is 13.33% of the total rows.",
+     "claimed_values": {
+      "null_count": 2,
+      "null_percentage": 13.33
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "parameters_valid"
+   ],
+   "outcome": "Rejected: parameters_valid",
+   "failed_messages": [
+    "parameter 'fill_value' expected type 'str', got 'NoneType'"
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S5_dates",
+   "rep": 0,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "parameters": {
+    "target_format": "YYYY-MM-DD"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "date_format_inconsistency",
+     "columns": [
+      "hire_date"
+     ],
+     "claim": "detected_patterns.YYYY-MM-DD == 12 and detected_patterns['DD/MM/YYYY_or_MM/DD/YYYY'] == 3",
+     "claimed_values": {
+      "detected_patterns": {
+       "YYYY-MM-DD": 12,
+       "DD/MM/YYYY_or_MM/DD/YYYY": 3
+      }
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S5_dates",
+   "rep": 1,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "parameters": {
+    "target_format": "YYYY-MM-DD"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "date_format_inconsistency",
+     "columns": [
+      "hire_date"
+     ],
+     "claim": "detected_patterns.YYYY-MM-DD == 12 and detected_patterns['DD/MM/YYYY_or_MM/DD/YYYY'] == 3",
+     "claimed_values": {
+      "detected_patterns": {
+       "YYYY-MM-DD": 12,
+       "DD/MM/YYYY_or_MM/DD/YYYY": 3
+      }
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S5_dates",
+   "rep": 2,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "parameters": {
+    "target_format": "YYYY-MM-DD"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "date_format_inconsistency",
+     "columns": [
+      "hire_date"
+     ],
+     "claim": "detected_patterns.YYYY-MM-DD == 12 and detected_patterns['DD/MM/YYYY_or_MM/DD/YYYY'] == 3",
+     "claimed_values": {
+      "detected_patterns": {
+       "YYYY-MM-DD": 12,
+       "DD/MM/YYYY_or_MM/DD/YYYY": 3
+      }
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 0,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "whitespace_or_casing",
+     "columns": [
+      "name"
+     ],
+     "claim": "affected_count == 3",
+     "claimed_values": {
+      "affected_count": 3
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 0,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "department"
+   ],
+   "parameters": {
+    "target_case": "lower"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "variants['marketing'] == 3",
+     "claimed_values": {
+      "variants": {
+       "Marketing": 3
+      }
+     }
+    },
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "variants['engineering'] == 1",
+     "claimed_values": {
+      "variants": {
+       "ENGINEERING": 1,
+       "engineering": 1,
+       "Engineering": 4
+      }
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_supports_claim",
+   "failed_messages": [
+    "Claimed value for 'variants' ({'Marketing': 3}) contradicts the actual profile evidence ({'Marketing': 3, 'mARKETING': 1}) for column(s) ['department']."
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 0,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "parameters": {
+    "target_format": "YYYY-MM-DD"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "date_format_inconsistency",
+     "columns": [
+      "hire_date"
+     ],
+     "claim": "detected_patterns['YYYY-MM-DD'] == 14",
+     "claimed_values": {
+      "detected_patterns": {
+       "YYYY-MM-DD": 14
+      }
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_supports_claim",
+   "failed_messages": [
+    "Claimed value for 'detected_patterns' ({'YYYY-MM-DD': 14}) contradicts the actual profile evidence ({'YYYY-MM-DD': 14, 'DD/MM/YYYY_or_MM/DD/YYYY': 3}) for column(s) ['hire_date']."
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 0,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "parameters": {
+    "strategy": "mean",
+    "fill_value": null
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "salary"
+     ],
+     "claim": "null_count == 2",
+     "claimed_values": {
+      "null_count": 2
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "parameters_valid"
+   ],
+   "outcome": "Rejected: parameters_valid",
+   "failed_messages": [
+    "parameter 'fill_value' expected type 'str', got 'NoneType'"
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 1,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "whitespace_or_casing",
+     "columns": [
+      "name"
+     ],
+     "claim": "affected_count: 3, sample_values: ['Alice Martin', 'Bob Chen', '  Carol Diaz', '  David Kim  ', 'Elena Rossi']",
+     "claimed_values": {
+      "affected_count": 3,
+      "sample_values": [
+       "Alice Martin",
+       "Bob Chen",
+       "  Carol Diaz",
+       "  David Kim  ",
+       "Elena Rossi"
+      ]
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 1,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "name"
+   ],
+   "parameters": {
+    "target_case": "lower"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "whitespace_or_casing",
+     "columns": [
+      "name"
+     ],
+     "claim": "variants: {'Marketing': 3, 'mARKETING': 1}",
+     "claimed_values": {
+      "variants": {
+       "Marketing": 3,
+       "mARKETING": 1
+      }
+     }
+    },
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "variants: {'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}",
+     "claimed_values": {
+      "variants": {
+       "ENGINEERING": 1,
+       "engineering": 1,
+       "Engineering": 4
+      }
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 1,
+   "operation": "STANDARDIZE_CATEGORY",
+   "targets": [
+    "department"
+   ],
+   "parameters": {
+    "mapping": {
+     "marketing": "marketing",
+     "engineering": "engineering"
+    }
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "variants: {'Marketing': 3, 'mARKETING': 1}",
+     "claimed_values": {
+      "variants": {
+       "Marketing": 3,
+       "mARKETING": 1
+      }
+     }
+    },
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "variants: {'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}",
+     "claimed_values": {
+      "variants": {
+       "ENGINEERING": 1,
+       "engineering": 1,
+       "Engineering": 4
+      }
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_supports_claim",
+   "failed_messages": [
+    "Claimed value for 'variants' ({'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}) contradicts the actual profile evidence ({'Marketing': 3, 'mARKETING': 1}) for column(s) ['department']."
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 1,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "parameters": {
+    "target_format": "YYYY-MM-DD"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "date_format_inconsistency",
+     "columns": [
+      "hire_date"
+     ],
+     "claim": "detected_patterns: {'YYYY-MM-DD': 14, 'DD/MM/YYYY_or_MM/DD/YYYY': 3}",
+     "claimed_values": {
+      "detected_patterns": {
+       "YYYY-MM-DD": 14,
+       "DD/MM/YYYY_or_MM/DD/YYYY": 3
+      }
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 1,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "parameters": {
+    "strategy": "mean",
+    "fill_value": null
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "salary"
+     ],
+     "claim": "null_count: 2, null_percentage: 11.76, semantic_type: integer",
+     "claimed_values": {
+      "null_count": 2,
+      "null_percentage": 11.76,
+      "semantic_type": "integer"
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "parameters_valid"
+   ],
+   "outcome": "Rejected: parameters_valid",
+   "failed_messages": [
+    "parameter 'fill_value' expected type 'str', got 'NoneType'"
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 2,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "parameters": {},
+   "evidence_refs": [
+    {
+     "issue_type": "whitespace_or_casing",
+     "columns": [
+      "name"
+     ],
+     "claim": "affected_count: 3, sample_values: ['Alice Martin', 'Bob Chen', '  Carol Diaz', '  David Kim  ', 'Elena Rossi']",
+     "claimed_values": {
+      "affected_count": 3,
+      "sample_values": [
+       "Alice Martin",
+       "Bob Chen",
+       "  Carol Diaz",
+       "  David Kim  ",
+       "Elena Rossi"
+      ]
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 2,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "name"
+   ],
+   "parameters": {
+    "target_case": "lower"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "whitespace_or_casing",
+     "columns": [
+      "name"
+     ],
+     "claim": "variants: {'Marketing': 3, 'mARKETING': 1}",
+     "claimed_values": {
+      "variants": {
+       "Marketing": 3,
+       "mARKETING": 1
+      }
+     }
+    },
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "variants: {'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}",
+     "claimed_values": {
+      "variants": {
+       "ENGINEERING": 1,
+       "engineering": 1,
+       "Engineering": 4
+      }
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 2,
+   "operation": "STANDARDIZE_CATEGORY",
+   "targets": [
+    "department"
+   ],
+   "parameters": {
+    "mapping": {
+     "marketing": "marketing",
+     "engineering": "engineering"
+    }
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "variants: {'Marketing': 3, 'mARKETING': 1}",
+     "claimed_values": {
+      "variants": {
+       "Marketing": 3,
+       "mARKETING": 1
+      }
+     }
+    },
+    {
+     "issue_type": "categorical_inconsistency",
+     "columns": [
+      "department"
+     ],
+     "claim": "variants: {'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}",
+     "claimed_values": {
+      "variants": {
+       "ENGINEERING": 1,
+       "engineering": 1,
+       "Engineering": 4
+      }
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "evidence_supports_claim"
+   ],
+   "outcome": "Rejected: evidence_supports_claim",
+   "failed_messages": [
+    "Claimed value for 'variants' ({'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}) contradicts the actual profile evidence ({'Marketing': 3, 'mARKETING': 1}) for column(s) ['department']."
+   ],
+   "status_any_match_fix": "rejected"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 2,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "parameters": {
+    "target_format": "YYYY-MM-DD"
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "date_format_inconsistency",
+     "columns": [
+      "hire_date"
+     ],
+     "claim": "detected_patterns: {'YYYY-MM-DD': 14, 'DD/MM/YYYY_or_MM/DD/YYYY': 3}",
+     "claimed_values": {
+      "detected_patterns": {
+       "YYYY-MM-DD": 14,
+       "DD/MM/YYYY_or_MM/DD/YYYY": 3
+      }
+     }
+    }
+   ],
+   "status": "approved_auto",
+   "failed_rules": [],
+   "outcome": "Approved (safe tier)",
+   "failed_messages": [],
+   "status_any_match_fix": "approved_auto"
+  },
+  {
+   "strategy": "converge",
+   "scenario": "S6_mixed",
+   "rep": 2,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "parameters": {
+    "strategy": "mean",
+    "fill_value": null
+   },
+   "evidence_refs": [
+    {
+     "issue_type": "missing_values",
+     "columns": [
+      "salary"
+     ],
+     "claim": "null_count: 2, null_percentage: 11.76, semantic_type: integer",
+     "claimed_values": {
+      "null_count": 2,
+      "null_percentage": 11.76,
+      "semantic_type": "integer"
+     }
+    }
+   ],
+   "status": "rejected",
+   "failed_rules": [
+    "parameters_valid"
+   ],
+   "outcome": "Rejected: parameters_valid",
+   "failed_messages": [
+    "parameter 'fill_value' expected type 'str', got 'NoneType'"
+   ],
+   "status_any_match_fix": "rejected"
+  }
+ ],
+ "ai_only_recommendations": [
+  {
+   "strategy": "ai_only",
+   "scenario": "S1_whitespace",
+   "rep": 0,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S1_whitespace",
+   "rep": 1,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S1_whitespace",
+   "rep": 2,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S2_duplicates",
+   "rep": 0,
+   "operation": "REMOVE_DUPLICATES",
+   "targets": [
+    "name",
+    "department",
+    "city",
+    "hire_date",
+    "salary",
+    "rating"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S2_duplicates",
+   "rep": 1,
+   "operation": "REMOVE_DUPLICATES",
+   "targets": [
+    "name",
+    "department",
+    "city",
+    "hire_date",
+    "salary",
+    "rating"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S2_duplicates",
+   "rep": 2,
+   "operation": "REMOVE_DUPLICATES",
+   "targets": [
+    "name",
+    "department",
+    "city",
+    "hire_date",
+    "salary",
+    "rating"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S3_categorical",
+   "rep": 0,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "department"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S3_categorical",
+   "rep": 1,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "department"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S3_categorical",
+   "rep": 2,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "department"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S4_missing",
+   "rep": 0,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S4_missing",
+   "rep": 0,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S4_missing",
+   "rep": 0,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S4_missing",
+   "rep": 1,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S4_missing",
+   "rep": 1,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S4_missing",
+   "rep": 1,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S4_missing",
+   "rep": 2,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S4_missing",
+   "rep": 2,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "name",
+    "department",
+    "city"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S4_missing",
+   "rep": 2,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S5_dates",
+   "rep": 0,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S5_dates",
+   "rep": 1,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S5_dates",
+   "rep": 2,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 0,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 0,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "name"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 0,
+   "operation": "STANDARDIZE_CATEGORY",
+   "targets": [
+    "department"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 0,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 0,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 1,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 1,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "name"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 1,
+   "operation": "STANDARDIZE_CATEGORY",
+   "targets": [
+    "department"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 1,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 1,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 2,
+   "operation": "TRIM_WHITESPACE",
+   "targets": [
+    "name"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 2,
+   "operation": "NORMALIZE_CASE",
+   "targets": [
+    "department"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 2,
+   "operation": "STANDARDIZE_DATE_FORMAT",
+   "targets": [
+    "hire_date"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  },
+  {
+   "strategy": "ai_only",
+   "scenario": "S6_mixed",
+   "rep": 2,
+   "operation": "FILL_MISSING",
+   "targets": [
+    "salary"
+   ],
+   "executable": true,
+   "outcome": "AI_ONLY admitted"
+  }
+ ],
+ "failures": []
+}

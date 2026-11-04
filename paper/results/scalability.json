@@ -1,0 +1,62 @@
+[
+ {
+  "rows": 100,
+  "profile_s": 21.473917511000764,
+  "prompt_chars": 12423,
+  "approx_prompt_tokens": 3105,
+  "evidence_items": 6,
+  "recommendations": 6,
+  "approved": 6,
+  "validate_ms": 0.24101693999909912,
+  "execute_s": 5.155524451000019,
+  "exec_ok": true
+ },
+ {
+  "rows": 1000,
+  "profile_s": 13.959899243000109,
+  "prompt_chars": 12498,
+  "approx_prompt_tokens": 3124,
+  "evidence_items": 6,
+  "recommendations": 6,
+  "approved": 6,
+  "validate_ms": 0.39691429999948014,
+  "execute_s": 4.219418087999657,
+  "exec_ok": true
+ },
+ {
+  "rows": 10000,
+  "profile_s": 13.039693937000266,
+  "prompt_chars": 12530,
+  "approx_prompt_tokens": 3132,
+  "evidence_items": 6,
+  "recommendations": 6,
+  "approved": 6,
+  "validate_ms": 0.306293169996934,
+  "execute_s": 5.471315531000073,
+  "exec_ok": true
+ },
+ {
+  "rows": 100000,
+  "profile_s": 21.957873160001327,
+  "prompt_chars": 12564,
+  "approx_prompt_tokens": 3141,
+  "evidence_items": 6,
+  "recommendations": 6,
+  "approved": 6,
+  "validate_ms": 0.2619301500089932,
+  "execute_s": 8.978136849000293,
+  "exec_ok": true
+ },
+ {
+  "rows": 1000000,
+  "profile_s": 62.34207307699944,
+  "prompt_chars": 12593,
+  "approx_prompt_tokens": 3148,
+  "evidence_items": 6,
+  "recommendations": 6,
+  "approved": 6,
+  "validate_ms": 0.2747156700024789,
+  "execute_s": 25.5746114880003,
+  "exec_ok": true
+ }
+]
