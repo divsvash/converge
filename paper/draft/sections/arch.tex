@@ -1,0 +1,113 @@
+%======================================================================
+\section{The CONVERGE Architecture}
+\label{sec:arch}
+%======================================================================
+Fig.~\ref{fig:arch} shows the end-to-end architecture. Its organising principle is a strict separation of \emph{authority}: Spark is authoritative for facts, the LLM is authoritative for nothing, the validator is authoritative for admissibility, and the approval boundary is authoritative for consent.
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=4mm and 7mm,
+  box/.style={draw, rounded corners=2pt, minimum height=11mm, text width=22mm, align=center, font=\scriptsize, fill=#1},
+  box/.default=white,
+  lab/.style={font=\tiny\itshape, align=center},
+  arr/.style={-{Stealth[length=2mm]}, semithick},
+  trust/.style={draw, dashed, rounded corners=4pt, inner sep=3mm}]
+\node[box=gray!12] (data) {\textbf{Dataset} $D$\\ CSV / HDFS\\ $n$ rows};
+\node[box=blue!10, right=of data] (prof) {\textbf{Spark Profiler}\\ nulls, dups, variants,\\ whitespace, dates, IQR};
+\node[box=orange!15, right=of prof] (ai) {\textbf{AI Provider}\\ LLM / SLM\\ (Ollama or Gemini)};
+\node[box=green!12, right=of ai] (val) {\textbf{Validator}\\ 9 deterministic\\ evidence rules};
+\node[box=yellow!15, right=of val] (appr) {\textbf{Approval}\\ boundary\\ (human / policy)};
+\node[box=blue!10, right=of appr] (exec) {\textbf{Spark Executor}\\ frozen plan,\\ fail-fast};
+\node[box=gray!12, below=9mm of exec] (cmp) {\textbf{Comparator +}\\ \textbf{Insights}\\ (deterministic)};
+\node[box=gray!12, below=9mm of prof, text width=26mm] (store) {\textbf{RunStore}: profile, evidence, recs, verdicts, decisions, timeline};
+\draw[arr] (data) -- (prof);
+\draw[arr] (prof) -- node[lab, above]{$(P,E)$\\bounded} (ai);
+\draw[arr] (ai) -- node[lab, above]{typed\\recs} (val);
+\draw[arr] (val) -- node[lab, above]{verdicts} (appr);
+\draw[arr] (appr) -- node[lab, above]{plan} (exec);
+\draw[arr] (exec) -- node[lab, right]{$D'$} (cmp);
+\draw[arr, dashed] (prof.south east) .. controls +(0.5,-0.7) and +(-1.0,-0.7) .. node[lab, below, pos=0.55]{same evidence $E$ (independent lookup)} (val.south west);
+\draw[arr, dotted] (cmp.west) -- (store.east);
+\begin{scope}[on background layer]
+\node[trust, fit=(ai), fill=red!4, label={[font=\tiny]above:untrusted}] {};
+\node[trust, fit=(prof)(val)(exec), draw=blue!50, label={[font=\tiny, blue!60]below:deterministic trusted computing base}, inner sep=1.5mm] {};
+\end{scope}
+\end{tikzpicture}}
+\caption{CONVERGE architecture. The language model (red, untrusted) sees only the bounded profile/evidence $(P,E)$ and emits typed recommendations. The validator independently re-reads the \emph{same} Spark evidence; only admissible, approved recommendations become an immutable execution plan. Measurement is deterministic and external to the AI.}
+\label{fig:arch}
+\end{figure*}
+
+\subsection{Spark Profiler and Bounded Evidence}
+The profiler (\texttt{services/spark/profiler.py}) is the only component that reads $D$. For each column it classifies a \emph{semantic type} (integer, float, string, date-like string, boolean) separately from the physical Spark dtype, computes null statistics, distinct counts, IQR outlier bounds, case/whitespace-normalised \emph{variant groups} for categorical columns, and a histogram of detected date patterns. Identifier-like columns (an \texttt{id} name pattern and $\geq90\%$ distinct values) are excluded from duplicate criteria. From the profile, it emits one evidence item per detected issue; nothing is fabricated for absent issues. Evidence carries only issue-scoped raw values---e.g., the variant histogram $\{\texttt{Engineering}{:}5,\texttt{engineering}{:}1,\texttt{ENGINEERING}{:}1\}$---capped by \texttt{MAX\_EVIDENCE\_DISTINCT\_VALUES}$=30$ and \texttt{MAX\_EVIDENCE\_SAMPLE\_ROWS}$=10$. Before prompting, the prompt builder additionally \emph{redacts} unscoped raw fields (per-column samples and top-value lists), so that, for example, personal names in an unflagged column are never sent to the model. This realises P1 and has a second, decisive consequence: the prompt size is $O(m+|E|)$ and independent of $n$ (verified in \S\ref{sec:res-scale}).
+
+\subsection{Operation Catalog and Safety Tiers}
+Table~\ref{tab:catalog} lists the eight P0 operations. Operations are declarative, parameterised, and implemented exclusively with the Spark DataFrame API---no \texttt{spark.sql()}, \texttt{eval}, or dynamic dispatch on parameter content. The \textsc{safe} tier covers value-preserving normalisations; \textsc{review} covers operations that synthesise values or change row counts and are capped at \textsc{needs\_review} regardless of evidence; \textsc{finding} operations can never execute. The same registry generates the prompt's operation list, the validator's rules, and the traceability map, so the three cannot drift apart (ADR-002).
+
+\begin{table}[t]
+\centering
+\caption{Operation catalog (P0). Tier caps the best achievable verdict.}
+\label{tab:catalog}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Operation} & \textbf{Tier} & \textbf{Parameters} & \textbf{Required evidence}\\
+\midrule
+\texttt{TRIM\_WHITESPACE} & safe & -- & whitespace\\
+\texttt{NORMALIZE\_CASE} & safe & case$\in$\{lower,upper,title\} & categorical $\lor$ ws\\
+\texttt{STANDARDIZE\_CATEGORY} & safe & mapping: raw$\to$canonical & categorical\\
+\texttt{STANDARDIZE\_DATE\_FORMAT} & safe & fmt$\in$\{ISO, D/M/Y, M/D/Y\} & date-format\\
+\texttt{FILL\_MISSING} & review & mean$|$median$|$mode$|$const & missing\\
+\texttt{CONVERT\_DTYPE} & review & int$|$float$|$str$|$bool & --\\
+\texttt{REMOVE\_DUPLICATES} & review & criteria $=$ target cols & duplicates (exact)\\
+\texttt{FLAG\_OUTLIER} & finding & -- & outlier\\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Forbidden:} \texttt{DELETE\_COLUMN, DELETE\_DATASET, JOIN, PIVOT, MERGE,}}\\
+\multicolumn{4}{@{}l}{\quad\texttt{ARBITRARY\_ROW\_FILTER, ARBITRARY\_CODE, SCHEMA\_RESTRUCTURING}}\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{AI Provider and Prompt Contract}
+Providers implement a four-member interface: \texttt{provider\_name}, \texttt{model\_name}, \texttt{prompt\_version}, and \texttt{generate\_\allowbreak{}recommendations(\allowbreak{}ProfileResult)} $\to$ \texttt{list[\allowbreak{}Recommendation]}. The signature itself enforces P1 and P2: there is no parameter through which raw data could enter and no return channel for code. Two implementations exist: a remote Gemini provider~\cite{gemini2023} using native response-schema enforcement, and a local Ollama provider using JSON-schema-constrained decoding~\cite{willard2023outlines} at temperature $0$. Both share one versioned system prompt (\texttt{recommendation-prompt-v1}) stating eight rules: Spark evidence is authoritative; do not invent facts; do not calculate; only use catalog operations; never produce code; never propose destructive operations; cite evidence with checkable claimed values; and return \emph{fewer} recommendations when evidence is insufficient. Output is parsed strictly with Pydantic; any malformed item fails the stage with a typed \texttt{AIProviderResponseError} rather than being silently repaired. Note that \texttt{operation} is deliberately typed as a free string rather than an enum, so that an invented operation \emph{constructs} successfully and is rejected by the validator with an auditable explanation instead of an opaque parse error.
+
+\subsection{Independent Validator}
+The validator (Algorithm~\ref{alg:validator}) is constructed once per profile and has no dependency on the AI provider, the executor, or the orchestrator (ADR-003); it can be tested in isolation against hand-built recommendations. Rules are evaluated in order and short-circuit on the first failure, and every check is recorded with a human-readable message, giving a complete audit trail. The evidence rules are the core novelty: they do not trust the model's \texttt{evidence\_refs}, but independently search $E$ for an item of a required type covering the targets. For row-level operations the criteria set must equal the profiler's criteria \emph{exactly}, preventing the model from asserting duplicate support for a column set Spark never verified. Claimed numeric values are compared with tolerance $10^{-6}$, and every raw key of a category mapping must occur in the evidence's variant histogram.
+
+\begin{algorithm}[t]
+\caption{Evidence-based validation $V(r;P,E)$}
+\label{alg:validator}
+\footnotesize
+\begin{algorithmic}[1]
+\Require recommendation $r=(o,C_r,\theta,\cdot,\mathrm{refs})$; profile $P$; evidence $E$
+\If{$o\in\mathcal{F}$ \textbf{or} $o\notin\mathcal{O}$} \Return \textsc{rejected} \Comment{R1, R8}\EndIf
+\If{$C_r=\emptyset$ \textbf{or} $C_r\not\subseteq C$} \Return \textsc{rejected} \Comment{R2}\EndIf
+\If{$\neg\mathrm{rowlevel}(o)\wedge\exists c\in C_r:\mathrm{sem}(c)\notin S(o)$} \Return \textsc{rejected}\EndIf
+\If{$\theta$ has unknown keys, missing/ill-typed required keys, or values $\notin$ allowed} \Return \textsc{rejected}\EndIf
+\If{$R(o)\neq\emptyset$}
+  \State $M\gets\{e\in E:\tau_e\in R(o)\wedge(\mathrm{rowlevel}(o)\,?\,C_e{=}C_r : C_r{\subseteq}C_e)\}$
+  \If{$M=\emptyset$} \Return \textsc{rejected} \Comment{R6: no Spark evidence}\EndIf
+  \ForAll{$(k,v)\in\mathrm{refs}.\mathrm{claimed}$ with $k\in\sigma_e$, $e\in M$}
+    \If{$|v-\sigma_e[k]|>\epsilon$} \Return \textsc{rejected} \Comment{R7}\EndIf
+  \EndFor
+  \If{$o=\texttt{STANDARDIZE\_CATEGORY}\wedge\mathrm{keys}(\theta.\mathrm{map})\not\subseteq\bigcup_{e\in M}\mathrm{variants}(e)$} \Return \textsc{rejected}\EndIf
+\EndIf
+\If{$t(o)=\textsc{finding}$} \Return \textsc{not\_executable}\EndIf
+\State \Return $t(o)=\textsc{safe}\ ?\ \textsc{approved\_auto} : \textsc{needs\_review}$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Approval Boundary and Pipeline State Machine}
+The orchestrator drives an explicit state machine: \textsc{ingested} $\to$\allowbreak{} \textsc{profiled} $\to$\allowbreak{} \textsc{ai\_analyzed} $\to$\allowbreak{} \textsc{validated} $\to$\allowbreak{} \textsc{awaiting\_approval} $\to$\allowbreak{} \textsc{executing} $\to$\allowbreak{} \textsc{cleaned} $\to$\allowbreak{} \textsc{stats\_computed} $\to$\allowbreak{} \textsc{insights\_generated} $\to$\allowbreak{} \textsc{completed}, with \textsc{failed} reachable from any stage. Every transition is timestamped and persisted. The pipeline \emph{hard-pauses} at \textsc{awaiting\_approval}; nothing executes without an explicit decision per recommendation. In interactive use a human approves \textsc{needs\_review} items; in experiments a documented policy approves exactly what the validator deemed executable. P4 is enforced twice: \texttt{submit\_decision} raises \texttt{RecommendationNotEligibleError} for an ineligible approval, and the experiment adapter ANDs any policy with the validator's verdict so a misconfigured policy fails safe.
+
+\subsection{Spark Executor}
+Approved recommendations are compiled into a frozen \texttt{ExecutionPlan}, ordered by a fixed technical precedence (dtype conversion $\to$ imputation $\to$ text/category normalisation $\to$ date formatting $\to$ deduplication) so that, e.g., trimming precedes duplicate detection. The executor applies operations exactly in plan order, re-checks every parameter (defence in depth), counts affected rows, and on the first failure marks remaining operations \textsc{skipped} and writes no output (P5). Partial cleaning is never published.
+
+\subsection{Deterministic Comparison and Insights}
+After execution the cleaned dataset is re-profiled with the \emph{same} profiler and compared per issue as \emph{resolved}, \emph{improved}, \emph{unchanged}, \emph{worsened}, or \emph{introduced}. A traceability map links each executed recommendation to the issues it targeted, and a deterministic insight generator summarises outcomes in templated natural language. No model is consulted after execution: the system never asks the AI to grade its own work (ADR-007, ADR-009).
+
+\subsection{Design Rationale}
+Three design decisions merit justification. \emph{(i) Recommendation, not generation of code.} Generating Spark or SQL code would give the model an unbounded action space; restricting it to a catalog makes every possible action enumerable, testable, and reviewable. \emph{(ii) Validation against evidence, not against the model's claims.} Self-consistency checks on model output are vulnerable to correlated errors; checking against an independent deterministic artefact breaks that correlation. \emph{(iii) A narrow deterministic baseline.} The \textsc{Spark\_Only} arm applies only the two remediations whose correct action is fully determined by evidence (trim whitespace; drop profiler-verified duplicates), and \emph{refuses} to invent heuristics (e.g., ``most frequent variant is canonical'') for the rest. Determinism is not correctness; the baseline therefore marks exactly the boundary where semantic judgement---and hence AI---becomes necessary.

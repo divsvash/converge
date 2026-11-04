@@ -1,0 +1,43 @@
+\documentclass[conference,10pt]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage[T1]{fontenc}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,backgrounds,calc}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{../figures/}}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+% primitive (expandable) input, so table bodies can sit between booktabs rules
+\makeatletter\newcommand{\tabinput}[1]{\@@input #1 }\makeatother
+
+\begin{document}
+
+\title{Future Directions: Integrating Generative AI with Traditional Big Data Pipelines\\[2pt]
+\large CONVERGE---Validation-Guided Language-Model Recommendations for Spark Data Cleaning}
+
+\author{\IEEEauthorblockN{Divyanshi Vashistha}
+\IEEEauthorblockA{\textit{[Department / Institution]}\\
+\textit{[City, Country]}\\
+divyanshivashistha@gmail.com}}
+
+\maketitle
+
+\input{sections/abstract}
+\input{sections/method}
+\input{sections/arch}
+\input{sections/eval}
+\input{sections/results}
+\input{sections/discussion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

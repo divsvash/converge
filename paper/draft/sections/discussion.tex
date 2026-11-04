@@ -1,0 +1,63 @@
+%======================================================================
+\section{Discussion}
+\label{sec:discussion}
+%======================================================================
+\subsection{What the Validation Boundary Buys}
+The results support a nuanced reading of RQ2. The validator does not make the model \emph{smarter}: on the scenarios where the model's output was already correct, \textsc{AI\_Only} and \textsc{Converge} produce identical datasets. What the validator buys is a \emph{tighter worst case}. In E2, nine of eleven checkable hallucination classes were converted from potential data-integrity incidents (collateral modification, lost records, or an aborted run) into auditable rejections with a named rule, while the remaining correct recommendations still executed; in E1, the model's fabricated issues on S4 were rejected before they could corrupt 45 cells. This is precisely the property that big data operators require before delegating any decision to a component they cannot formally verify: for every hallucination class the validator can check, the blast radius of an error shrinks from \emph{doing the wrong thing at scale} to \emph{not doing} something---and the classes it cannot yet check are named and measured rather than unknown.
+
+The audit trail matters as much as the verdict. Because every rejection records the rule that fired and the profiler fact it contradicted, operators can distinguish ``the model proposed something unsupported'' from ``the model misread a statistic'' from ``the model attempted a forbidden action''---three failure modes that warrant different responses (prompt revision, model replacement, and security review, respectively).
+
+\subsection{What Validation Cannot Buy}
+Two classes of error lie provably outside the reach of any evidence-based validator.
+
+\emph{Semantically wrong but evidentially consistent recommendations} (H10) satisfy every checkable predicate of \S\ref{sec:problem}: the operation is legal, the column exists, the mapping key really occurs in the data. Only a judgement about the \emph{meaning} of ``Marketing'' versus ``Sales'' separates it from a correct repair. Such errors can be reduced but not eliminated by stronger structural rules---e.g., requiring every mapping to stay within one variant group (a normalisation-equivalence constraint), which would catch H10 specifically---or by consensus across models; ultimately they motivate the human approval boundary. The S3 behaviour in E1 is a natural instance: lowercasing \emph{does} unify the evidenced variants, and is rejected only by accident.
+
+Two further gaps are \emph{not} fundamental and point to concrete fixes. Evidence-type conflation (H12, and the S6 approvals in E1) arises because the catalog lets one evidence type (\texttt{whitespace\_or\_casing}) license two semantically different operations; splitting the issue type, or requiring that a casing operation be justified by a variant group, closes it. The coercibility gap (H11) is closed by checking constant fill values against the column's semantic type. Likewise, the evidence-ambiguity defect found in the audit is fixed by accepting a claim if it matches \emph{any} candidate evidence item. All three are small, deterministic changes---the architecture makes such failures \emph{diagnosable and fixable}, which is itself a property unvalidated pipelines lack.
+
+\emph{Information-theoretically unrecoverable repairs} are the second class. A missing salary cannot be restored to its true value from aggregate statistics; any imputation (mean, median, mode) is, by construction, an \emph{incorrect repair} under exact-match ground truth. S4's results should be read in this light: the correct behaviour for a cleaning system is not to maximise recall there, but to make the imputation explicit, reviewable, and reversible---which CONVERGE does by capping \texttt{FILL\_MISSING} at the \textsc{review} tier.
+
+\subsection{The Conservativeness Cost}
+Validation is not free. A single fabricated key in an otherwise-correct category mapping (H7) causes the \emph{entire} recommendation to be rejected, forfeiting its correct repairs. We consider this the right default for an unattended pipeline---partial trust in a recommendation whose evidence claims are known to be partly false is unjustified---but it suggests a refinement: \emph{repairable rejections}, in which the validator returns a minimally edited recommendation (here, the mapping with the fabricated key removed) for explicit approval. Similarly, short-circuiting on the first failing rule produces the most actionable explanation but hides additional violations; a ``report all'' mode would aid prompt engineering.
+
+\subsection{Small Local Models as Recommenders}
+The use of a 3B-parameter model quantised to 4 bits on a laptop CPU is deliberate. It reflects the deployment constraint that motivates CONVERGE in the first place---regulated data that may not leave the cluster---and it is the regime in which structured-output failures are most frequent. The architecture's value is largest exactly here: a weak model behind a strong validator is safe to deploy, whereas a strong model without one is merely \emph{usually} safe. Schema-constrained decoding was essential: in the earlier pilot without it, the same model returned \texttt{parameters} as a list and \texttt{evidence\_refs} as an object, failing strict parsing.
+
+\subsection{Sink-Side Normalisation: A Methodological Lesson}
+E2's no-op control revealed that Spark's CSV writer, with its default options, removes leading and trailing whitespace from every string field on output. Whitespace corruptions are therefore ``repaired'' by the storage layer regardless of the cleaning decision, and S1 cannot discriminate between arms. This is not an artefact of CONVERGE but of the execution substrate, and it generalises: when evaluating AI-assisted cleaning, the evaluator must include a no-op baseline to separate the effect of the decision layer from implicit normalisation in readers and writers. We report S1 for completeness and exclude it from comparative claims.
+
+%======================================================================
+\section{Threats to Validity}
+\label{sec:threats}
+%======================================================================
+\noindent\textbf{Internal validity.} All arms share every component except the decision layer, and the evaluator is strategy-agnostic by construction (a test asserts it contains no strategy-specific branching). The approval policy is automated; a human approver could reject correct recommendations or accept wrong ones. Temperature-$0$ decoding reduces but does not remove stochasticity under quantised CPU inference.
+
+\noindent\textbf{Construct validity.} Exact-match ground truth penalises semantically acceptable alternatives (e.g., a different but reasonable imputation). Before/after issue counts are reported separately precisely because they measure \emph{absence of detected issues}, not correctness. Repair precision is not observable and is not reported.
+
+\noindent\textbf{External validity.} The reference table has 15 rows and 7 columns and covers five corruption types; real datasets exhibit richer errors (functional-dependency violations, cross-column inconsistencies, typos). We evaluated one local model; larger or remote models (e.g., Gemini, supported by the implementation) may differ in recall and failure profile. Spark ran in \texttt{local[*]} mode; the control-plane scalability result (E3) is structural, but absolute Spark timings on a cluster will differ.
+
+\noindent\textbf{Conclusion validity.} With three repetitions per cell we report means and standard deviations but do not claim statistical significance; the E2 study is deterministic and its conclusions do not depend on sampling.
+
+%======================================================================
+\section{Future Directions}
+\label{sec:future}
+%======================================================================
+Our results suggest that the most productive path for integrating generative AI with traditional big data pipelines is not to make models execute, but to make their proposals \emph{verifiable}. We highlight seven directions.
+
+\begin{enumerate}[leftmargin=*,nosep]
+  \item \textbf{Richer evidence languages.} Extending the profiler to emit functional-dependency, cross-column, and distributional-drift evidence (in the spirit of Deequ~\cite{schelter2018deequ} and CFDs~\cite{fan2008cfd}) would let the catalog grow while keeping every operation checkable.
+  \item \textbf{Semantic validators.} Normalisation-equivalence constraints, reference-vocabulary lookups, and multi-model agreement can narrow the H10 gap without surrendering determinism.
+  \item \textbf{Repairable rejections and dialogue.} Feeding validator explanations back to the model, Reflexion-style~\cite{shinn2023reflexion}, turns rejections into a bounded self-correction loop whose output is \emph{re-validated}, preserving complete mediation.
+  \item \textbf{Placement beyond cleaning.} The same recommend--validate--execute pattern applies before ingestion (schema inference), during processing (partitioning and join-order hints validated against cost models), and after processing (natural-language insights validated against computed aggregates).
+  \item \textbf{Cluster-scale evaluation.} Because the prompt is $O(m+|E|)$, a single model call can govern a petabyte-scale Spark job; the open question is how to sample and bound evidence for very wide or high-cardinality schemas.
+  \item \textbf{Cost and carbon accounting.} Exposing token usage through the provider interface would allow cost-aware placement between local SLMs and remote LLMs, guided by scaling behaviour~\cite{kaplan2020scaling}.
+  \item \textbf{Adversarial robustness.} Evidence contains raw cell values; a malicious cell could attempt indirect prompt injection~\cite{greshake2023injection}. Because the validator treats all output as untrusted, the architecture already bounds the damage, but systematic red-teaming of the evidence channel is needed.
+\end{enumerate}
+
+%======================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%======================================================================
+We presented CONVERGE, a validation-guided architecture for integrating language models into Spark data-cleaning pipelines, in which the model recommends, an independent deterministic validator decides against Spark-computed evidence, and Spark executes an immutable, fail-fast plan. Under controlled, ground-truth conditions with a local 3B-parameter model, AI-assisted cleaning repaired a corruption class that a principled deterministic baseline must leave untouched (mixed date formats, recall $0\to1$), but unvalidated AI also fabricated issues and destroyed up to 45 clean cells in a single run---damage that standard before/after quality checks scored as a success. The validation boundary cut collateral damage by 71--88\%, rejected nine of the eleven checkable hallucination classes we injected---turning silent corruption, deleted records and aborted runs into auditable rejections---and did so at a sub-millisecond control-plane cost that does not grow with data volume. Validation is not a substitute for semantic correctness: semantically wrong but evidentially consistent recommendations, catalog-level evidence conflation, and unrecoverable imputations remain, and they define where human review and future semantic validators must focus. The broader lesson for the future of big data systems is architectural: generative models are most valuable to traditional pipelines when they are confined to proposing, and every proposal is checked by the deterministic machinery those pipelines already trust.
+
+\section*{Artifact Availability}
+The CONVERGE implementation, controlled-corruption generator, ground-truth manifests, experiment harness, raw per-run results, and the scripts that produced every figure and table in this paper are contained in the project repository (\texttt{src/converge}, \texttt{experiments/}, \texttt{paper/scripts/}). All 510 automated tests pass.

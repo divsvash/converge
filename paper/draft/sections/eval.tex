@@ -1,0 +1,53 @@
+%======================================================================
+\section{Experimental Methodology}
+\label{sec:method}
+%======================================================================
+\subsection{Research Questions}
+\begin{description}[leftmargin=*,nosep,font=\normalfont\bfseries]
+  \item[RQ1] Does AI-assisted cleaning improve repair quality over a deterministic Spark-only baseline?
+  \item[RQ2] Does the validation boundary reduce hallucination-driven errors relative to unvalidated AI, and at what cost?
+  \item[RQ3] Which classes of hallucination can and cannot be contained by evidence-based validation?
+  \item[RQ4] How do latency, reliability, and the control-plane footprint behave, and how do they scale with data volume?
+\end{description}
+
+\subsection{Experimental Arms}
+All three arms share the profiler, the operation catalog, the executor, the prompt, the provider, and the evaluator (ADR-007). They differ only in the decision architecture.
+\textbf{(A) \textsc{Spark\_Only}}: deterministic policy; \texttt{TRIM\_WHITESPACE} for whitespace evidence and \texttt{REMOVE\_DUPLICATES} on profiler-established criteria, all other issues explicitly skipped with a recorded reason. It never imports the AI package (enforced by an import-scanning test).
+\textbf{(B) \textsc{AI\_Only}}: the LLM's recommendations are executed in the model's own order after only a \emph{structural} filter (operation registered, not forbidden, not finding-only, has a target). The validator module is never imported (also enforced by test). The executor's own parameter re-checks still apply, so this arm is a realistic ``LLM drives a safe engine'' integration rather than a strawman with arbitrary code execution.
+\textbf{(C) \textsc{Converge}}: the full orchestrator with validator and the monotone approval policy. To avoid self-grading, the adapter stops at \textsc{cleaned}; all measurement is external.
+
+\subsection{Controlled Scenarios and Ground Truth}
+A 15-row, 7-column clean reference (employee records: \texttt{\_row\_id}, \texttt{name}, \texttt{department}, \texttt{city}, \texttt{hire\_date}, \texttt{salary}, \texttt{rating}) is corrupted by a seeded deterministic generator (seed $42$) into six scenarios (Table~\ref{tab:scenarios}). Each corruption is recorded in a manifest with row id, column, clean value and corrupted value, and the scenario's SHA-256 checksum is verified before every run. A deliberately small reference makes every cell auditable; scale is studied separately (E3).
+
+\begin{table}[t]
+\centering
+\caption{Controlled corruption scenarios (seed 42).}
+\label{tab:scenarios}
+\scriptsize
+\begin{tabular}{@{}llrl@{}}
+\toprule
+\textbf{ID} & \textbf{Corruption} & \textbf{\#} & \textbf{Target / example}\\
+\midrule
+S1 & Whitespace injection & 3 & \texttt{name}: ``\verb*|  Alice Martin  |''\\
+S2 & Exact duplicate rows & 2 & whole row, new \texttt{\_row\_id}\\
+S3 & Categorical case variants & 3 & \texttt{department}: ``\texttt{mARKETING}''\\
+S4 & Missing values & 2 & \texttt{salary}: empty\\
+S5 & Mixed date formats & 3 & \texttt{hire\_date}: ``\texttt{15/01/2022}''\\
+S6 & All five combined & 13 & mixed (3+2+3+2+3)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Metrics}
+Let $\mathcal{K}$ be the set of injected cell corruptions, $\mathrm{out}(i,c)$ the output value of row $i$, column $c$ (joined on \texttt{\_row\_id}), and $\mathrm{clean}(i,c)$ the reference value.
+\begin{align}
+\text{Repair recall} &= \frac{|\{(i,c)\in\mathcal{K}:\mathrm{out}(i,c)=\mathrm{clean}(i,c)\}|}{|\mathcal{K}|},\\
+\text{FMR} &= \frac{|\{(i,c)\notin\mathcal{K}:\mathrm{out}(i,c)\neq\mathrm{clean}(i,c)\}|}{|\text{rows}_{\mathrm{out}}|\cdot m' - |\mathcal{K}|},
+\end{align}
+where comparison is exact (case and whitespace significant) and $m'$ excludes \texttt{\_row\_id}. A corrupted cell is \emph{incorrectly repaired} if its output differs from both the clean and the corrupted value. For duplicates we count injected ids removed and \emph{original rows lost}, i.e., clean-reference ids absent from the output---the most severe collateral damage, since FMR covers surviving rows only. Repair \emph{precision} is not reported because intended modifications are not observable from outputs. We additionally report the comparator's before/after issue counts (an \emph{observed} signal, never merged with correctness, ADR-009), run success rate, recommendation consistency (mean pairwise Jaccard over $(o,C_r)$ sets across repetitions), and wall-clock times measured externally with \texttt{perf\_counter} at three non-overlapping boundaries (strategy execution, evaluation, total).
+
+\subsection{Model, Platform, and Protocol}
+The language model is \textbf{Qwen2.5-Coder 3B}~\cite{hui2024qwencoder} (4-bit quantised, 1.9\,GB) served locally by Ollama 0.34 with JSON-schema-constrained decoding and temperature $0$; it is classified \textsc{slm}/\textsc{local}. A local small model reflects a realistic privacy-preserving deployment in which no data or metadata leaves the cluster, and is the harder setting for structured-output reliability. All experiments run on a single commodity laptop (AMD Ryzen 3 5300U, 4 cores/8 threads, 7.5\,GB RAM, no GPU). Spark 3.5.1 runs in \texttt{local[*]} mode on OpenJDK 17 and Python 3.12 inside Ubuntu 24.04 (WSL2, 3.5\,GB memory limit); the model is served by Ollama on the Windows host, so model inference and Spark share the same four physical cores. Experiments E1--E3 were executed sequentially to avoid cross-experiment interference. The default provider timeout is 600\,s. Each (scenario, configuration) cell is repeated $R=3$ times, giving $6$ scenarios $\times$ $3$ arms $\times$ $3$ repetitions $=54$ attempted runs in E1. Every run is preserved, including failures, with checksums, provider, model, prompt version and package version.
+
+\subsection{Experiments}
+\textbf{E1 (end-to-end matrix)} executes all arms on S1--S6 with the live model. \textbf{E1-audit} reloads every \textsc{Converge} run's persisted pipeline artefact and classifies each model recommendation by validator verdict and failing rule. \textbf{E2 (hallucination injection)} replaces the model with a scripted provider that returns an \emph{oracle} plan derived from S6's real evidence plus exactly one hallucination from a twelve-class taxonomy (Table~\ref{tab:inject}); each case is executed end-to-end through both \textsc{AI\_Only} and \textsc{Converge}, isolating the validator's causal effect. \textbf{E3 (scalability)} generates datasets from $10^2$ to $10^6$ rows with a 10\% mixed corruption rate and measures profiling, prompt size, validation, and execution separately.
