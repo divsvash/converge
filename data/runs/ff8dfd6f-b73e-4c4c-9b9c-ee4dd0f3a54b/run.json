@@ -1,0 +1,489 @@
+{
+  "run_id": "ff8dfd6f-b73e-4c4c-9b9c-ee4dd0f3a54b",
+  "dataset_id": "S5_dates__f5956ad6-7178-4860-8435-dc4443f38f98__converge",
+  "dataset_path": "data/research/S5_dates.csv",
+  "status": "cleaned",
+  "profile_result": {
+    "profile": {
+      "dataset_id": "S5_dates__f5956ad6-7178-4860-8435-dc4443f38f98__converge",
+      "row_count": 15,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "_row_id",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": true,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "R001",
+            "R002",
+            "R003",
+            "R004",
+            "R005"
+          ]
+        },
+        {
+          "name": "name",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 15,
+            "top_values": {
+              "Alice Martin": 1,
+              "Frank Mueller": 1,
+              "Keiko Sato": 1,
+              "Elena Rossi": 1,
+              "Grace Tanaka": 1,
+              "James Wilson": 1,
+              "Liam Murphy": 1,
+              "Bob Chen": 1,
+              "Carol Diaz": 1,
+              "Henry Okonkwo": 1,
+              "Ingrid Larsson": 1,
+              "Maria Santos": 1,
+              "David Kim": 1,
+              "Nikolai Petrov": 1,
+              "Olivia Brown": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Alice Martin",
+            "Bob Chen",
+            "Carol Diaz",
+            "David Kim",
+            "Elena Rossi"
+          ]
+        },
+        {
+          "name": "department",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 3,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 3,
+            "top_values": {
+              "Engineering": 6,
+              "Sales": 5,
+              "Marketing": 4
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Engineering",
+            "Engineering",
+            "Sales",
+            "Sales",
+            "Marketing"
+          ]
+        },
+        {
+          "name": "city",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 9,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 9,
+            "top_values": {
+              "London": 3,
+              "Berlin": 3,
+              "Madrid": 2,
+              "Tokyo": 2,
+              "Dublin": 1,
+              "Stockholm": 1,
+              "Seoul": 1,
+              "Lagos": 1,
+              "Rome": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "London",
+            "Berlin",
+            "Madrid",
+            "Seoul",
+            "Rome"
+          ]
+        },
+        {
+          "name": "hire_date",
+          "spark_dtype": "string",
+          "semantic_type": "date_like_string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": {
+            "detected_patterns": {
+              "YYYY-MM-DD": 12,
+              "DD/MM/YYYY_or_MM/DD/YYYY": 3
+            },
+            "unparseable_count": 0
+          },
+          "sample_values": [
+            "15/01/2022",
+            "20/03/2022",
+            "2022-05-10",
+            "2022-07-01",
+            "2022-09-12"
+          ]
+        },
+        {
+          "name": "salary",
+          "spark_dtype": "int",
+          "semantic_type": "integer",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 49000.0,
+            "max": 75000.0,
+            "mean": 61733.3333,
+            "stddev": 8762.4741,
+            "median_approx": 60000.0,
+            "q1": 54000.0,
+            "q3": 71000.0,
+            "outlier_lower_bound": 28500.0,
+            "outlier_upper_bound": 96500.0,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "72000",
+            "68000",
+            "55000",
+            "58000",
+            "61000"
+          ]
+        },
+        {
+          "name": "rating",
+          "spark_dtype": "double",
+          "semantic_type": "float",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 3.5,
+            "max": 4.8,
+            "mean": 4.14,
+            "stddev": 0.405,
+            "median_approx": 4.1,
+            "q1": 3.8,
+            "q3": 4.5,
+            "outlier_lower_bound": 2.7499999999999996,
+            "outlier_upper_bound": 5.550000000000001,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "4.2",
+            "3.8",
+            "4.5",
+            "3.9",
+            "4.1"
+          ]
+        }
+      ],
+      "duplicate_summary": {
+        "exact_duplicate_row_count": 0,
+        "id_like_columns": [
+          "_row_id"
+        ],
+        "duplicate_candidates": []
+      },
+      "generated_at": "2026-11-04T16:24:55.630201Z"
+    },
+    "evidence": [
+      {
+        "issue_type": "date_format_inconsistency",
+        "columns": [
+          "hire_date"
+        ],
+        "description": "Column 'hire_date' contains 2 different date formats.",
+        "supporting_data": {
+          "detected_patterns": {
+            "YYYY-MM-DD": 12,
+            "DD/MM/YYYY_or_MM/DD/YYYY": 3
+          }
+        }
+      }
+    ]
+  },
+  "ai_metadata": {
+    "provider": "ollama",
+    "model": "qwen2.5-coder:3b",
+    "prompt_version": "recommendation-prompt-v1",
+    "recommendation_count": 1,
+    "generated_at": "2026-11-04T16:26:56.017021Z"
+  },
+  "recommendation_records": [
+    {
+      "recommendation": {
+        "recommendation_id": "b76de04c-3bba-45b6-8446-f344694b172e",
+        "operation": "STANDARDIZE_DATE_FORMAT",
+        "target_columns": [
+          "hire_date"
+        ],
+        "parameters": {
+          "target_format": "YYYY-MM-DD"
+        },
+        "reason": "The 'hire_date' column contains inconsistent date formats, with 12 entries in 'YYYY-MM-DD' format and 3 entries in 'DD/MM/YYYY_or_MM/DD/YYYY' format. Standardizing to 'YYYY-MM-DD' ensures uniformity and consistency.",
+        "evidence_refs": [
+          {
+            "issue_type": "date_format_inconsistency",
+            "columns": [
+              "hire_date"
+            ],
+            "claim": "detected_patterns.YYYY-MM-DD == 12 and detected_patterns['DD/MM/YYYY_or_MM/DD/YYYY'] == 3",
+            "claimed_values": {
+              "detected_patterns": {
+                "YYYY-MM-DD": 12,
+                "DD/MM/YYYY_or_MM/DD/YYYY": 3
+              }
+            }
+          }
+        ],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "b76de04c-3bba-45b6-8446-f344694b172e",
+        "operation": "STANDARDIZE_DATE_FORMAT",
+        "status": "approved_auto",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": true,
+            "message": "'STANDARDIZE_DATE_FORMAT' is a registered P0 operation."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": true,
+            "message": "Not on the forbidden list."
+          },
+          {
+            "rule": "target_columns_exist",
+            "passed": true,
+            "message": "All target column(s) exist: ['hire_date']."
+          },
+          {
+            "rule": "dtype_compatible",
+            "passed": true,
+            "message": "Target column(s) have a compatible semantic type."
+          },
+          {
+            "rule": "parameters_valid",
+            "passed": true,
+            "message": "All declared parameters present, well-typed, and within allowed values."
+          },
+          {
+            "rule": "safety_class_respected",
+            "passed": true,
+            "message": "Operation tier is 'safe'; final status is capped accordingly regardless of other checks."
+          },
+          {
+            "rule": "evidence_exists",
+            "passed": true,
+            "message": "Found 1 matching evidence item(s) in the profile."
+          },
+          {
+            "rule": "evidence_supports_claim",
+            "passed": true,
+            "message": "Recommendation's claims are consistent with the actual profile evidence."
+          },
+          {
+            "rule": "finding_only_not_executable",
+            "passed": true,
+            "message": "Not a finding-only operation."
+          }
+        ],
+        "summary": "Passed all automated checks; eligible for execution once a user explicitly applies it."
+      },
+      "decision": "approved_by_user"
+    }
+  ],
+  "execution_plan": {
+    "run_id": "ff8dfd6f-b73e-4c4c-9b9c-ee4dd0f3a54b",
+    "dataset_path": "data/research/S5_dates.csv",
+    "operations": [
+      {
+        "recommendation_id": "b76de04c-3bba-45b6-8446-f344694b172e",
+        "operation": "STANDARDIZE_DATE_FORMAT",
+        "target_columns": [
+          "hire_date"
+        ],
+        "parameters": {
+          "target_format": "YYYY-MM-DD"
+        }
+      }
+    ],
+    "created_at": "2026-11-04T16:26:56.404159Z"
+  },
+  "execution_summary": {
+    "operations_attempted": 1,
+    "operations_succeeded": 1,
+    "operations_failed": 0,
+    "operations_skipped": 0,
+    "operation_results": [
+      {
+        "recommendation_id": "b76de04c-3bba-45b6-8446-f344694b172e",
+        "operation": "STANDARDIZE_DATE_FORMAT",
+        "target_columns": [
+          "hire_date"
+        ],
+        "status": "succeeded",
+        "rows_affected": 3,
+        "error": null
+      }
+    ],
+    "output_dataset_path": "/mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/runs/ff8dfd6f-b73e-4c4c-9b9c-ee4dd0f3a54b/cleaned.csv",
+    "schema_before": [
+      {
+        "name": "_row_id",
+        "dtype": "string"
+      },
+      {
+        "name": "name",
+        "dtype": "string"
+      },
+      {
+        "name": "department",
+        "dtype": "string"
+      },
+      {
+        "name": "city",
+        "dtype": "string"
+      },
+      {
+        "name": "hire_date",
+        "dtype": "string"
+      },
+      {
+        "name": "salary",
+        "dtype": "int"
+      },
+      {
+        "name": "rating",
+        "dtype": "double"
+      }
+    ],
+    "schema_after": [
+      {
+        "name": "_row_id",
+        "dtype": "string"
+      },
+      {
+        "name": "name",
+        "dtype": "string"
+      },
+      {
+        "name": "department",
+        "dtype": "string"
+      },
+      {
+        "name": "city",
+        "dtype": "string"
+      },
+      {
+        "name": "hire_date",
+        "dtype": "string"
+      },
+      {
+        "name": "salary",
+        "dtype": "int"
+      },
+      {
+        "name": "rating",
+        "dtype": "double"
+      }
+    ],
+    "notes": "All operations succeeded."
+  },
+  "after_profile_result": null,
+  "quality_comparison": null,
+  "recommendation_outcomes": [],
+  "insight_artifact": null,
+  "timeline": [
+    {
+      "status": "ingested",
+      "message": "Dataset 'S5_dates__f5956ad6-7178-4860-8435-dc4443f38f98__converge' ingested from data/research/S5_dates.csv.",
+      "timestamp": "2026-11-04T16:24:34.211120Z"
+    },
+    {
+      "status": "profiled",
+      "message": "Profiled dataset: 15 rows, 7 columns, 1 evidence item(s).",
+      "timestamp": "2026-11-04T16:24:55.632082Z"
+    },
+    {
+      "status": "ai_analyzed",
+      "message": "AI stage (ollama/qwen2.5-coder:3b) returned 1 recommendation(s).",
+      "timestamp": "2026-11-04T16:26:56.024383Z"
+    },
+    {
+      "status": "validated",
+      "message": "Validated 1 recommendation(s).",
+      "timestamp": "2026-11-04T16:26:56.187278Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "Pipeline is awaiting user approval. No recommendation executes until the user explicitly applies it and execution is explicitly triggered.",
+      "timestamp": "2026-11-04T16:26:56.188421Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=approved_by_user for recommendation 'b76de04c-3bba-45b6-8446-f344694b172e' (operation=STANDARDIZE_DATE_FORMAT). Pipeline status unchanged.",
+      "timestamp": "2026-11-04T16:26:56.356287Z"
+    },
+    {
+      "status": "executing",
+      "message": "Execution plan built with 1 user-approved, validator-eligible operation(s).",
+      "timestamp": "2026-11-04T16:26:56.404523Z"
+    },
+    {
+      "status": "cleaned",
+      "message": "Execution completed: 1 approved operation(s) applied successfully. This means the approved transformations completed -- it does not mean the dataset is free of remaining data-quality issues; re-profiling the output is required to measure that.",
+      "timestamp": "2026-11-04T16:27:08.337834Z"
+    }
+  ],
+  "error": null,
+  "created_at": "2026-11-04T16:24:34.211099Z",
+  "updated_at": "2026-11-04T16:27:08.337817Z"
+}

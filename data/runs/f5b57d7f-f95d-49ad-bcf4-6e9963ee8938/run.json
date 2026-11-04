@@ -1,0 +1,609 @@
+{
+  "run_id": "f5b57d7f-f95d-49ad-bcf4-6e9963ee8938",
+  "dataset_id": "S4_missing__b79671a4-961c-47d4-b823-13eded5bc942__converge",
+  "dataset_path": "data/research/S4_missing.csv",
+  "status": "cleaned",
+  "profile_result": {
+    "profile": {
+      "dataset_id": "S4_missing__b79671a4-961c-47d4-b823-13eded5bc942__converge",
+      "row_count": 15,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "_row_id",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": true,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "R001",
+            "R002",
+            "R003",
+            "R004",
+            "R005"
+          ]
+        },
+        {
+          "name": "name",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 15,
+            "top_values": {
+              "Alice Martin": 1,
+              "Frank Mueller": 1,
+              "Keiko Sato": 1,
+              "Elena Rossi": 1,
+              "Grace Tanaka": 1,
+              "James Wilson": 1,
+              "Liam Murphy": 1,
+              "Bob Chen": 1,
+              "Carol Diaz": 1,
+              "Henry Okonkwo": 1,
+              "Ingrid Larsson": 1,
+              "Maria Santos": 1,
+              "David Kim": 1,
+              "Nikolai Petrov": 1,
+              "Olivia Brown": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Alice Martin",
+            "Bob Chen",
+            "Carol Diaz",
+            "David Kim",
+            "Elena Rossi"
+          ]
+        },
+        {
+          "name": "department",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 3,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 3,
+            "top_values": {
+              "Engineering": 6,
+              "Sales": 5,
+              "Marketing": 4
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Engineering",
+            "Engineering",
+            "Sales",
+            "Sales",
+            "Marketing"
+          ]
+        },
+        {
+          "name": "city",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 9,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 9,
+            "top_values": {
+              "London": 3,
+              "Berlin": 3,
+              "Madrid": 2,
+              "Tokyo": 2,
+              "Dublin": 1,
+              "Stockholm": 1,
+              "Seoul": 1,
+              "Lagos": 1,
+              "Rome": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "London",
+            "Berlin",
+            "Madrid",
+            "Seoul",
+            "Rome"
+          ]
+        },
+        {
+          "name": "hire_date",
+          "spark_dtype": "date",
+          "semantic_type": "unknown",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "2022-01-15",
+            "2022-03-20",
+            "2022-05-10",
+            "2022-07-01",
+            "2022-09-12"
+          ]
+        },
+        {
+          "name": "salary",
+          "spark_dtype": "int",
+          "semantic_type": "integer",
+          "non_null_count": 13,
+          "null_count": 2,
+          "null_percentage": 13.33,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 49000.0,
+            "max": 75000.0,
+            "mean": 62000.0,
+            "stddev": 8850.612,
+            "median_approx": 60000.0,
+            "q1": 55000.0,
+            "q3": 71000.0,
+            "outlier_lower_bound": 31000.0,
+            "outlier_upper_bound": 95000.0,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "72000",
+            "55000",
+            "58000",
+            "61000",
+            "75000"
+          ]
+        },
+        {
+          "name": "rating",
+          "spark_dtype": "double",
+          "semantic_type": "float",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 3.5,
+            "max": 4.8,
+            "mean": 4.14,
+            "stddev": 0.405,
+            "median_approx": 4.1,
+            "q1": 3.8,
+            "q3": 4.5,
+            "outlier_lower_bound": 2.7499999999999996,
+            "outlier_upper_bound": 5.550000000000001,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "4.2",
+            "3.8",
+            "4.5",
+            "3.9",
+            "4.1"
+          ]
+        }
+      ],
+      "duplicate_summary": {
+        "exact_duplicate_row_count": 0,
+        "id_like_columns": [
+          "_row_id"
+        ],
+        "duplicate_candidates": []
+      },
+      "generated_at": "2026-11-04T16:06:01.555012Z"
+    },
+    "evidence": [
+      {
+        "issue_type": "missing_values",
+        "columns": [
+          "salary"
+        ],
+        "description": "2 of 15 rows have a missing value in 'salary' (13.33%).",
+        "supporting_data": {
+          "null_count": 2,
+          "null_percentage": 13.33,
+          "semantic_type": "integer"
+        }
+      }
+    ]
+  },
+  "ai_metadata": {
+    "provider": "ollama",
+    "model": "qwen2.5-coder:3b",
+    "prompt_version": "recommendation-prompt-v1",
+    "recommendation_count": 3,
+    "generated_at": "2026-11-04T16:08:44.036170Z"
+  },
+  "recommendation_records": [
+    {
+      "recommendation": {
+        "recommendation_id": "fd7198e0-e289-4600-9257-ce5efec2ffc4",
+        "operation": "TRIM_WHITESPACE",
+        "target_columns": [
+          "name",
+          "department",
+          "city"
+        ],
+        "parameters": {},
+        "reason": "The 'name', 'department', and 'city' columns may contain leading/trailing whitespace that could affect data analysis.",
+        "evidence_refs": [
+          {
+            "issue_type": "whitespace_or_casing",
+            "columns": [
+              "name",
+              "department",
+              "city"
+            ],
+            "claim": "The 'name', 'department', and 'city' columns have whitespace affected counts of 0, indicating no whitespace issues.",
+            "claimed_values": {
+              "name": 0,
+              "department": 0,
+              "city": 0
+            }
+          }
+        ],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "fd7198e0-e289-4600-9257-ce5efec2ffc4",
+        "operation": "TRIM_WHITESPACE",
+        "status": "rejected",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": true,
+            "message": "'TRIM_WHITESPACE' is a registered P0 operation."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": true,
+            "message": "Not on the forbidden list."
+          },
+          {
+            "rule": "target_columns_exist",
+            "passed": true,
+            "message": "All target column(s) exist: ['name', 'department', 'city']."
+          },
+          {
+            "rule": "dtype_compatible",
+            "passed": true,
+            "message": "Target column(s) have a compatible semantic type."
+          },
+          {
+            "rule": "parameters_valid",
+            "passed": true,
+            "message": "All declared parameters present, well-typed, and within allowed values."
+          },
+          {
+            "rule": "safety_class_respected",
+            "passed": true,
+            "message": "Operation tier is 'safe'; final status is capped accordingly regardless of other checks."
+          },
+          {
+            "rule": "evidence_exists",
+            "passed": false,
+            "message": "No matching evidence found in the Spark profile for issue type(s) ['whitespace_or_casing'] on column(s) ['name', 'department', 'city']. The recommendation is not independently supported by the profile."
+          },
+          {
+            "rule": "evidence_supports_claim",
+            "passed": false,
+            "message": "Skipped: no evidence was found to check the claim against."
+          }
+        ],
+        "summary": "Failed one or more validation checks; not eligible for execution."
+      },
+      "decision": "rejected_by_user"
+    },
+    {
+      "recommendation": {
+        "recommendation_id": "0e7a9569-3e7e-49ac-88ca-971fb2bf385f",
+        "operation": "NORMALIZE_CASE",
+        "target_columns": [
+          "name",
+          "department",
+          "city"
+        ],
+        "parameters": {
+          "target_case": "lower"
+        },
+        "reason": "Consistent case normalization can improve data comparability and reduce errors.",
+        "evidence_refs": [
+          {
+            "issue_type": "whitespace_or_casing",
+            "columns": [
+              "name",
+              "department",
+              "city"
+            ],
+            "claim": "The 'name', 'department', and 'city' columns have whitespace affected counts of 0, indicating no whitespace issues.",
+            "claimed_values": {
+              "name": 0,
+              "department": 0,
+              "city": 0
+            }
+          }
+        ],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "0e7a9569-3e7e-49ac-88ca-971fb2bf385f",
+        "operation": "NORMALIZE_CASE",
+        "status": "rejected",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": true,
+            "message": "'NORMALIZE_CASE' is a registered P0 operation."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": true,
+            "message": "Not on the forbidden list."
+          },
+          {
+            "rule": "target_columns_exist",
+            "passed": true,
+            "message": "All target column(s) exist: ['name', 'department', 'city']."
+          },
+          {
+            "rule": "dtype_compatible",
+            "passed": true,
+            "message": "Target column(s) have a compatible semantic type."
+          },
+          {
+            "rule": "parameters_valid",
+            "passed": true,
+            "message": "All declared parameters present, well-typed, and within allowed values."
+          },
+          {
+            "rule": "safety_class_respected",
+            "passed": true,
+            "message": "Operation tier is 'safe'; final status is capped accordingly regardless of other checks."
+          },
+          {
+            "rule": "evidence_exists",
+            "passed": false,
+            "message": "No matching evidence found in the Spark profile for issue type(s) ['categorical_inconsistency', 'whitespace_or_casing'] on column(s) ['name', 'department', 'city']. The recommendation is not independently supported by the profile."
+          },
+          {
+            "rule": "evidence_supports_claim",
+            "passed": false,
+            "message": "Skipped: no evidence was found to check the claim against."
+          }
+        ],
+        "summary": "Failed one or more validation checks; not eligible for execution."
+      },
+      "decision": "rejected_by_user"
+    },
+    {
+      "recommendation": {
+        "recommendation_id": "d13be3bb-b9f8-4576-9c19-d8073bb9b728",
+        "operation": "FILL_MISSING",
+        "target_columns": [
+          "salary"
+        ],
+        "parameters": {
+          "strategy": "mean",
+          "fill_value": null
+        },
+        "reason": "Filling missing salary values with the mean can help maintain data integrity and reduce bias.",
+        "evidence_refs": [
+          {
+            "issue_type": "missing_values",
+            "columns": [
+              "salary"
+            ],
+            "claim": "The 'salary' column has 2 missing values, which is 13.33% of the total rows.",
+            "claimed_values": {
+              "null_count": 2,
+              "null_percentage": 13.33
+            }
+          }
+        ],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "d13be3bb-b9f8-4576-9c19-d8073bb9b728",
+        "operation": "FILL_MISSING",
+        "status": "rejected",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": true,
+            "message": "'FILL_MISSING' is a registered P0 operation."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": true,
+            "message": "Not on the forbidden list."
+          },
+          {
+            "rule": "target_columns_exist",
+            "passed": true,
+            "message": "All target column(s) exist: ['salary']."
+          },
+          {
+            "rule": "dtype_compatible",
+            "passed": true,
+            "message": "Target column(s) have a compatible semantic type."
+          },
+          {
+            "rule": "parameters_valid",
+            "passed": false,
+            "message": "parameter 'fill_value' expected type 'str', got 'NoneType'"
+          }
+        ],
+        "summary": "Failed one or more validation checks; not eligible for execution."
+      },
+      "decision": "rejected_by_user"
+    }
+  ],
+  "execution_plan": {
+    "run_id": "f5b57d7f-f95d-49ad-bcf4-6e9963ee8938",
+    "dataset_path": "data/research/S4_missing.csv",
+    "operations": [],
+    "created_at": "2026-11-04T16:08:44.183745Z"
+  },
+  "execution_summary": {
+    "operations_attempted": 0,
+    "operations_succeeded": 0,
+    "operations_failed": 0,
+    "operations_skipped": 0,
+    "operation_results": [],
+    "output_dataset_path": "/mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/runs/f5b57d7f-f95d-49ad-bcf4-6e9963ee8938/cleaned.csv",
+    "schema_before": [
+      {
+        "name": "_row_id",
+        "dtype": "string"
+      },
+      {
+        "name": "name",
+        "dtype": "string"
+      },
+      {
+        "name": "department",
+        "dtype": "string"
+      },
+      {
+        "name": "city",
+        "dtype": "string"
+      },
+      {
+        "name": "hire_date",
+        "dtype": "date"
+      },
+      {
+        "name": "salary",
+        "dtype": "int"
+      },
+      {
+        "name": "rating",
+        "dtype": "double"
+      }
+    ],
+    "schema_after": [
+      {
+        "name": "_row_id",
+        "dtype": "string"
+      },
+      {
+        "name": "name",
+        "dtype": "string"
+      },
+      {
+        "name": "department",
+        "dtype": "string"
+      },
+      {
+        "name": "city",
+        "dtype": "string"
+      },
+      {
+        "name": "hire_date",
+        "dtype": "date"
+      },
+      {
+        "name": "salary",
+        "dtype": "int"
+      },
+      {
+        "name": "rating",
+        "dtype": "double"
+      }
+    ],
+    "notes": "All operations succeeded."
+  },
+  "after_profile_result": null,
+  "quality_comparison": null,
+  "recommendation_outcomes": [],
+  "insight_artifact": null,
+  "timeline": [
+    {
+      "status": "ingested",
+      "message": "Dataset 'S4_missing__b79671a4-961c-47d4-b823-13eded5bc942__converge' ingested from data/research/S4_missing.csv.",
+      "timestamp": "2026-11-04T16:05:48.822963Z"
+    },
+    {
+      "status": "profiled",
+      "message": "Profiled dataset: 15 rows, 7 columns, 1 evidence item(s).",
+      "timestamp": "2026-11-04T16:06:01.555167Z"
+    },
+    {
+      "status": "ai_analyzed",
+      "message": "AI stage (ollama/qwen2.5-coder:3b) returned 3 recommendation(s).",
+      "timestamp": "2026-11-04T16:08:44.037666Z"
+    },
+    {
+      "status": "validated",
+      "message": "Validated 3 recommendation(s).",
+      "timestamp": "2026-11-04T16:08:44.094577Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "Pipeline is awaiting user approval. No recommendation executes until the user explicitly applies it and execution is explicitly triggered.",
+      "timestamp": "2026-11-04T16:08:44.095682Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=rejected_by_user for recommendation 'fd7198e0-e289-4600-9257-ce5efec2ffc4' (operation=TRIM_WHITESPACE). Pipeline status unchanged.",
+      "timestamp": "2026-11-04T16:08:44.124026Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=rejected_by_user for recommendation '0e7a9569-3e7e-49ac-88ca-971fb2bf385f' (operation=NORMALIZE_CASE). Pipeline status unchanged.",
+      "timestamp": "2026-11-04T16:08:44.145203Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=rejected_by_user for recommendation 'd13be3bb-b9f8-4576-9c19-d8073bb9b728' (operation=FILL_MISSING). Pipeline status unchanged.",
+      "timestamp": "2026-11-04T16:08:44.166721Z"
+    },
+    {
+      "status": "executing",
+      "message": "Execution plan built with 0 user-approved, validator-eligible operation(s).",
+      "timestamp": "2026-11-04T16:08:44.183919Z"
+    },
+    {
+      "status": "cleaned",
+      "message": "Execution completed: 0 approved operation(s) applied successfully. This means the approved transformations completed -- it does not mean the dataset is free of remaining data-quality issues; re-profiling the output is required to measure that.",
+      "timestamp": "2026-11-04T16:08:49.441245Z"
+    }
+  ],
+  "error": null,
+  "created_at": "2026-11-04T16:05:48.822931Z",
+  "updated_at": "2026-11-04T16:08:49.441219Z"
+}

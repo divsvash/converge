@@ -1,0 +1,964 @@
+{
+  "run_id": "8acece4e-5520-4c36-8222-edbabdcc68e5",
+  "dataset_id": "S6_mixed__21c48c33-d620-4ac8-bddd-1377036f3cfd__converge",
+  "dataset_path": "data/research/S6_mixed.csv",
+  "status": "cleaned",
+  "profile_result": {
+    "profile": {
+      "dataset_id": "S6_mixed__21c48c33-d620-4ac8-bddd-1377036f3cfd__converge",
+      "row_count": 17,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "_row_id",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 17,
+          "is_id_like": true,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "R001",
+            "R002",
+            "R003",
+            "R004",
+            "R005"
+          ]
+        },
+        {
+          "name": "name",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 17,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 17,
+            "top_values": {
+              "Alice Martin": 1,
+              "Frank Mueller": 1,
+              "Keiko Sato": 1,
+              "Elena Rossi": 1,
+              "Grace Tanaka  ": 1,
+              "James Wilson": 1,
+              "Liam Murphy": 1,
+              "Bob Chen": 1,
+              "Henry Okonkwo": 1,
+              "Ingrid Larsson": 1,
+              "Maria Santos": 1,
+              "Carol Diaz": 1,
+              "  Carol Diaz": 1,
+              "  David Kim  ": 1,
+              "Nikolai Petrov": 1,
+              "Olivia Brown": 1,
+              "David Kim": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 3
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Alice Martin",
+            "Bob Chen",
+            "  Carol Diaz",
+            "  David Kim  ",
+            "Elena Rossi"
+          ]
+        },
+        {
+          "name": "department",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 6,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 6,
+            "top_values": {
+              "Sales": 7,
+              "Engineering": 4,
+              "Marketing": 3,
+              "ENGINEERING": 1,
+              "engineering": 1,
+              "mARKETING": 1
+            },
+            "variant_groups": [
+              {
+                "normalized_key": "marketing",
+                "variants": {
+                  "Marketing": 3,
+                  "mARKETING": 1
+                }
+              },
+              {
+                "normalized_key": "engineering",
+                "variants": {
+                  "ENGINEERING": 1,
+                  "engineering": 1,
+                  "Engineering": 4
+                }
+              }
+            ],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "engineering",
+            "ENGINEERING",
+            "Sales",
+            "Sales",
+            "Marketing"
+          ]
+        },
+        {
+          "name": "city",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 9,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 9,
+            "top_values": {
+              "Madrid": 3,
+              "London": 3,
+              "Berlin": 3,
+              "Tokyo": 2,
+              "Seoul": 2,
+              "Dublin": 1,
+              "Stockholm": 1,
+              "Lagos": 1,
+              "Rome": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "London",
+            "Berlin",
+            "Madrid",
+            "Seoul",
+            "Rome"
+          ]
+        },
+        {
+          "name": "hire_date",
+          "spark_dtype": "string",
+          "semantic_type": "date_like_string",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": {
+            "detected_patterns": {
+              "YYYY-MM-DD": 14,
+              "DD/MM/YYYY_or_MM/DD/YYYY": 3
+            },
+            "unparseable_count": 0
+          },
+          "sample_values": [
+            "15/01/2022",
+            "20/03/2022",
+            "2022-05-10",
+            "2022-07-01",
+            "2022-09-12"
+          ]
+        },
+        {
+          "name": "salary",
+          "spark_dtype": "int",
+          "semantic_type": "integer",
+          "non_null_count": 15,
+          "null_count": 2,
+          "null_percentage": 11.76,
+          "distinct_count": 16,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 49000.0,
+            "max": 75000.0,
+            "mean": 61733.3333,
+            "stddev": 8762.4741,
+            "median_approx": 60000.0,
+            "q1": 54000.0,
+            "q3": 71000.0,
+            "outlier_lower_bound": 28500.0,
+            "outlier_upper_bound": 96500.0,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "72000",
+            "68000",
+            "61000",
+            "75000",
+            "53000"
+          ]
+        },
+        {
+          "name": "rating",
+          "spark_dtype": "double",
+          "semantic_type": "float",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 3.5,
+            "max": 4.8,
+            "mean": 4.1471,
+            "stddev": 0.3939,
+            "median_approx": 4.1,
+            "q1": 3.9,
+            "q3": 4.5,
+            "outlier_lower_bound": 3.0,
+            "outlier_upper_bound": 5.4,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "4.2",
+            "3.8",
+            "4.5",
+            "3.9",
+            "4.1"
+          ]
+        }
+      ],
+      "duplicate_summary": {
+        "exact_duplicate_row_count": 0,
+        "id_like_columns": [
+          "_row_id"
+        ],
+        "duplicate_candidates": []
+      },
+      "generated_at": "2026-11-04T16:48:30.251449Z"
+    },
+    "evidence": [
+      {
+        "issue_type": "whitespace_or_casing",
+        "columns": [
+          "name"
+        ],
+        "description": "3 values in 'name' have leading/trailing whitespace.",
+        "supporting_data": {
+          "affected_count": 3,
+          "sample_values": [
+            "Alice Martin",
+            "Bob Chen",
+            "  Carol Diaz",
+            "  David Kim  ",
+            "Elena Rossi"
+          ]
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "department"
+        ],
+        "description": "Column 'department' has 2 distinct raw values that normalize to 'marketing'.",
+        "supporting_data": {
+          "variants": {
+            "Marketing": 3,
+            "mARKETING": 1
+          }
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "department"
+        ],
+        "description": "Column 'department' has 3 distinct raw values that normalize to 'engineering'.",
+        "supporting_data": {
+          "variants": {
+            "ENGINEERING": 1,
+            "engineering": 1,
+            "Engineering": 4
+          }
+        }
+      },
+      {
+        "issue_type": "date_format_inconsistency",
+        "columns": [
+          "hire_date"
+        ],
+        "description": "Column 'hire_date' contains 2 different date formats.",
+        "supporting_data": {
+          "detected_patterns": {
+            "YYYY-MM-DD": 14,
+            "DD/MM/YYYY_or_MM/DD/YYYY": 3
+          }
+        }
+      },
+      {
+        "issue_type": "missing_values",
+        "columns": [
+          "salary"
+        ],
+        "description": "2 of 17 rows have a missing value in 'salary' (11.76%).",
+        "supporting_data": {
+          "null_count": 2,
+          "null_percentage": 11.76,
+          "semantic_type": "integer"
+        }
+      }
+    ]
+  },
+  "ai_metadata": {
+    "provider": "ollama",
+    "model": "qwen2.5-coder:3b",
+    "prompt_version": "recommendation-prompt-v1",
+    "recommendation_count": 5,
+    "generated_at": "2026-11-04T16:53:54.496400Z"
+  },
+  "recommendation_records": [
+    {
+      "recommendation": {
+        "recommendation_id": "7d1e5f80-16da-4553-a34f-9a36f2669ed6",
+        "operation": "TRIM_WHITESPACE",
+        "target_columns": [
+          "name"
+        ],
+        "parameters": {},
+        "reason": "The 'name' column has 3 values with leading/trailing whitespace, which can be cleaned using the TRIM_WHITESPACE operation.",
+        "evidence_refs": [
+          {
+            "issue_type": "whitespace_or_casing",
+            "columns": [
+              "name"
+            ],
+            "claim": "affected_count: 3, sample_values: ['Alice Martin', 'Bob Chen', '  Carol Diaz', '  David Kim  ', 'Elena Rossi']",
+            "claimed_values": {
+              "affected_count": 3,
+              "sample_values": [
+                "Alice Martin",
+                "Bob Chen",
+                "  Carol Diaz",
+                "  David Kim  ",
+                "Elena Rossi"
+              ]
+            }
+          }
+        ],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "7d1e5f80-16da-4553-a34f-9a36f2669ed6",
+        "operation": "TRIM_WHITESPACE",
+        "status": "approved_auto",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": true,
+            "message": "'TRIM_WHITESPACE' is a registered P0 operation."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": true,
+            "message": "Not on the forbidden list."
+          },
+          {
+            "rule": "target_columns_exist",
+            "passed": true,
+            "message": "All target column(s) exist: ['name']."
+          },
+          {
+            "rule": "dtype_compatible",
+            "passed": true,
+            "message": "Target column(s) have a compatible semantic type."
+          },
+          {
+            "rule": "parameters_valid",
+            "passed": true,
+            "message": "All declared parameters present, well-typed, and within allowed values."
+          },
+          {
+            "rule": "safety_class_respected",
+            "passed": true,
+            "message": "Operation tier is 'safe'; final status is capped accordingly regardless of other checks."
+          },
+          {
+            "rule": "evidence_exists",
+            "passed": true,
+            "message": "Found 1 matching evidence item(s) in the profile."
+          },
+          {
+            "rule": "evidence_supports_claim",
+            "passed": true,
+            "message": "Recommendation's claims are consistent with the actual profile evidence."
+          },
+          {
+            "rule": "finding_only_not_executable",
+            "passed": true,
+            "message": "Not a finding-only operation."
+          }
+        ],
+        "summary": "Passed all automated checks; eligible for execution once a user explicitly applies it."
+      },
+      "decision": "approved_by_user"
+    },
+    {
+      "recommendation": {
+        "recommendation_id": "36532f2f-6dbd-4c72-bf05-e4ce66b0e91a",
+        "operation": "NORMALIZE_CASE",
+        "target_columns": [
+          "name"
+        ],
+        "parameters": {
+          "target_case": "lower"
+        },
+        "reason": "The 'name' column has inconsistent casing, which can be normalized to lowercase using the NORMALIZE_CASE operation.",
+        "evidence_refs": [
+          {
+            "issue_type": "whitespace_or_casing",
+            "columns": [
+              "name"
+            ],
+            "claim": "variants: {'Marketing': 3, 'mARKETING': 1}",
+            "claimed_values": {
+              "variants": {
+                "Marketing": 3,
+                "mARKETING": 1
+              }
+            }
+          },
+          {
+            "issue_type": "categorical_inconsistency",
+            "columns": [
+              "department"
+            ],
+            "claim": "variants: {'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}",
+            "claimed_values": {
+              "variants": {
+                "ENGINEERING": 1,
+                "engineering": 1,
+                "Engineering": 4
+              }
+            }
+          }
+        ],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "36532f2f-6dbd-4c72-bf05-e4ce66b0e91a",
+        "operation": "NORMALIZE_CASE",
+        "status": "approved_auto",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": true,
+            "message": "'NORMALIZE_CASE' is a registered P0 operation."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": true,
+            "message": "Not on the forbidden list."
+          },
+          {
+            "rule": "target_columns_exist",
+            "passed": true,
+            "message": "All target column(s) exist: ['name']."
+          },
+          {
+            "rule": "dtype_compatible",
+            "passed": true,
+            "message": "Target column(s) have a compatible semantic type."
+          },
+          {
+            "rule": "parameters_valid",
+            "passed": true,
+            "message": "All declared parameters present, well-typed, and within allowed values."
+          },
+          {
+            "rule": "safety_class_respected",
+            "passed": true,
+            "message": "Operation tier is 'safe'; final status is capped accordingly regardless of other checks."
+          },
+          {
+            "rule": "evidence_exists",
+            "passed": true,
+            "message": "Found 1 matching evidence item(s) in the profile."
+          },
+          {
+            "rule": "evidence_supports_claim",
+            "passed": true,
+            "message": "Recommendation's claims are consistent with the actual profile evidence."
+          },
+          {
+            "rule": "finding_only_not_executable",
+            "passed": true,
+            "message": "Not a finding-only operation."
+          }
+        ],
+        "summary": "Passed all automated checks; eligible for execution once a user explicitly applies it."
+      },
+      "decision": "approved_by_user"
+    },
+    {
+      "recommendation": {
+        "recommendation_id": "07cf58a2-8ce1-4648-b603-f8320e238478",
+        "operation": "STANDARDIZE_CATEGORY",
+        "target_columns": [
+          "department"
+        ],
+        "parameters": {
+          "mapping": {
+            "marketing": "marketing",
+            "engineering": "engineering"
+          }
+        },
+        "reason": "The 'department' column has inconsistent values that can be standardized to 'marketing' and 'engineering' using the STANDARDIZE_CATEGORY operation.",
+        "evidence_refs": [
+          {
+            "issue_type": "categorical_inconsistency",
+            "columns": [
+              "department"
+            ],
+            "claim": "variants: {'Marketing': 3, 'mARKETING': 1}",
+            "claimed_values": {
+              "variants": {
+                "Marketing": 3,
+                "mARKETING": 1
+              }
+            }
+          },
+          {
+            "issue_type": "categorical_inconsistency",
+            "columns": [
+              "department"
+            ],
+            "claim": "variants: {'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}",
+            "claimed_values": {
+              "variants": {
+                "ENGINEERING": 1,
+                "engineering": 1,
+                "Engineering": 4
+              }
+            }
+          }
+        ],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "07cf58a2-8ce1-4648-b603-f8320e238478",
+        "operation": "STANDARDIZE_CATEGORY",
+        "status": "rejected",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": true,
+            "message": "'STANDARDIZE_CATEGORY' is a registered P0 operation."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": true,
+            "message": "Not on the forbidden list."
+          },
+          {
+            "rule": "target_columns_exist",
+            "passed": true,
+            "message": "All target column(s) exist: ['department']."
+          },
+          {
+            "rule": "dtype_compatible",
+            "passed": true,
+            "message": "Target column(s) have a compatible semantic type."
+          },
+          {
+            "rule": "parameters_valid",
+            "passed": true,
+            "message": "All declared parameters present, well-typed, and within allowed values."
+          },
+          {
+            "rule": "safety_class_respected",
+            "passed": true,
+            "message": "Operation tier is 'safe'; final status is capped accordingly regardless of other checks."
+          },
+          {
+            "rule": "evidence_exists",
+            "passed": true,
+            "message": "Found 2 matching evidence item(s) in the profile."
+          },
+          {
+            "rule": "evidence_supports_claim",
+            "passed": false,
+            "message": "Claimed value for 'variants' ({'ENGINEERING': 1, 'engineering': 1, 'Engineering': 4}) contradicts the actual profile evidence ({'Marketing': 3, 'mARKETING': 1}) for column(s) ['department']."
+          }
+        ],
+        "summary": "Failed one or more validation checks; not eligible for execution."
+      },
+      "decision": "rejected_by_user"
+    },
+    {
+      "recommendation": {
+        "recommendation_id": "a1fc9537-d3c5-4d73-b03c-39d1e3faeca1",
+        "operation": "STANDARDIZE_DATE_FORMAT",
+        "target_columns": [
+          "hire_date"
+        ],
+        "parameters": {
+          "target_format": "YYYY-MM-DD"
+        },
+        "reason": "The 'hire_date' column contains 2 different date formats, which can be standardized to 'YYYY-MM-DD' using the STANDARDIZE_DATE_FORMAT operation.",
+        "evidence_refs": [
+          {
+            "issue_type": "date_format_inconsistency",
+            "columns": [
+              "hire_date"
+            ],
+            "claim": "detected_patterns: {'YYYY-MM-DD': 14, 'DD/MM/YYYY_or_MM/DD/YYYY': 3}",
+            "claimed_values": {
+              "detected_patterns": {
+                "YYYY-MM-DD": 14,
+                "DD/MM/YYYY_or_MM/DD/YYYY": 3
+              }
+            }
+          }
+        ],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "a1fc9537-d3c5-4d73-b03c-39d1e3faeca1",
+        "operation": "STANDARDIZE_DATE_FORMAT",
+        "status": "approved_auto",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": true,
+            "message": "'STANDARDIZE_DATE_FORMAT' is a registered P0 operation."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": true,
+            "message": "Not on the forbidden list."
+          },
+          {
+            "rule": "target_columns_exist",
+            "passed": true,
+            "message": "All target column(s) exist: ['hire_date']."
+          },
+          {
+            "rule": "dtype_compatible",
+            "passed": true,
+            "message": "Target column(s) have a compatible semantic type."
+          },
+          {
+            "rule": "parameters_valid",
+            "passed": true,
+            "message": "All declared parameters present, well-typed, and within allowed values."
+          },
+          {
+            "rule": "safety_class_respected",
+            "passed": true,
+            "message": "Operation tier is 'safe'; final status is capped accordingly regardless of other checks."
+          },
+          {
+            "rule": "evidence_exists",
+            "passed": true,
+            "message": "Found 1 matching evidence item(s) in the profile."
+          },
+          {
+            "rule": "evidence_supports_claim",
+            "passed": true,
+            "message": "Recommendation's claims are consistent with the actual profile evidence."
+          },
+          {
+            "rule": "finding_only_not_executable",
+            "passed": true,
+            "message": "Not a finding-only operation."
+          }
+        ],
+        "summary": "Passed all automated checks; eligible for execution once a user explicitly applies it."
+      },
+      "decision": "approved_by_user"
+    },
+    {
+      "recommendation": {
+        "recommendation_id": "8ac62a75-c55c-4c3e-8a0b-2bd6c5013934",
+        "operation": "FILL_MISSING",
+        "target_columns": [
+          "salary"
+        ],
+        "parameters": {
+          "strategy": "mean",
+          "fill_value": null
+        },
+        "reason": "The 'salary' column has 2 missing values, which can be filled with the mean salary using the FILL_MISSING operation.",
+        "evidence_refs": [
+          {
+            "issue_type": "missing_values",
+            "columns": [
+              "salary"
+            ],
+            "claim": "null_count: 2, null_percentage: 11.76, semantic_type: integer",
+            "claimed_values": {
+              "null_count": 2,
+              "null_percentage": 11.76,
+              "semantic_type": "integer"
+            }
+          }
+        ],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "8ac62a75-c55c-4c3e-8a0b-2bd6c5013934",
+        "operation": "FILL_MISSING",
+        "status": "rejected",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": true,
+            "message": "'FILL_MISSING' is a registered P0 operation."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": true,
+            "message": "Not on the forbidden list."
+          },
+          {
+            "rule": "target_columns_exist",
+            "passed": true,
+            "message": "All target column(s) exist: ['salary']."
+          },
+          {
+            "rule": "dtype_compatible",
+            "passed": true,
+            "message": "Target column(s) have a compatible semantic type."
+          },
+          {
+            "rule": "parameters_valid",
+            "passed": false,
+            "message": "parameter 'fill_value' expected type 'str', got 'NoneType'"
+          }
+        ],
+        "summary": "Failed one or more validation checks; not eligible for execution."
+      },
+      "decision": "rejected_by_user"
+    }
+  ],
+  "execution_plan": {
+    "run_id": "8acece4e-5520-4c36-8222-edbabdcc68e5",
+    "dataset_path": "data/research/S6_mixed.csv",
+    "operations": [
+      {
+        "recommendation_id": "7d1e5f80-16da-4553-a34f-9a36f2669ed6",
+        "operation": "TRIM_WHITESPACE",
+        "target_columns": [
+          "name"
+        ],
+        "parameters": {}
+      },
+      {
+        "recommendation_id": "36532f2f-6dbd-4c72-bf05-e4ce66b0e91a",
+        "operation": "NORMALIZE_CASE",
+        "target_columns": [
+          "name"
+        ],
+        "parameters": {
+          "target_case": "lower"
+        }
+      },
+      {
+        "recommendation_id": "a1fc9537-d3c5-4d73-b03c-39d1e3faeca1",
+        "operation": "STANDARDIZE_DATE_FORMAT",
+        "target_columns": [
+          "hire_date"
+        ],
+        "parameters": {
+          "target_format": "YYYY-MM-DD"
+        }
+      }
+    ],
+    "created_at": "2026-11-04T16:53:54.749147Z"
+  },
+  "execution_summary": {
+    "operations_attempted": 3,
+    "operations_succeeded": 3,
+    "operations_failed": 0,
+    "operations_skipped": 0,
+    "operation_results": [
+      {
+        "recommendation_id": "7d1e5f80-16da-4553-a34f-9a36f2669ed6",
+        "operation": "TRIM_WHITESPACE",
+        "target_columns": [
+          "name"
+        ],
+        "status": "succeeded",
+        "rows_affected": 3,
+        "error": null
+      },
+      {
+        "recommendation_id": "36532f2f-6dbd-4c72-bf05-e4ce66b0e91a",
+        "operation": "NORMALIZE_CASE",
+        "target_columns": [
+          "name"
+        ],
+        "status": "succeeded",
+        "rows_affected": 17,
+        "error": null
+      },
+      {
+        "recommendation_id": "a1fc9537-d3c5-4d73-b03c-39d1e3faeca1",
+        "operation": "STANDARDIZE_DATE_FORMAT",
+        "target_columns": [
+          "hire_date"
+        ],
+        "status": "succeeded",
+        "rows_affected": 3,
+        "error": null
+      }
+    ],
+    "output_dataset_path": "/mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/runs/8acece4e-5520-4c36-8222-edbabdcc68e5/cleaned.csv",
+    "schema_before": [
+      {
+        "name": "_row_id",
+        "dtype": "string"
+      },
+      {
+        "name": "name",
+        "dtype": "string"
+      },
+      {
+        "name": "department",
+        "dtype": "string"
+      },
+      {
+        "name": "city",
+        "dtype": "string"
+      },
+      {
+        "name": "hire_date",
+        "dtype": "string"
+      },
+      {
+        "name": "salary",
+        "dtype": "int"
+      },
+      {
+        "name": "rating",
+        "dtype": "double"
+      }
+    ],
+    "schema_after": [
+      {
+        "name": "_row_id",
+        "dtype": "string"
+      },
+      {
+        "name": "name",
+        "dtype": "string"
+      },
+      {
+        "name": "department",
+        "dtype": "string"
+      },
+      {
+        "name": "city",
+        "dtype": "string"
+      },
+      {
+        "name": "hire_date",
+        "dtype": "string"
+      },
+      {
+        "name": "salary",
+        "dtype": "int"
+      },
+      {
+        "name": "rating",
+        "dtype": "double"
+      }
+    ],
+    "notes": "All operations succeeded."
+  },
+  "after_profile_result": null,
+  "quality_comparison": null,
+  "recommendation_outcomes": [],
+  "insight_artifact": null,
+  "timeline": [
+    {
+      "status": "ingested",
+      "message": "Dataset 'S6_mixed__21c48c33-d620-4ac8-bddd-1377036f3cfd__converge' ingested from data/research/S6_mixed.csv.",
+      "timestamp": "2026-11-04T16:48:20.956440Z"
+    },
+    {
+      "status": "profiled",
+      "message": "Profiled dataset: 17 rows, 7 columns, 5 evidence item(s).",
+      "timestamp": "2026-11-04T16:48:30.252564Z"
+    },
+    {
+      "status": "ai_analyzed",
+      "message": "AI stage (ollama/qwen2.5-coder:3b) returned 5 recommendation(s).",
+      "timestamp": "2026-11-04T16:53:54.499140Z"
+    },
+    {
+      "status": "validated",
+      "message": "Validated 5 recommendation(s).",
+      "timestamp": "2026-11-04T16:53:54.574214Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "Pipeline is awaiting user approval. No recommendation executes until the user explicitly applies it and execution is explicitly triggered.",
+      "timestamp": "2026-11-04T16:53:54.575496Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=approved_by_user for recommendation '7d1e5f80-16da-4553-a34f-9a36f2669ed6' (operation=TRIM_WHITESPACE). Pipeline status unchanged.",
+      "timestamp": "2026-11-04T16:53:54.610218Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=approved_by_user for recommendation '36532f2f-6dbd-4c72-bf05-e4ce66b0e91a' (operation=NORMALIZE_CASE). Pipeline status unchanged.",
+      "timestamp": "2026-11-04T16:53:54.642844Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=rejected_by_user for recommendation '07cf58a2-8ce1-4648-b603-f8320e238478' (operation=STANDARDIZE_CATEGORY). Pipeline status unchanged.",
+      "timestamp": "2026-11-04T16:53:54.665039Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=approved_by_user for recommendation 'a1fc9537-d3c5-4d73-b03c-39d1e3faeca1' (operation=STANDARDIZE_DATE_FORMAT). Pipeline status unchanged.",
+      "timestamp": "2026-11-04T16:53:54.690539Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=rejected_by_user for recommendation '8ac62a75-c55c-4c3e-8a0b-2bd6c5013934' (operation=FILL_MISSING). Pipeline status unchanged.",
+      "timestamp": "2026-11-04T16:53:54.719295Z"
+    },
+    {
+      "status": "executing",
+      "message": "Execution plan built with 3 user-approved, validator-eligible operation(s).",
+      "timestamp": "2026-11-04T16:53:54.749389Z"
+    },
+    {
+      "status": "cleaned",
+      "message": "Execution completed: 3 approved operation(s) applied successfully. This means the approved transformations completed -- it does not mean the dataset is free of remaining data-quality issues; re-profiling the output is required to measure that.",
+      "timestamp": "2026-11-04T16:54:03.628787Z"
+    }
+  ],
+  "error": null,
+  "created_at": "2026-11-04T16:48:20.955806Z",
+  "updated_at": "2026-11-04T16:54:03.628771Z"
+}
