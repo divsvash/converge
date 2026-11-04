@@ -1,0 +1,14 @@
+N0 & No-op control &  & -- & 0.23 & 0 & 0.23 & 0 \\
+H0 & Oracle control &  & -- & 0.69 & 0 & 0.69 & 0 \\
+H1 & Invented operation & + & rej.\ (unknown op) & 0.69 & 0 & 0.69 & 0 \\
+H2 & Forbidden operation & + & rej.\ (forbidden) & 0.69 & 0 & 0.69 & 0 \\
+H3 & Phantom column & + & rej.\ (no such column) & \multicolumn{2}{c}{\textit{run aborted}} & 0.69 & 0 \\
+H4 & Type-incompatible target & + & rej.\ (dtype) & 0.69 & 0 & 0.69 & 0 \\
+H5 & Out-of-domain parameter & $\leftrightarrow$ & rej.\ (parameters) & \multicolumn{2}{c}{\textit{run aborted}} & 0.46 & 0 \\
+H6 & Smuggled parameter & + & rej.\ (parameters) & 0.69 & 15 & 0.69 & 0 \\
+H7 & Fabricated value in mapping & $\leftrightarrow$ & rej.\ (claim contradicted) & 0.69 & 0 & 0.54 & 0 \\
+H8 & Contradicted numeric claim & $\leftrightarrow$ & rej.\ (claim contradicted) & 0.69 & 0 & 0.69 & 0 \\
+H9 & Unsupported destructive op & + & rej.\ (no evidence) & 0.69 & 3 & 0.69 & 0 \\
+H10 & Semantically wrong, evidenced & $\leftrightarrow$ & \textbf{approved} & 0.62 & 0 & 0.62 & 0 \\
+H11 & Uncoercible constant & $\leftrightarrow$ & \textbf{review} & \multicolumn{2}{c}{\textit{run aborted}} & \multicolumn{2}{c}{\textit{run aborted}} \\
+H12 & Evidence-type conflation & + & \textbf{approved} & 0.46 & 12 & 0.46 & 12 \\
