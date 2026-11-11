@@ -1,0 +1,354 @@
+{
+  "run_id": "00843b17-b28e-42ce-add7-3d5e6a7a5342",
+  "dataset_id": "S6_mixed__f4d003a9-6f93-4640-adbb-2e371546a9c8__converge",
+  "dataset_path": "/mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/research/seeds/seed123/S6_mixed.csv",
+  "status": "failed",
+  "profile_result": {
+    "profile": {
+      "dataset_id": "S6_mixed__f4d003a9-6f93-4640-adbb-2e371546a9c8__converge",
+      "row_count": 17,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "_row_id",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 17,
+          "is_id_like": true,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "R001",
+            "R002",
+            "R003",
+            "R004",
+            "R005"
+          ]
+        },
+        {
+          "name": "name",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 15,
+            "top_values": {
+              "Nikolai Petrov": 2,
+              "Olivia Brown": 2,
+              "Alice Martin": 1,
+              "Frank Mueller  ": 1,
+              "Keiko Sato": 1,
+              "Elena Rossi": 1,
+              "Grace Tanaka": 1,
+              "James Wilson": 1,
+              "Liam Murphy": 1,
+              "  Bob Chen": 1,
+              "Henry Okonkwo": 1,
+              "Ingrid Larsson": 1,
+              "Maria Santos": 1,
+              "  Carol Diaz  ": 1,
+              "David Kim": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 3
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Alice Martin",
+            "  Bob Chen",
+            "  Carol Diaz  ",
+            "David Kim",
+            "Elena Rossi"
+          ]
+        },
+        {
+          "name": "department",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 6,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 6,
+            "top_values": {
+              "Sales": 5,
+              "Engineering": 5,
+              "Marketing": 4,
+              "ENGINEERING": 1,
+              "MARKETING": 1,
+              "engineering": 1
+            },
+            "variant_groups": [
+              {
+                "normalized_key": "marketing",
+                "variants": {
+                  "Marketing": 4,
+                  "MARKETING": 1
+                }
+              },
+              {
+                "normalized_key": "engineering",
+                "variants": {
+                  "ENGINEERING": 1,
+                  "engineering": 1,
+                  "Engineering": 5
+                }
+              }
+            ],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "ENGINEERING",
+            "engineering",
+            "Sales",
+            "Sales",
+            "MARKETING"
+          ]
+        },
+        {
+          "name": "city",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 9,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 9,
+            "top_values": {
+              "London": 4,
+              "Berlin": 4,
+              "Madrid": 2,
+              "Tokyo": 2,
+              "Dublin": 1,
+              "Stockholm": 1,
+              "Seoul": 1,
+              "Lagos": 1,
+              "Rome": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "London",
+            "Berlin",
+            "Madrid",
+            "Seoul",
+            "Rome"
+          ]
+        },
+        {
+          "name": "hire_date",
+          "spark_dtype": "string",
+          "semantic_type": "date_like_string",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 17,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": {
+            "detected_patterns": {
+              "YYYY-MM-DD": 14,
+              "DD/MM/YYYY_or_MM/DD/YYYY": 3
+            },
+            "unparseable_count": 0
+          },
+          "sample_values": [
+            "2022-01-15",
+            "2022-03-20",
+            "2022-05-10",
+            "2022-07-01",
+            "2022-09-12"
+          ]
+        },
+        {
+          "name": "salary",
+          "spark_dtype": "int",
+          "semantic_type": "integer",
+          "non_null_count": 15,
+          "null_count": 2,
+          "null_percentage": 11.76,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 49000.0,
+            "max": 75000.0,
+            "mean": 62466.6667,
+            "stddev": 8854.9152,
+            "median_approx": 60000.0,
+            "q1": 55000.0,
+            "q3": 72000.0,
+            "outlier_lower_bound": 29500.0,
+            "outlier_upper_bound": 97500.0,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "72000",
+            "55000",
+            "58000",
+            "61000",
+            "75000"
+          ]
+        },
+        {
+          "name": "rating",
+          "spark_dtype": "double",
+          "semantic_type": "float",
+          "non_null_count": 17,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 3.5,
+            "max": 4.8,
+            "mean": 4.1706,
+            "stddev": 0.4135,
+            "median_approx": 4.1,
+            "q1": 3.9,
+            "q3": 4.5,
+            "outlier_lower_bound": 3.0,
+            "outlier_upper_bound": 5.4,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "4.2",
+            "3.8",
+            "4.5",
+            "3.9",
+            "4.1"
+          ]
+        }
+      ],
+      "duplicate_summary": {
+        "exact_duplicate_row_count": 0,
+        "id_like_columns": [
+          "_row_id"
+        ],
+        "duplicate_candidates": []
+      },
+      "generated_at": "2026-11-08T18:50:39.247754Z"
+    },
+    "evidence": [
+      {
+        "issue_type": "whitespace_or_casing",
+        "columns": [
+          "name"
+        ],
+        "description": "3 values in 'name' have leading/trailing whitespace.",
+        "supporting_data": {
+          "affected_count": 3,
+          "sample_values": [
+            "Alice Martin",
+            "  Bob Chen",
+            "  Carol Diaz  ",
+            "David Kim",
+            "Elena Rossi"
+          ]
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "department"
+        ],
+        "description": "Column 'department' has 2 distinct raw values that normalize to 'marketing'.",
+        "supporting_data": {
+          "variants": {
+            "Marketing": 4,
+            "MARKETING": 1
+          }
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "department"
+        ],
+        "description": "Column 'department' has 3 distinct raw values that normalize to 'engineering'.",
+        "supporting_data": {
+          "variants": {
+            "ENGINEERING": 1,
+            "engineering": 1,
+            "Engineering": 5
+          }
+        }
+      },
+      {
+        "issue_type": "date_format_inconsistency",
+        "columns": [
+          "hire_date"
+        ],
+        "description": "Column 'hire_date' contains 2 different date formats.",
+        "supporting_data": {
+          "detected_patterns": {
+            "YYYY-MM-DD": 14,
+            "DD/MM/YYYY_or_MM/DD/YYYY": 3
+          }
+        }
+      },
+      {
+        "issue_type": "missing_values",
+        "columns": [
+          "salary"
+        ],
+        "description": "2 of 17 rows have a missing value in 'salary' (11.76%).",
+        "supporting_data": {
+          "null_count": 2,
+          "null_percentage": 11.76,
+          "semantic_type": "integer"
+        }
+      }
+    ]
+  },
+  "ai_metadata": null,
+  "recommendation_records": [],
+  "execution_plan": null,
+  "execution_summary": null,
+  "after_profile_result": null,
+  "quality_comparison": null,
+  "recommendation_outcomes": [],
+  "insight_artifact": null,
+  "timeline": [
+    {
+      "status": "ingested",
+      "message": "Dataset 'S6_mixed__f4d003a9-6f93-4640-adbb-2e371546a9c8__converge' ingested from /mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/research/seeds/seed123/S6_mixed.csv.",
+      "timestamp": "2026-11-08T18:50:27.127083Z"
+    },
+    {
+      "status": "profiled",
+      "message": "Profiled dataset: 17 rows, 7 columns, 5 evidence item(s).",
+      "timestamp": "2026-11-08T18:50:39.248169Z"
+    },
+    {
+      "status": "failed",
+      "message": "[ai_analysis] AIProviderTimeoutError: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+      "timestamp": "2026-11-08T18:52:43.479871Z"
+    }
+  ],
+  "error": "[ai_analysis] AIProviderTimeoutError: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+  "created_at": "2026-11-08T18:50:27.126954Z",
+  "updated_at": "2026-11-08T18:52:43.479733Z"
+}

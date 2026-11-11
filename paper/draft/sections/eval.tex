@@ -4,24 +4,24 @@
 %======================================================================
 \subsection{Research Questions}
 \begin{description}[leftmargin=*,nosep,font=\normalfont\bfseries]
-  \item[RQ1] Does AI-assisted cleaning improve repair quality over a deterministic Spark-only baseline?
-  \item[RQ2] Does the validation boundary reduce hallucination-driven errors relative to unvalidated AI, and at what cost?
-  \item[RQ3] Which classes of hallucination can and cannot be contained by evidence-based validation?
-  \item[RQ4] How do latency, reliability, and the control-plane footprint behave, and how do they scale with data volume?
+  \item[RQ1] Does model-assisted cleaning repair more corruption than a deterministic Spark-only baseline?
+  \item[RQ2] Does the validation boundary reduce errors caused by incorrect model output, and what does it cost in lost repairs?
+  \item[RQ3] Which validator rules account for the effect, and which failure classes remain?
+  \item[RQ4] What do the model call and the control plane cost, and how do they scale with data volume?
 \end{description}
 
-\subsection{Experimental Arms}
-All three arms share the profiler, the operation catalog, the executor, the prompt, the provider, and the evaluator (ADR-007). They differ only in the decision architecture.
-\textbf{(A) \textsc{Spark\_Only}}: deterministic policy; \texttt{TRIM\_WHITESPACE} for whitespace evidence and \texttt{REMOVE\_DUPLICATES} on profiler-established criteria, all other issues explicitly skipped with a recorded reason. It never imports the AI package (enforced by an import-scanning test).
-\textbf{(B) \textsc{AI\_Only}}: the LLM's recommendations are executed in the model's own order after only a \emph{structural} filter (operation registered, not forbidden, not finding-only, has a target). The validator module is never imported (also enforced by test). The executor's own parameter re-checks still apply, so this arm is a realistic ``LLM drives a safe engine'' integration rather than a strawman with arbitrary code execution.
-\textbf{(C) \textsc{Converge}}: the full orchestrator with validator and the monotone approval policy. To avoid self-grading, the adapter stops at \textsc{cleaned}; all measurement is external.
+\subsection{Arms}
+All arms use the same loader, profiler, operation catalog, executor, prompt, model and evaluator (ADR-007); only the decision layer differs.
+\textbf{\textsc{Spark\_Only}} applies \texttt{TRIM\_WHITESPACE} to whitespace evidence and \texttt{REMOVE\_DUPLICATES} on profiler-established criteria, and records an explicit reason for skipping every other issue. An import-scanning test enforces that it never loads the AI package.
+\textbf{\textsc{AI\_Only}} executes the model's recommendations in the model's order after a structural filter (operation registered and executable, at least one target). An import-scanning test enforces that it never loads the validator. The executor's own parameter checks still apply.
+\textbf{\textsc{Converge}} runs the orchestrator with the validator and an approval policy that approves exactly the recommendations the validator marks executable. The adapter stops at \textsc{cleaned} so that no arm grades its own output.
 
-\subsection{Controlled Scenarios and Ground Truth}
-A 15-row, 7-column clean reference (employee records: \texttt{\_row\_id}, \texttt{name}, \texttt{department}, \texttt{city}, \texttt{hire\_date}, \texttt{salary}, \texttt{rating}) is corrupted by a seeded deterministic generator (seed $42$) into six scenarios (Table~\ref{tab:scenarios}). Each corruption is recorded in a manifest with row id, column, clean value and corrupted value, and the scenario's SHA-256 checksum is verified before every run. A deliberately small reference makes every cell auditable; scale is studied separately (E3).
+\subsection{Scenarios and Ground Truth}
+A 15-row, 7-column employee table (\texttt{\_row\_id}, \texttt{name}, \texttt{department}, \texttt{city}, \texttt{hire\_date}, \texttt{salary}, \texttt{rating}) is corrupted by a seeded generator into six scenarios (Table~\ref{tab:scenarios}). Each injected change is recorded in a manifest with its row, column, clean value and corrupted value, and each scenario file's SHA-256 checksum is verified before every run. The table is deliberately small so that every cell can be audited; volume is studied separately in E3.
 
 \begin{table}[t]
 \centering
-\caption{Controlled corruption scenarios (seed 42).}
+\caption{Controlled corruption scenarios (examples from seed 42).}
 \label{tab:scenarios}
 \scriptsize
 \begin{tabular}{@{}llrl@{}}
@@ -39,15 +39,26 @@ S6 & All five combined & 13 & mixed (3+2+3+2+3)\\
 \end{table}
 
 \subsection{Metrics}
-Let $\mathcal{K}$ be the set of injected cell corruptions, $\mathrm{out}(i,c)$ the output value of row $i$, column $c$ (joined on \texttt{\_row\_id}), and $\mathrm{clean}(i,c)$ the reference value.
+Let $\mathcal{K}$ be the injected cell corruptions, $\mathrm{out}(i,c)$ the output value for row $i$ and column $c$ (joined on \texttt{\_row\_id}) and $\mathrm{clean}(i,c)$ the reference value. Comparison is exact, including case and whitespace.
 \begin{align}
-\text{Repair recall} &= \frac{|\{(i,c)\in\mathcal{K}:\mathrm{out}(i,c)=\mathrm{clean}(i,c)\}|}{|\mathcal{K}|},\\
-\text{FMR} &= \frac{|\{(i,c)\notin\mathcal{K}:\mathrm{out}(i,c)\neq\mathrm{clean}(i,c)\}|}{|\text{rows}_{\mathrm{out}}|\cdot m' - |\mathcal{K}|},
+\text{Recall} &= |\{(i,c)\in\mathcal{K}:\mathrm{out}(i,c)=\mathrm{clean}(i,c)\}|\,/\,|\mathcal{K}|,\\
+\text{Damage} &= |\{(i,c)\notin\mathcal{K}:\mathrm{out}(i,c)\neq\mathrm{clean}(i,c)\}| + \text{rows lost}.
 \end{align}
-where comparison is exact (case and whitespace significant) and $m'$ excludes \texttt{\_row\_id}. A corrupted cell is \emph{incorrectly repaired} if its output differs from both the clean and the corrupted value. For duplicates we count injected ids removed and \emph{original rows lost}, i.e., clean-reference ids absent from the output---the most severe collateral damage, since FMR covers surviving rows only. Repair \emph{precision} is not reported because intended modifications are not observable from outputs. We additionally report the comparator's before/after issue counts (an \emph{observed} signal, never merged with correctness, ADR-009), run success rate, recommendation consistency (mean pairwise Jaccard over $(o,C_r)$ sets across repetitions), and wall-clock times measured externally with \texttt{perf\_counter} at three non-overlapping boundaries (strategy execution, evaluation, total).
+A corrupted cell is \emph{incorrectly repaired} when its output matches neither the clean nor the corrupted value. \emph{Rows lost} counts clean-reference rows missing from the output, the most severe form of collateral damage. For S2, which has no cell corruptions, we report the fraction of injected duplicates removed. Repair precision is not reported because a strategy's intended modifications cannot be observed from its output. Separately, we record the comparator's before/after count of detected issues. This is the signal a production pipeline would see, and we keep it apart from correctness (ADR-009). Run availability is the fraction of runs that produce output; an executor fail-fast abort produces none.
 
-\subsection{Model, Platform, and Protocol}
-The language model is \textbf{Qwen2.5-Coder 3B}~\cite{hui2024qwencoder} (4-bit quantised, 1.9\,GB) served locally by Ollama 0.34 with JSON-schema-constrained decoding and temperature $0$; it is classified \textsc{slm}/\textsc{local}. A local small model reflects a realistic privacy-preserving deployment in which no data or metadata leaves the cluster, and is the harder setting for structured-output reliability. All experiments run on a single commodity laptop (AMD Ryzen 3 5300U, 4 cores/8 threads, 7.5\,GB RAM, no GPU). Spark 3.5.1 runs in \texttt{local[*]} mode on OpenJDK 17 and Python 3.12 inside Ubuntu 24.04 (WSL2, 3.5\,GB memory limit); the model is served by Ollama on the Windows host, so model inference and Spark share the same four physical cores. Experiments E1--E3 were executed sequentially to avoid cross-experiment interference. The default provider timeout is 600\,s. Each (scenario, configuration) cell is repeated $R=3$ times, giving $6$ scenarios $\times$ $3$ arms $\times$ $3$ repetitions $=54$ attempted runs in E1. Every run is preserved, including failures, with checksums, provider, model, prompt version and package version.
+\subsection{Model and Platform}
+The model is Qwen2.5-Coder 3B~\cite{hui2024qwencoder} (4-bit quantised, 1.9\,GB), served by Ollama 0.34 with JSON-schema-constrained decoding at temperature 0. A small local model represents deployments where data and metadata may not leave the cluster, and it is the setting where structured-output errors are most common. All runs use one laptop (AMD Ryzen 3 5300U, 4 cores/8 threads, 7.5\,GB RAM, no GPU). Spark 3.5.1 runs in \texttt{local[*]} mode on OpenJDK 17 and Python 3.12 in Ubuntu 24.04 under WSL2; Ollama runs on the Windows host, so inference and Spark share the same cores. Experiments were run one at a time.
 
 \subsection{Experiments}
-\textbf{E1 (end-to-end matrix)} executes all arms on S1--S6 with the live model. \textbf{E1-audit} reloads every \textsc{Converge} run's persisted pipeline artefact and classifies each model recommendation by validator verdict and failing rule. \textbf{E2 (hallucination injection)} replaces the model with a scripted provider that returns an \emph{oracle} plan derived from S6's real evidence plus exactly one hallucination from a twelve-class taxonomy (Table~\ref{tab:inject}); each case is executed end-to-end through both \textsc{AI\_Only} and \textsc{Converge}, isolating the validator's causal effect. \textbf{E3 (scalability)} generates datasets from $10^2$ to $10^6$ rows with a 10\% mixed corruption rate and measures profiling, prompt size, validation, and execution separately.
+\noindent\textbf{E1, end-to-end matrix.} Six scenarios $\times$ three arms $\times$ three repetitions with seed 42 (54 runs). For every \textsc{Converge} run we reload the persisted pipeline artefact and classify each recommendation by verdict and failing rule.
+
+\noindent\textbf{E4, seed sweep.} S3, S4 and S6, the scenarios that require more than one decision, are regenerated with corruption seeds 7 and 123, which place the corruptions in different rows and draw different variant spellings. With seed 42 this gives 9 runs per (scenario, arm). Every model call is logged with its raw output, token counts and Ollama's prefill and decode timings.
+
+\noindent\textbf{E5, record-and-replay.} The \textsc{AI\_Only} and \textsc{Converge} arms in E1 and E4 make separate model calls, so their comparison mixes the effect of validation with variation in model output. To remove that confound we collect every recommendation list the model produced (18 from E1, 36 from E4) and replay each one, unchanged, through fifteen decision pipelines: \textsc{AI\_Only} with and without CONVERGE's operation precedence; the shipped validator (V0); V0 with each of four modifications; two combinations; and four ablations that disable one rule family. Each distinct (dataset, plan) pair is executed once with the real executor and scored with the same evaluator. Since every pipeline sees identical model output, paired differences between pipelines are causal effects of the decision layer. The modifications were designed after inspecting the seed-42 audit, so we report seed 42 and the held-out seeds 7 and 123 separately.
+
+\noindent\textbf{E2, hallucination injection.} A scripted provider returns an oracle plan built from S6's evidence plus one hallucination from a twelve-class taxonomy, either appended or substituted for its correct counterpart. Each case runs end-to-end through \textsc{AI\_Only} and \textsc{Converge}, and is also replayed through the E5 pipelines.
+
+\noindent\textbf{E3, scalability.} Synthetic tables of $10^2$ to $10^6$ rows with a 10\% mixed corruption rate measure profiling, prompt size, validation and execution separately.
+
+\subsection{Statistical Procedure}
+Means are reported with percentile bootstrap 95\% confidence intervals (10{,}000 resamples). Paired comparisons use a two-sided sign-flip permutation test on per-unit differences, exact for $n\le20$ and Monte Carlo ($10^5$ draws) otherwise. In E1/E4 the pairing unit is (seed, repetition); in E5 it is the individual model output, which is a much tighter pairing. With 9 runs per cell in E4 we treat $p$-values as descriptive and do not correct for multiplicity.

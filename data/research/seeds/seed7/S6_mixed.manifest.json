@@ -1,0 +1,110 @@
+{
+  "scenario_id": "S6_mixed",
+  "clean_dataset_checksum": "cbb4cf2a23d1d0884d3158236ad0dae8cfecba6d9056f00bd2da49aaff3ae24f",
+  "corrupted_dataset_checksum": "aad0c07db6bd436e426c2a714311b35e6153d8595b8f198e39fe597be22fde55",
+  "corruption_seed": 7,
+  "cell_corruptions": [
+    {
+      "corruption_id": "S6_mixed::C001",
+      "corruption_type": "categorical_variant",
+      "row_id": "R006",
+      "column": "department",
+      "clean_value": "Engineering",
+      "corrupted_value": "eNGINEERING"
+    },
+    {
+      "corruption_id": "S6_mixed::C002",
+      "corruption_type": "categorical_variant",
+      "row_id": "R003",
+      "column": "department",
+      "clean_value": "Sales",
+      "corrupted_value": "sales"
+    },
+    {
+      "corruption_id": "S6_mixed::C003",
+      "corruption_type": "categorical_variant",
+      "row_id": "R007",
+      "column": "department",
+      "clean_value": "Sales",
+      "corrupted_value": "sales"
+    },
+    {
+      "corruption_id": "S6_mixed::C006",
+      "corruption_type": "missing_value",
+      "row_id": "R004",
+      "column": "salary",
+      "clean_value": "58000",
+      "corrupted_value": ""
+    },
+    {
+      "corruption_id": "S6_mixed::C007",
+      "corruption_type": "missing_value",
+      "row_id": "R012",
+      "column": "salary",
+      "clean_value": "69000",
+      "corrupted_value": ""
+    },
+    {
+      "corruption_id": "S6_mixed::C008",
+      "corruption_type": "mixed_date_format",
+      "row_id": "R002",
+      "column": "hire_date",
+      "clean_value": "2022-03-20",
+      "corrupted_value": "20/03/2022"
+    },
+    {
+      "corruption_id": "S6_mixed::C009",
+      "corruption_type": "mixed_date_format",
+      "row_id": "R007",
+      "column": "hire_date",
+      "clean_value": "2023-01-18",
+      "corrupted_value": "18/01/2023"
+    },
+    {
+      "corruption_id": "S6_mixed::C010",
+      "corruption_type": "mixed_date_format",
+      "row_id": "R001",
+      "column": "hire_date",
+      "clean_value": "2022-01-15",
+      "corrupted_value": "15/01/2022"
+    },
+    {
+      "corruption_id": "S6_mixed::C011",
+      "corruption_type": "whitespace",
+      "row_id": "R003",
+      "column": "name",
+      "clean_value": "Carol Diaz",
+      "corrupted_value": "  Carol Diaz"
+    },
+    {
+      "corruption_id": "S6_mixed::C012",
+      "corruption_type": "whitespace",
+      "row_id": "R014",
+      "column": "name",
+      "clean_value": "Nikolai Petrov",
+      "corrupted_value": "Nikolai Petrov  "
+    },
+    {
+      "corruption_id": "S6_mixed::C013",
+      "corruption_type": "whitespace",
+      "row_id": "R007",
+      "column": "name",
+      "clean_value": "Grace Tanaka",
+      "corrupted_value": "  Grace Tanaka  "
+    }
+  ],
+  "duplicate_corruptions": [
+    {
+      "corruption_id": "S6_mixed::C004",
+      "corruption_type": "exact_duplicate",
+      "source_row_id": "R014",
+      "duplicate_row_id": "R016"
+    },
+    {
+      "corruption_id": "S6_mixed::C005",
+      "corruption_type": "exact_duplicate",
+      "source_row_id": "R009",
+      "duplicate_row_id": "R017"
+    }
+  ]
+}

@@ -1,0 +1,499 @@
+{
+  "run_id": "b33cfe6e-73ee-4385-908c-15d9f32b30eb",
+  "dataset_id": "S3_categorical__8ed7d4d8-815c-4177-94f7-8f81aa377fa8__converge",
+  "dataset_path": "/mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/research/seeds/seed7/S3_categorical.csv",
+  "status": "cleaned",
+  "profile_result": {
+    "profile": {
+      "dataset_id": "S3_categorical__8ed7d4d8-815c-4177-94f7-8f81aa377fa8__converge",
+      "row_count": 15,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "_row_id",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": true,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "R001",
+            "R002",
+            "R003",
+            "R004",
+            "R005"
+          ]
+        },
+        {
+          "name": "name",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 15,
+            "top_values": {
+              "Alice Martin": 1,
+              "Frank Mueller": 1,
+              "Keiko Sato": 1,
+              "Elena Rossi": 1,
+              "Grace Tanaka": 1,
+              "James Wilson": 1,
+              "Liam Murphy": 1,
+              "Bob Chen": 1,
+              "Carol Diaz": 1,
+              "Henry Okonkwo": 1,
+              "Ingrid Larsson": 1,
+              "Maria Santos": 1,
+              "David Kim": 1,
+              "Nikolai Petrov": 1,
+              "Olivia Brown": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Alice Martin",
+            "Bob Chen",
+            "Carol Diaz",
+            "David Kim",
+            "Elena Rossi"
+          ]
+        },
+        {
+          "name": "department",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 5,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 5,
+            "top_values": {
+              "Engineering": 5,
+              "Marketing": 4,
+              "Sales": 3,
+              "sales": 2,
+              "eNGINEERING": 1
+            },
+            "variant_groups": [
+              {
+                "normalized_key": "sales",
+                "variants": {
+                  "Sales": 3,
+                  "sales": 2
+                }
+              },
+              {
+                "normalized_key": "engineering",
+                "variants": {
+                  "Engineering": 5,
+                  "eNGINEERING": 1
+                }
+              }
+            ],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Engineering",
+            "Engineering",
+            "sales",
+            "Sales",
+            "Marketing"
+          ]
+        },
+        {
+          "name": "city",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 9,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 9,
+            "top_values": {
+              "London": 3,
+              "Berlin": 3,
+              "Madrid": 2,
+              "Tokyo": 2,
+              "Dublin": 1,
+              "Stockholm": 1,
+              "Seoul": 1,
+              "Lagos": 1,
+              "Rome": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "London",
+            "Berlin",
+            "Madrid",
+            "Seoul",
+            "Rome"
+          ]
+        },
+        {
+          "name": "hire_date",
+          "spark_dtype": "date",
+          "semantic_type": "unknown",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "2022-01-15",
+            "2022-03-20",
+            "2022-05-10",
+            "2022-07-01",
+            "2022-09-12"
+          ]
+        },
+        {
+          "name": "salary",
+          "spark_dtype": "int",
+          "semantic_type": "integer",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 49000.0,
+            "max": 75000.0,
+            "mean": 61733.3333,
+            "stddev": 8762.4741,
+            "median_approx": 60000.0,
+            "q1": 54000.0,
+            "q3": 71000.0,
+            "outlier_lower_bound": 28500.0,
+            "outlier_upper_bound": 96500.0,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "72000",
+            "68000",
+            "55000",
+            "58000",
+            "61000"
+          ]
+        },
+        {
+          "name": "rating",
+          "spark_dtype": "double",
+          "semantic_type": "float",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 3.5,
+            "max": 4.8,
+            "mean": 4.14,
+            "stddev": 0.405,
+            "median_approx": 4.1,
+            "q1": 3.8,
+            "q3": 4.5,
+            "outlier_lower_bound": 2.7499999999999996,
+            "outlier_upper_bound": 5.550000000000001,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "4.2",
+            "3.8",
+            "4.5",
+            "3.9",
+            "4.1"
+          ]
+        }
+      ],
+      "duplicate_summary": {
+        "exact_duplicate_row_count": 0,
+        "id_like_columns": [
+          "_row_id"
+        ],
+        "duplicate_candidates": []
+      },
+      "generated_at": "2026-11-06T19:24:17.130516Z"
+    },
+    "evidence": [
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "department"
+        ],
+        "description": "Column 'department' has 2 distinct raw values that normalize to 'sales'.",
+        "supporting_data": {
+          "variants": {
+            "Sales": 3,
+            "sales": 2
+          }
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "department"
+        ],
+        "description": "Column 'department' has 2 distinct raw values that normalize to 'engineering'.",
+        "supporting_data": {
+          "variants": {
+            "Engineering": 5,
+            "eNGINEERING": 1
+          }
+        }
+      }
+    ]
+  },
+  "ai_metadata": {
+    "provider": "ollama",
+    "model": "qwen2.5-coder:3b",
+    "prompt_version": "recommendation-prompt-v1",
+    "recommendation_count": 1,
+    "generated_at": "2026-11-06T19:26:27.829560Z"
+  },
+  "recommendation_records": [
+    {
+      "recommendation": {
+        "recommendation_id": "f13d0e71-a709-4079-91b6-e180380153ca",
+        "operation": "NORMALIZE_CASE",
+        "target_columns": [
+          "department"
+        ],
+        "parameters": {
+          "target_case": "lower"
+        },
+        "reason": "To standardize the 'department' column to a consistent case, which is useful for data analysis and comparison.",
+        "evidence_refs": [
+          {
+            "issue_type": "categorical_inconsistency",
+            "columns": [
+              "department"
+            ],
+            "claim": "The 'department' column has 2 distinct raw values that normalize to 'sales'.",
+            "claimed_values": {
+              "variants": {
+                "Sales": 3,
+                "sales": 2
+              }
+            }
+          },
+          {
+            "issue_type": "categorical_inconsistency",
+            "columns": [
+              "department"
+            ],
+            "claim": "The 'department' column has 2 distinct raw values that normalize to 'engineering'.",
+            "claimed_values": {
+              "variants": {
+                "Engineering": 5,
+                "eNGINEERING": 1
+              }
+            }
+          }
+        ],
+        "confidence": null
+      },
+      "validation": {
+        "recommendation_id": "f13d0e71-a709-4079-91b6-e180380153ca",
+        "operation": "NORMALIZE_CASE",
+        "status": "rejected",
+        "checks": [
+          {
+            "rule": "operation_supported",
+            "passed": true,
+            "message": "'NORMALIZE_CASE' is a registered P0 operation."
+          },
+          {
+            "rule": "forbidden_operation_rejected",
+            "passed": true,
+            "message": "Not on the forbidden list."
+          },
+          {
+            "rule": "target_columns_exist",
+            "passed": true,
+            "message": "All target column(s) exist: ['department']."
+          },
+          {
+            "rule": "dtype_compatible",
+            "passed": true,
+            "message": "Target column(s) have a compatible semantic type."
+          },
+          {
+            "rule": "parameters_valid",
+            "passed": true,
+            "message": "All declared parameters present, well-typed, and within allowed values."
+          },
+          {
+            "rule": "safety_class_respected",
+            "passed": true,
+            "message": "Operation tier is 'safe'; final status is capped accordingly regardless of other checks."
+          },
+          {
+            "rule": "evidence_exists",
+            "passed": true,
+            "message": "Found 2 matching evidence item(s) in the profile."
+          },
+          {
+            "rule": "evidence_supports_claim",
+            "passed": false,
+            "message": "Claimed value for 'variants' ({'Engineering': 5, 'eNGINEERING': 1}) contradicts the actual profile evidence ({'Sales': 3, 'sales': 2}) for column(s) ['department']."
+          }
+        ],
+        "summary": "Failed one or more validation checks; not eligible for execution."
+      },
+      "decision": "rejected_by_user"
+    }
+  ],
+  "execution_plan": {
+    "run_id": "b33cfe6e-73ee-4385-908c-15d9f32b30eb",
+    "dataset_path": "/mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/research/seeds/seed7/S3_categorical.csv",
+    "operations": [],
+    "created_at": "2026-11-06T19:26:27.977558Z"
+  },
+  "execution_summary": {
+    "operations_attempted": 0,
+    "operations_succeeded": 0,
+    "operations_failed": 0,
+    "operations_skipped": 0,
+    "operation_results": [],
+    "output_dataset_path": "/mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/runs/b33cfe6e-73ee-4385-908c-15d9f32b30eb/cleaned.csv",
+    "schema_before": [
+      {
+        "name": "_row_id",
+        "dtype": "string"
+      },
+      {
+        "name": "name",
+        "dtype": "string"
+      },
+      {
+        "name": "department",
+        "dtype": "string"
+      },
+      {
+        "name": "city",
+        "dtype": "string"
+      },
+      {
+        "name": "hire_date",
+        "dtype": "date"
+      },
+      {
+        "name": "salary",
+        "dtype": "int"
+      },
+      {
+        "name": "rating",
+        "dtype": "double"
+      }
+    ],
+    "schema_after": [
+      {
+        "name": "_row_id",
+        "dtype": "string"
+      },
+      {
+        "name": "name",
+        "dtype": "string"
+      },
+      {
+        "name": "department",
+        "dtype": "string"
+      },
+      {
+        "name": "city",
+        "dtype": "string"
+      },
+      {
+        "name": "hire_date",
+        "dtype": "date"
+      },
+      {
+        "name": "salary",
+        "dtype": "int"
+      },
+      {
+        "name": "rating",
+        "dtype": "double"
+      }
+    ],
+    "notes": "All operations succeeded."
+  },
+  "after_profile_result": null,
+  "quality_comparison": null,
+  "recommendation_outcomes": [],
+  "insight_artifact": null,
+  "timeline": [
+    {
+      "status": "ingested",
+      "message": "Dataset 'S3_categorical__8ed7d4d8-815c-4177-94f7-8f81aa377fa8__converge' ingested from /mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/research/seeds/seed7/S3_categorical.csv.",
+      "timestamp": "2026-11-06T19:24:06.663863Z"
+    },
+    {
+      "status": "profiled",
+      "message": "Profiled dataset: 15 rows, 7 columns, 2 evidence item(s).",
+      "timestamp": "2026-11-06T19:24:17.145723Z"
+    },
+    {
+      "status": "ai_analyzed",
+      "message": "AI stage (ollama/qwen2.5-coder:3b) returned 1 recommendation(s).",
+      "timestamp": "2026-11-06T19:26:27.834271Z"
+    },
+    {
+      "status": "validated",
+      "message": "Validated 1 recommendation(s).",
+      "timestamp": "2026-11-06T19:26:27.915948Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "Pipeline is awaiting user approval. No recommendation executes until the user explicitly applies it and execution is explicitly triggered.",
+      "timestamp": "2026-11-06T19:26:27.916903Z"
+    },
+    {
+      "status": "awaiting_approval",
+      "message": "User set decision=rejected_by_user for recommendation 'f13d0e71-a709-4079-91b6-e180380153ca' (operation=NORMALIZE_CASE). Pipeline status unchanged.",
+      "timestamp": "2026-11-06T19:26:27.950490Z"
+    },
+    {
+      "status": "executing",
+      "message": "Execution plan built with 0 user-approved, validator-eligible operation(s).",
+      "timestamp": "2026-11-06T19:26:27.977644Z"
+    },
+    {
+      "status": "cleaned",
+      "message": "Execution completed: 0 approved operation(s) applied successfully. This means the approved transformations completed -- it does not mean the dataset is free of remaining data-quality issues; re-profiling the output is required to measure that.",
+      "timestamp": "2026-11-06T19:26:35.065630Z"
+    }
+  ],
+  "error": null,
+  "created_at": "2026-11-06T19:24:06.663125Z",
+  "updated_at": "2026-11-06T19:26:35.065612Z"
+}

@@ -1,0 +1,306 @@
+{
+  "run_id": "6dcf7428-6454-4736-a557-c3207fcad8a1",
+  "dataset_id": "S3_categorical__bcbb85ad-b0c6-420a-9adf-331bb34fda1f__converge",
+  "dataset_path": "/mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/research/seeds/seed123/S3_categorical.csv",
+  "status": "failed",
+  "profile_result": {
+    "profile": {
+      "dataset_id": "S3_categorical__bcbb85ad-b0c6-420a-9adf-331bb34fda1f__converge",
+      "row_count": 15,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "_row_id",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": true,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "R001",
+            "R002",
+            "R003",
+            "R004",
+            "R005"
+          ]
+        },
+        {
+          "name": "name",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 15,
+            "top_values": {
+              "Alice Martin": 1,
+              "Frank Mueller": 1,
+              "Keiko Sato": 1,
+              "Elena Rossi": 1,
+              "Grace Tanaka": 1,
+              "James Wilson": 1,
+              "Liam Murphy": 1,
+              "Bob Chen": 1,
+              "Carol Diaz": 1,
+              "Henry Okonkwo": 1,
+              "Ingrid Larsson": 1,
+              "Maria Santos": 1,
+              "David Kim": 1,
+              "Nikolai Petrov": 1,
+              "Olivia Brown": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Alice Martin",
+            "Bob Chen",
+            "Carol Diaz",
+            "David Kim",
+            "Elena Rossi"
+          ]
+        },
+        {
+          "name": "department",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 6,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 6,
+            "top_values": {
+              "Sales": 5,
+              "Engineering": 4,
+              "Marketing": 3,
+              "ENGINEERING": 1,
+              "MARKETING": 1,
+              "engineering": 1
+            },
+            "variant_groups": [
+              {
+                "normalized_key": "marketing",
+                "variants": {
+                  "Marketing": 3,
+                  "MARKETING": 1
+                }
+              },
+              {
+                "normalized_key": "engineering",
+                "variants": {
+                  "ENGINEERING": 1,
+                  "engineering": 1,
+                  "Engineering": 4
+                }
+              }
+            ],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "ENGINEERING",
+            "engineering",
+            "Sales",
+            "Sales",
+            "MARKETING"
+          ]
+        },
+        {
+          "name": "city",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 9,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 9,
+            "top_values": {
+              "London": 3,
+              "Berlin": 3,
+              "Madrid": 2,
+              "Tokyo": 2,
+              "Dublin": 1,
+              "Stockholm": 1,
+              "Seoul": 1,
+              "Lagos": 1,
+              "Rome": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "London",
+            "Berlin",
+            "Madrid",
+            "Seoul",
+            "Rome"
+          ]
+        },
+        {
+          "name": "hire_date",
+          "spark_dtype": "date",
+          "semantic_type": "unknown",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "2022-01-15",
+            "2022-03-20",
+            "2022-05-10",
+            "2022-07-01",
+            "2022-09-12"
+          ]
+        },
+        {
+          "name": "salary",
+          "spark_dtype": "int",
+          "semantic_type": "integer",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 49000.0,
+            "max": 75000.0,
+            "mean": 61733.3333,
+            "stddev": 8762.4741,
+            "median_approx": 60000.0,
+            "q1": 54000.0,
+            "q3": 71000.0,
+            "outlier_lower_bound": 28500.0,
+            "outlier_upper_bound": 96500.0,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "72000",
+            "68000",
+            "55000",
+            "58000",
+            "61000"
+          ]
+        },
+        {
+          "name": "rating",
+          "spark_dtype": "double",
+          "semantic_type": "float",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 3.5,
+            "max": 4.8,
+            "mean": 4.14,
+            "stddev": 0.405,
+            "median_approx": 4.1,
+            "q1": 3.8,
+            "q3": 4.5,
+            "outlier_lower_bound": 2.7499999999999996,
+            "outlier_upper_bound": 5.550000000000001,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "4.2",
+            "3.8",
+            "4.5",
+            "3.9",
+            "4.1"
+          ]
+        }
+      ],
+      "duplicate_summary": {
+        "exact_duplicate_row_count": 0,
+        "id_like_columns": [
+          "_row_id"
+        ],
+        "duplicate_candidates": []
+      },
+      "generated_at": "2026-11-07T19:12:41.886299Z"
+    },
+    "evidence": [
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "department"
+        ],
+        "description": "Column 'department' has 2 distinct raw values that normalize to 'marketing'.",
+        "supporting_data": {
+          "variants": {
+            "Marketing": 3,
+            "MARKETING": 1
+          }
+        }
+      },
+      {
+        "issue_type": "categorical_inconsistency",
+        "columns": [
+          "department"
+        ],
+        "description": "Column 'department' has 3 distinct raw values that normalize to 'engineering'.",
+        "supporting_data": {
+          "variants": {
+            "ENGINEERING": 1,
+            "engineering": 1,
+            "Engineering": 4
+          }
+        }
+      }
+    ]
+  },
+  "ai_metadata": null,
+  "recommendation_records": [],
+  "execution_plan": null,
+  "execution_summary": null,
+  "after_profile_result": null,
+  "quality_comparison": null,
+  "recommendation_outcomes": [],
+  "insight_artifact": null,
+  "timeline": [
+    {
+      "status": "ingested",
+      "message": "Dataset 'S3_categorical__bcbb85ad-b0c6-420a-9adf-331bb34fda1f__converge' ingested from /mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/research/seeds/seed123/S3_categorical.csv.",
+      "timestamp": "2026-11-07T19:12:27.367434Z"
+    },
+    {
+      "status": "profiled",
+      "message": "Profiled dataset: 15 rows, 7 columns, 2 evidence item(s).",
+      "timestamp": "2026-11-07T19:12:41.888976Z"
+    },
+    {
+      "status": "failed",
+      "message": "[ai_analysis] AIProviderTimeoutError: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+      "timestamp": "2026-11-07T19:15:50.761492Z"
+    }
+  ],
+  "error": "[ai_analysis] AIProviderTimeoutError: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+  "created_at": "2026-11-07T19:12:27.366784Z",
+  "updated_at": "2026-11-07T19:15:50.756950Z"
+}

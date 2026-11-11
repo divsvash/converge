@@ -1,0 +1,25 @@
+{
+  "scenario_id": "S4_missing",
+  "clean_dataset_checksum": "cbb4cf2a23d1d0884d3158236ad0dae8cfecba6d9056f00bd2da49aaff3ae24f",
+  "corrupted_dataset_checksum": "58f3f9d4461de08e0debdbd614237931899d977728ec84e6fb77c41a04fa1472",
+  "corruption_seed": 123,
+  "cell_corruptions": [
+    {
+      "corruption_id": "S4_missing::C001",
+      "corruption_type": "missing_value",
+      "row_id": "R001",
+      "column": "salary",
+      "clean_value": "72000",
+      "corrupted_value": ""
+    },
+    {
+      "corruption_id": "S4_missing::C002",
+      "corruption_type": "missing_value",
+      "row_id": "R005",
+      "column": "salary",
+      "clean_value": "61000",
+      "corrupted_value": ""
+    }
+  ],
+  "duplicate_corruptions": []
+}

@@ -1,0 +1,33 @@
+{
+  "scenario_id": "S3_categorical",
+  "clean_dataset_checksum": "cbb4cf2a23d1d0884d3158236ad0dae8cfecba6d9056f00bd2da49aaff3ae24f",
+  "corrupted_dataset_checksum": "358ea714ad741f4c752d351abe995fc62037fd0bf67005913cc9c7a48772b81b",
+  "corruption_seed": 7,
+  "cell_corruptions": [
+    {
+      "corruption_id": "S3_categorical::C001",
+      "corruption_type": "categorical_variant",
+      "row_id": "R006",
+      "column": "department",
+      "clean_value": "Engineering",
+      "corrupted_value": "eNGINEERING"
+    },
+    {
+      "corruption_id": "S3_categorical::C002",
+      "corruption_type": "categorical_variant",
+      "row_id": "R003",
+      "column": "department",
+      "clean_value": "Sales",
+      "corrupted_value": "sales"
+    },
+    {
+      "corruption_id": "S3_categorical::C003",
+      "corruption_type": "categorical_variant",
+      "row_id": "R007",
+      "column": "department",
+      "clean_value": "Sales",
+      "corrupted_value": "sales"
+    }
+  ],
+  "duplicate_corruptions": []
+}

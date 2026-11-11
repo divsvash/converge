@@ -1,0 +1,1787 @@
+[
+  {
+    "run_id": "07863150-d0ce-4ef4-8c6b-94d2eb7bd480",
+    "experiment_id": "102af2ab-8636-4478-ae9d-f42bd6fdccd2",
+    "scenario_id": "S3_categorical",
+    "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "strategy": "spark_only",
+    "repetition_index": 0,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:05:37.651356Z",
+    "completed_at": "2026-11-06T19:06:45.681207Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 2,
+        "total_issues_after": 2,
+        "resolved_count": 0,
+        "improved_count": 0,
+        "unchanged_count": 1,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 4,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 23.513381628999923,
+        "evaluation_wall_seconds": 41.91874403399993,
+        "total_wall_seconds": 65.47613221100005
+      },
+      "cost": {
+        "monetary_cost": 0.0,
+        "currency": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "ground_truth": {
+        "scenario_id": "S3_categorical",
+        "total_corruptions": 3,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 0,
+        "unrepaired": 3,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "decisions": [
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        },
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "358ea714ad741f4c752d351abe995fc62037fd0bf67005913cc9c7a48772b81b",
+      "provider": null,
+      "model": null,
+      "model_class": null,
+      "deployment_mode": null,
+      "prompt_version": null,
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "754787b0-12c9-4bf8-91aa-2422254167ff",
+    "experiment_id": "102af2ab-8636-4478-ae9d-f42bd6fdccd2",
+    "scenario_id": "S3_categorical",
+    "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "strategy": "spark_only",
+    "repetition_index": 1,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:06:45.685058Z",
+    "completed_at": "2026-11-06T19:07:21.715140Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 2,
+        "total_issues_after": 2,
+        "resolved_count": 0,
+        "improved_count": 0,
+        "unchanged_count": 1,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 4,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 13.715194042000007,
+        "evaluation_wall_seconds": 20.13135906900004,
+        "total_wall_seconds": 33.89757359099997
+      },
+      "cost": {
+        "monetary_cost": 0.0,
+        "currency": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "ground_truth": {
+        "scenario_id": "S3_categorical",
+        "total_corruptions": 3,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 0,
+        "unrepaired": 3,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "decisions": [
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        },
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "358ea714ad741f4c752d351abe995fc62037fd0bf67005913cc9c7a48772b81b",
+      "provider": null,
+      "model": null,
+      "model_class": null,
+      "deployment_mode": null,
+      "prompt_version": null,
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "fc0f7128-6988-4d62-9bf3-ea8ee8506ab7",
+    "experiment_id": "102af2ab-8636-4478-ae9d-f42bd6fdccd2",
+    "scenario_id": "S3_categorical",
+    "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "strategy": "spark_only",
+    "repetition_index": 2,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:07:21.715416Z",
+    "completed_at": "2026-11-06T19:08:01.249324Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 2,
+        "total_issues_after": 2,
+        "resolved_count": 0,
+        "improved_count": 0,
+        "unchanged_count": 1,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 4,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 14.181257026000026,
+        "evaluation_wall_seconds": 22.844614504999868,
+        "total_wall_seconds": 37.06967464000002
+      },
+      "cost": {
+        "monetary_cost": 0.0,
+        "currency": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "ground_truth": {
+        "scenario_id": "S3_categorical",
+        "total_corruptions": 3,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 0,
+        "unrepaired": 3,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "decisions": [
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        },
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "358ea714ad741f4c752d351abe995fc62037fd0bf67005913cc9c7a48772b81b",
+      "provider": null,
+      "model": null,
+      "model_class": null,
+      "deployment_mode": null,
+      "prompt_version": null,
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "938cc8e0-6c76-4f63-adbd-19b33613904a",
+    "experiment_id": "102af2ab-8636-4478-ae9d-f42bd6fdccd2",
+    "scenario_id": "S3_categorical",
+    "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "strategy": "ai_only",
+    "repetition_index": 0,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:08:01.251805Z",
+    "completed_at": "2026-11-06T19:14:03.399893Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 2,
+        "total_issues_after": 0,
+        "resolved_count": 1,
+        "improved_count": 0,
+        "unchanged_count": 0,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 0,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 296.877876581,
+        "evaluation_wall_seconds": 43.167176316999985,
+        "total_wall_seconds": 340.1332194219999
+      },
+      "cost": {
+        "monetary_cost": null,
+        "currency": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null
+      },
+      "ground_truth": {
+        "scenario_id": "S3_categorical",
+        "total_corruptions": 3,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 1,
+        "unrepaired": 2,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 12,
+        "false_modification_rate": 0.13793103448275862,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "recommendations": [
+        {
+          "recommendation_id": "c4ce05ee-3f16-407a-9880-bae41674def1",
+          "operation": "NORMALIZE_CASE",
+          "target_columns": [
+            "department"
+          ],
+          "executable": true,
+          "reason": "Passed structural execution checks (operation recognized, executable tier, has target columns)."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "358ea714ad741f4c752d351abe995fc62037fd0bf67005913cc9c7a48772b81b",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "1d46ba27-16e2-44c3-b683-ad898991526a",
+    "experiment_id": "102af2ab-8636-4478-ae9d-f42bd6fdccd2",
+    "scenario_id": "S3_categorical",
+    "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "strategy": "ai_only",
+    "repetition_index": 1,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:14:03.416421Z",
+    "completed_at": "2026-11-06T19:19:25.380931Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 2,
+        "total_issues_after": 0,
+        "resolved_count": 1,
+        "improved_count": 0,
+        "unchanged_count": 0,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 0,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 232.36117466899987,
+        "evaluation_wall_seconds": 73.791290355,
+        "total_wall_seconds": 306.2963429460001
+      },
+      "cost": {
+        "monetary_cost": null,
+        "currency": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null
+      },
+      "ground_truth": {
+        "scenario_id": "S3_categorical",
+        "total_corruptions": 3,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 1,
+        "unrepaired": 2,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 12,
+        "false_modification_rate": 0.13793103448275862,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "recommendations": [
+        {
+          "recommendation_id": "c652da9a-74b2-4349-bb30-19f435f6b2a8",
+          "operation": "NORMALIZE_CASE",
+          "target_columns": [
+            "department"
+          ],
+          "executable": true,
+          "reason": "Passed structural execution checks (operation recognized, executable tier, has target columns)."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "358ea714ad741f4c752d351abe995fc62037fd0bf67005913cc9c7a48772b81b",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "8d39c9fc-da75-4be1-9de5-f375c8b002a8",
+    "experiment_id": "102af2ab-8636-4478-ae9d-f42bd6fdccd2",
+    "scenario_id": "S3_categorical",
+    "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "strategy": "ai_only",
+    "repetition_index": 2,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:19:25.415165Z",
+    "completed_at": "2026-11-06T19:23:56.255006Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 2,
+        "total_issues_after": 0,
+        "resolved_count": 1,
+        "improved_count": 0,
+        "unchanged_count": 0,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 0,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 195.40068292900014,
+        "evaluation_wall_seconds": 56.30839881399993,
+        "total_wall_seconds": 251.90294043599988
+      },
+      "cost": {
+        "monetary_cost": null,
+        "currency": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null
+      },
+      "ground_truth": {
+        "scenario_id": "S3_categorical",
+        "total_corruptions": 3,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 1,
+        "unrepaired": 2,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 12,
+        "false_modification_rate": 0.13793103448275862,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "recommendations": [
+        {
+          "recommendation_id": "3f6297d2-41f9-4503-85d2-42dd305cd956",
+          "operation": "NORMALIZE_CASE",
+          "target_columns": [
+            "department"
+          ],
+          "executable": true,
+          "reason": "Passed structural execution checks (operation recognized, executable tier, has target columns)."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "358ea714ad741f4c752d351abe995fc62037fd0bf67005913cc9c7a48772b81b",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "8ed7d4d8-815c-4177-94f7-8f81aa377fa8",
+    "experiment_id": "102af2ab-8636-4478-ae9d-f42bd6fdccd2",
+    "scenario_id": "S3_categorical",
+    "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+    "strategy": "converge",
+    "repetition_index": 0,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:23:56.283879Z",
+    "completed_at": "2026-11-06T19:26:45.335550Z",
+    "converge_run_id": "b33cfe6e-73ee-4385-908c-15d9f32b30eb",
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 2,
+        "total_issues_after": 2,
+        "resolved_count": 0,
+        "improved_count": 0,
+        "unchanged_count": 1,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 4,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 138.6742289859999,
+        "evaluation_wall_seconds": 20.47819670199965,
+        "total_wall_seconds": 159.27907659900006
+      },
+      "cost": {
+        "monetary_cost": null,
+        "currency": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null
+      },
+      "ground_truth": {
+        "scenario_id": "S3_categorical",
+        "total_corruptions": 3,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 0,
+        "unrepaired": 3,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "note": "Full traceability (profile, evidence, recommendations, validation results, decisions, timeline) is on the referenced PipelineRun -- see converge_run_id -- and is not duplicated here."
+    },
+    "reproducibility": {
+      "dataset_checksum": "358ea714ad741f4c752d351abe995fc62037fd0bf67005913cc9c7a48772b81b",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "332f4a1f-f77b-494e-afc9-792077ea97e0",
+    "experiment_id": "102af2ab-8636-4478-ae9d-f42bd6fdccd2",
+    "scenario_id": "S3_categorical",
+    "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+    "strategy": "converge",
+    "repetition_index": 1,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:26:45.341613Z",
+    "completed_at": "2026-11-06T19:29:23.936754Z",
+    "converge_run_id": "f2851c93-4e40-4628-8f0c-c7c78e5a201e",
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 2,
+        "total_issues_after": 2,
+        "resolved_count": 0,
+        "improved_count": 0,
+        "unchanged_count": 1,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 4,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 123.12782215100015,
+        "evaluation_wall_seconds": 22.372528339999917,
+        "total_wall_seconds": 145.56135945200003
+      },
+      "cost": {
+        "monetary_cost": null,
+        "currency": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null
+      },
+      "ground_truth": {
+        "scenario_id": "S3_categorical",
+        "total_corruptions": 3,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 0,
+        "unrepaired": 3,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "note": "Full traceability (profile, evidence, recommendations, validation results, decisions, timeline) is on the referenced PipelineRun -- see converge_run_id -- and is not duplicated here."
+    },
+    "reproducibility": {
+      "dataset_checksum": "358ea714ad741f4c752d351abe995fc62037fd0bf67005913cc9c7a48772b81b",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "92480fdf-efd7-488e-82eb-683de2093592",
+    "experiment_id": "102af2ab-8636-4478-ae9d-f42bd6fdccd2",
+    "scenario_id": "S3_categorical",
+    "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+    "strategy": "converge",
+    "repetition_index": 2,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:29:23.944844Z",
+    "completed_at": "2026-11-06T19:32:36.208948Z",
+    "converge_run_id": "19db2b2b-8840-4d2a-9ffb-43e0105fb86c",
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 2,
+        "total_issues_after": 2,
+        "resolved_count": 0,
+        "improved_count": 0,
+        "unchanged_count": 1,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 0,
+        "missing_value_total_after": 0,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 4,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 151.17165492200002,
+        "evaluation_wall_seconds": 27.23659581300035,
+        "total_wall_seconds": 178.4912314180001
+      },
+      "cost": {
+        "monetary_cost": null,
+        "currency": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null
+      },
+      "ground_truth": {
+        "scenario_id": "S3_categorical",
+        "total_corruptions": 3,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 0,
+        "unrepaired": 3,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 87
+      }
+    },
+    "trace": {
+      "note": "Full traceability (profile, evidence, recommendations, validation results, decisions, timeline) is on the referenced PipelineRun -- see converge_run_id -- and is not duplicated here."
+    },
+    "reproducibility": {
+      "dataset_checksum": "358ea714ad741f4c752d351abe995fc62037fd0bf67005913cc9c7a48772b81b",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "d2d0f8c4-2695-44b5-b337-c05d645b945e",
+    "experiment_id": "d54d9e4e-8638-406d-b4c2-12134780492b",
+    "scenario_id": "S4_missing",
+    "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "strategy": "spark_only",
+    "repetition_index": 0,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:32:36.262463Z",
+    "completed_at": "2026-11-06T19:33:22.466035Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 1,
+        "total_issues_after": 1,
+        "resolved_count": 0,
+        "improved_count": 0,
+        "unchanged_count": 1,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 2,
+        "missing_value_total_after": 2,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 0,
+        "categorical_variant_total_after": 0,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 20.886267163999946,
+        "evaluation_wall_seconds": 22.64511476200005,
+        "total_wall_seconds": 43.60256862899996
+      },
+      "cost": {
+        "monetary_cost": 0.0,
+        "currency": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "ground_truth": {
+        "scenario_id": "S4_missing",
+        "total_corruptions": 2,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 0,
+        "unrepaired": 2,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 88
+      }
+    },
+    "trace": {
+      "decisions": [
+        {
+          "issue_type": "missing_values",
+          "columns": [
+            "salary"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Filling missing values requires choosing an imputation strategy (mean/median/mode/constant) -- no single strategy is correct for every column without judgment about the data's distribution and meaning."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "833aa1d093664da153e07121c9c48f6c03b8f0d88a235fa10a0907c5c934ca1c",
+      "provider": null,
+      "model": null,
+      "model_class": null,
+      "deployment_mode": null,
+      "prompt_version": null,
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "56d2ed15-743a-4ef9-9f6e-97f36bbc0a2a",
+    "experiment_id": "d54d9e4e-8638-406d-b4c2-12134780492b",
+    "scenario_id": "S4_missing",
+    "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "strategy": "spark_only",
+    "repetition_index": 1,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:33:22.466837Z",
+    "completed_at": "2026-11-06T19:33:53.873829Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 1,
+        "total_issues_after": 1,
+        "resolved_count": 0,
+        "improved_count": 0,
+        "unchanged_count": 1,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 2,
+        "missing_value_total_after": 2,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 0,
+        "categorical_variant_total_after": 0,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 11.607764383999893,
+        "evaluation_wall_seconds": 17.777032798000164,
+        "total_wall_seconds": 29.413096731999758
+      },
+      "cost": {
+        "monetary_cost": 0.0,
+        "currency": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "ground_truth": {
+        "scenario_id": "S4_missing",
+        "total_corruptions": 2,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 0,
+        "unrepaired": 2,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 88
+      }
+    },
+    "trace": {
+      "decisions": [
+        {
+          "issue_type": "missing_values",
+          "columns": [
+            "salary"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Filling missing values requires choosing an imputation strategy (mean/median/mode/constant) -- no single strategy is correct for every column without judgment about the data's distribution and meaning."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "833aa1d093664da153e07121c9c48f6c03b8f0d88a235fa10a0907c5c934ca1c",
+      "provider": null,
+      "model": null,
+      "model_class": null,
+      "deployment_mode": null,
+      "prompt_version": null,
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "7bd9955b-9db7-4bbd-869a-88190ed0b9f0",
+    "experiment_id": "d54d9e4e-8638-406d-b4c2-12134780492b",
+    "scenario_id": "S4_missing",
+    "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "strategy": "spark_only",
+    "repetition_index": 2,
+    "status": "succeeded",
+    "started_at": "2026-11-06T19:33:53.874002Z",
+    "completed_at": "2026-11-06T19:34:31.738647Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 1,
+        "total_issues_after": 1,
+        "resolved_count": 0,
+        "improved_count": 0,
+        "unchanged_count": 1,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 15,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 2,
+        "missing_value_total_after": 2,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 0,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 0,
+        "categorical_variant_total_after": 0,
+        "date_format_inconsistency_columns_before": 0,
+        "date_format_inconsistency_columns_after": 0,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 13.744108790000155,
+        "evaluation_wall_seconds": 21.933920729999954,
+        "total_wall_seconds": 35.70820112699994
+      },
+      "cost": {
+        "monetary_cost": 0.0,
+        "currency": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "ground_truth": {
+        "scenario_id": "S4_missing",
+        "total_corruptions": 2,
+        "correctly_repaired": 0,
+        "incorrectly_repaired": 0,
+        "unrepaired": 2,
+        "repair_recall": 0.0,
+        "injected_duplicates_removed": 0,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 0,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 88
+      }
+    },
+    "trace": {
+      "decisions": [
+        {
+          "issue_type": "missing_values",
+          "columns": [
+            "salary"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Filling missing values requires choosing an imputation strategy (mean/median/mode/constant) -- no single strategy is correct for every column without judgment about the data's distribution and meaning."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "833aa1d093664da153e07121c9c48f6c03b8f0d88a235fa10a0907c5c934ca1c",
+      "provider": null,
+      "model": null,
+      "model_class": null,
+      "deployment_mode": null,
+      "prompt_version": null,
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "ea34b40e-d112-408d-ab43-aab978310b35",
+    "experiment_id": "d54d9e4e-8638-406d-b4c2-12134780492b",
+    "scenario_id": "S4_missing",
+    "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "strategy": "ai_only",
+    "repetition_index": 0,
+    "status": "failed",
+    "started_at": "2026-11-06T19:34:31.747482Z",
+    "completed_at": "2026-11-06T19:38:33.327622Z",
+    "converge_run_id": null,
+    "error": "AI provider failed: Cannot reach Ollama: Remote end closed connection without response",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "833aa1d093664da153e07121c9c48f6c03b8f0d88a235fa10a0907c5c934ca1c",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "210ce68b-8037-440f-8845-faaedf3993a4",
+    "experiment_id": "d54d9e4e-8638-406d-b4c2-12134780492b",
+    "scenario_id": "S4_missing",
+    "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "strategy": "ai_only",
+    "repetition_index": 1,
+    "status": "failed",
+    "started_at": "2026-11-06T19:38:33.351842Z",
+    "completed_at": "2026-11-06T19:41:27.174782Z",
+    "converge_run_id": null,
+    "error": "AI provider failed: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "833aa1d093664da153e07121c9c48f6c03b8f0d88a235fa10a0907c5c934ca1c",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "606ab447-452c-4032-8fb1-8559e6dab6a4",
+    "experiment_id": "d54d9e4e-8638-406d-b4c2-12134780492b",
+    "scenario_id": "S4_missing",
+    "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "strategy": "ai_only",
+    "repetition_index": 2,
+    "status": "failed",
+    "started_at": "2026-11-06T19:41:27.184789Z",
+    "completed_at": "2026-11-06T19:44:12.746937Z",
+    "converge_run_id": null,
+    "error": "AI provider failed: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "833aa1d093664da153e07121c9c48f6c03b8f0d88a235fa10a0907c5c934ca1c",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "50192b93-b1b8-4547-830c-dbcc9093290e",
+    "experiment_id": "d54d9e4e-8638-406d-b4c2-12134780492b",
+    "scenario_id": "S4_missing",
+    "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+    "strategy": "converge",
+    "repetition_index": 0,
+    "status": "failed",
+    "started_at": "2026-11-06T19:44:12.757111Z",
+    "completed_at": "2026-11-06T19:47:07.461672Z",
+    "converge_run_id": "ffa91603-9a34-41a5-8109-7fc416018c3a",
+    "error": "Stage 'ai_analysis' failed: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "833aa1d093664da153e07121c9c48f6c03b8f0d88a235fa10a0907c5c934ca1c",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "d3101008-33c6-4183-b7df-4600c25f14de",
+    "experiment_id": "d54d9e4e-8638-406d-b4c2-12134780492b",
+    "scenario_id": "S4_missing",
+    "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+    "strategy": "converge",
+    "repetition_index": 1,
+    "status": "failed",
+    "started_at": "2026-11-06T19:47:07.467851Z",
+    "completed_at": "2026-11-06T19:50:02.449252Z",
+    "converge_run_id": "7a69deee-5977-4484-b21d-f0bfe50d2d27",
+    "error": "Stage 'ai_analysis' failed: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "833aa1d093664da153e07121c9c48f6c03b8f0d88a235fa10a0907c5c934ca1c",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "429c3a8e-f248-4806-ad8c-69068aeddb02",
+    "experiment_id": "d54d9e4e-8638-406d-b4c2-12134780492b",
+    "scenario_id": "S4_missing",
+    "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+    "strategy": "converge",
+    "repetition_index": 2,
+    "status": "failed",
+    "started_at": "2026-11-06T19:50:02.459631Z",
+    "completed_at": "2026-11-07T07:16:47.975473Z",
+    "converge_run_id": "2d3d65be-668c-46b7-a1e7-43a1ac9afdc0",
+    "error": "Stage 'ai_analysis' failed: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "833aa1d093664da153e07121c9c48f6c03b8f0d88a235fa10a0907c5c934ca1c",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "658fc0ce-6a49-4647-b563-1bfbdf2d0b6d",
+    "experiment_id": "916bc3ab-b06f-4bd0-b995-88dddfff0064",
+    "scenario_id": "S6_mixed",
+    "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "strategy": "spark_only",
+    "repetition_index": 0,
+    "status": "succeeded",
+    "started_at": "2026-11-07T07:16:48.008370Z",
+    "completed_at": "2026-11-07T07:17:32.065447Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 6,
+        "total_issues_after": 4,
+        "resolved_count": 2,
+        "improved_count": 0,
+        "unchanged_count": 3,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 17,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 2,
+        "missing_value_total_after": 2,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 1,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 4,
+        "date_format_inconsistency_columns_before": 1,
+        "date_format_inconsistency_columns_after": 1,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 17.001979993000077,
+        "evaluation_wall_seconds": 26.96882197800005,
+        "total_wall_seconds": 44.051233093000064
+      },
+      "cost": {
+        "monetary_cost": 0.0,
+        "currency": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "ground_truth": {
+        "scenario_id": "S6_mixed",
+        "total_corruptions": 13,
+        "correctly_repaired": 3,
+        "incorrectly_repaired": 0,
+        "unrepaired": 8,
+        "repair_recall": 0.23076923076923078,
+        "injected_duplicates_removed": 2,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 2,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 79
+      }
+    },
+    "trace": {
+      "decisions": [
+        {
+          "issue_type": "whitespace_or_casing",
+          "columns": [
+            "name"
+          ],
+          "action": "applied",
+          "operation": "TRIM_WHITESPACE",
+          "reason": "Whitespace is incidental; trimming it is the single correct remediation."
+        },
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        },
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        },
+        {
+          "issue_type": "date_format_inconsistency",
+          "columns": [
+            "hire_date"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "The target date format is a stylistic/locale convention, not something derivable from the data itself."
+        },
+        {
+          "issue_type": "missing_values",
+          "columns": [
+            "salary"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Filling missing values requires choosing an imputation strategy (mean/median/mode/constant) -- no single strategy is correct for every column without judgment about the data's distribution and meaning."
+        },
+        {
+          "issue_type": "duplicate_rows",
+          "columns": [
+            "name",
+            "department",
+            "city",
+            "hire_date",
+            "salary",
+            "rating"
+          ],
+          "action": "applied",
+          "operation": "REMOVE_DUPLICATES",
+          "reason": "Duplicate-detection criteria were already established by the profiler itself."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "aad0c07db6bd436e426c2a714311b35e6153d8595b8f198e39fe597be22fde55",
+      "provider": null,
+      "model": null,
+      "model_class": null,
+      "deployment_mode": null,
+      "prompt_version": null,
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "05f6a197-80f5-44f5-a80a-5a36ad6677e7",
+    "experiment_id": "916bc3ab-b06f-4bd0-b995-88dddfff0064",
+    "scenario_id": "S6_mixed",
+    "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "strategy": "spark_only",
+    "repetition_index": 1,
+    "status": "succeeded",
+    "started_at": "2026-11-07T07:17:32.065760Z",
+    "completed_at": "2026-11-07T07:18:08.706398Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 6,
+        "total_issues_after": 4,
+        "resolved_count": 2,
+        "improved_count": 0,
+        "unchanged_count": 3,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 17,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 2,
+        "missing_value_total_after": 2,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 1,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 4,
+        "date_format_inconsistency_columns_before": 1,
+        "date_format_inconsistency_columns_after": 1,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 14.418576751000273,
+        "evaluation_wall_seconds": 22.1900541709997,
+        "total_wall_seconds": 36.63907940600029
+      },
+      "cost": {
+        "monetary_cost": 0.0,
+        "currency": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "ground_truth": {
+        "scenario_id": "S6_mixed",
+        "total_corruptions": 13,
+        "correctly_repaired": 3,
+        "incorrectly_repaired": 0,
+        "unrepaired": 8,
+        "repair_recall": 0.23076923076923078,
+        "injected_duplicates_removed": 2,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 2,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 79
+      }
+    },
+    "trace": {
+      "decisions": [
+        {
+          "issue_type": "whitespace_or_casing",
+          "columns": [
+            "name"
+          ],
+          "action": "applied",
+          "operation": "TRIM_WHITESPACE",
+          "reason": "Whitespace is incidental; trimming it is the single correct remediation."
+        },
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        },
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        },
+        {
+          "issue_type": "date_format_inconsistency",
+          "columns": [
+            "hire_date"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "The target date format is a stylistic/locale convention, not something derivable from the data itself."
+        },
+        {
+          "issue_type": "missing_values",
+          "columns": [
+            "salary"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Filling missing values requires choosing an imputation strategy (mean/median/mode/constant) -- no single strategy is correct for every column without judgment about the data's distribution and meaning."
+        },
+        {
+          "issue_type": "duplicate_rows",
+          "columns": [
+            "name",
+            "department",
+            "city",
+            "hire_date",
+            "salary",
+            "rating"
+          ],
+          "action": "applied",
+          "operation": "REMOVE_DUPLICATES",
+          "reason": "Duplicate-detection criteria were already established by the profiler itself."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "aad0c07db6bd436e426c2a714311b35e6153d8595b8f198e39fe597be22fde55",
+      "provider": null,
+      "model": null,
+      "model_class": null,
+      "deployment_mode": null,
+      "prompt_version": null,
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "d154e8ee-25f1-45f7-8a6c-017872b5a110",
+    "experiment_id": "916bc3ab-b06f-4bd0-b995-88dddfff0064",
+    "scenario_id": "S6_mixed",
+    "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "strategy": "spark_only",
+    "repetition_index": 2,
+    "status": "succeeded",
+    "started_at": "2026-11-07T07:18:08.706687Z",
+    "completed_at": "2026-11-07T07:18:45.205221Z",
+    "converge_run_id": null,
+    "error": null,
+    "result": {
+      "quality": {
+        "total_issues_before": 6,
+        "total_issues_after": 4,
+        "resolved_count": 2,
+        "improved_count": 0,
+        "unchanged_count": 3,
+        "worsened_count": 0,
+        "introduced_count": 0,
+        "unverified_count": 0,
+        "row_count_before": 17,
+        "row_count_after": 15,
+        "column_count_before": 7,
+        "column_count_after": 7,
+        "missing_value_total_before": 2,
+        "missing_value_total_after": 2,
+        "exact_duplicate_row_count_before": 0,
+        "exact_duplicate_row_count_after": 0,
+        "duplicate_candidate_row_count_before": 1,
+        "duplicate_candidate_row_count_after": 0,
+        "categorical_variant_total_before": 4,
+        "categorical_variant_total_after": 4,
+        "date_format_inconsistency_columns_before": 1,
+        "date_format_inconsistency_columns_after": 1,
+        "outlier_total_before": 0,
+        "outlier_total_after": 0
+      },
+      "performance": {
+        "strategy_execution_wall_seconds": 15.366601604000152,
+        "evaluation_wall_seconds": 21.103111609999814,
+        "total_wall_seconds": 36.49814867799978
+      },
+      "cost": {
+        "monetary_cost": 0.0,
+        "currency": null,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "ground_truth": {
+        "scenario_id": "S6_mixed",
+        "total_corruptions": 13,
+        "correctly_repaired": 3,
+        "incorrectly_repaired": 0,
+        "unrepaired": 8,
+        "repair_recall": 0.23076923076923078,
+        "injected_duplicates_removed": 2,
+        "original_rows_lost": 0,
+        "all_original_rows_lost": 0,
+        "correctly_removed_duplicates": 2,
+        "originally_clean_values_modified": 0,
+        "false_modification_rate": 0.0,
+        "total_originally_clean_cells": 79
+      }
+    },
+    "trace": {
+      "decisions": [
+        {
+          "issue_type": "whitespace_or_casing",
+          "columns": [
+            "name"
+          ],
+          "action": "applied",
+          "operation": "TRIM_WHITESPACE",
+          "reason": "Whitespace is incidental; trimming it is the single correct remediation."
+        },
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        },
+        {
+          "issue_type": "categorical_inconsistency",
+          "columns": [
+            "department"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Which raw variant is the 'canonical' spelling is not determinable from the data alone (e.g. majority frequency does not imply correctness)."
+        },
+        {
+          "issue_type": "date_format_inconsistency",
+          "columns": [
+            "hire_date"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "The target date format is a stylistic/locale convention, not something derivable from the data itself."
+        },
+        {
+          "issue_type": "missing_values",
+          "columns": [
+            "salary"
+          ],
+          "action": "skipped",
+          "operation": null,
+          "reason": "Filling missing values requires choosing an imputation strategy (mean/median/mode/constant) -- no single strategy is correct for every column without judgment about the data's distribution and meaning."
+        },
+        {
+          "issue_type": "duplicate_rows",
+          "columns": [
+            "name",
+            "department",
+            "city",
+            "hire_date",
+            "salary",
+            "rating"
+          ],
+          "action": "applied",
+          "operation": "REMOVE_DUPLICATES",
+          "reason": "Duplicate-detection criteria were already established by the profiler itself."
+        }
+      ]
+    },
+    "reproducibility": {
+      "dataset_checksum": "aad0c07db6bd436e426c2a714311b35e6153d8595b8f198e39fe597be22fde55",
+      "provider": null,
+      "model": null,
+      "model_class": null,
+      "deployment_mode": null,
+      "prompt_version": null,
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "93aa2a80-dc39-41f0-be94-797e61f29107",
+    "experiment_id": "916bc3ab-b06f-4bd0-b995-88dddfff0064",
+    "scenario_id": "S6_mixed",
+    "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "strategy": "ai_only",
+    "repetition_index": 0,
+    "status": "failed",
+    "started_at": "2026-11-07T07:18:45.205544Z",
+    "completed_at": "2026-11-07T07:21:22.270107Z",
+    "converge_run_id": null,
+    "error": "AI provider failed: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "aad0c07db6bd436e426c2a714311b35e6153d8595b8f198e39fe597be22fde55",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "05c18934-3aee-45e3-b410-9709c31aad7f",
+    "experiment_id": "916bc3ab-b06f-4bd0-b995-88dddfff0064",
+    "scenario_id": "S6_mixed",
+    "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "strategy": "ai_only",
+    "repetition_index": 1,
+    "status": "failed",
+    "started_at": "2026-11-07T07:21:22.274850Z",
+    "completed_at": "2026-11-07T07:24:02.365672Z",
+    "converge_run_id": null,
+    "error": "AI provider failed: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "aad0c07db6bd436e426c2a714311b35e6153d8595b8f198e39fe597be22fde55",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "d22b3cd2-919d-4e10-988b-a688fa16ac5e",
+    "experiment_id": "916bc3ab-b06f-4bd0-b995-88dddfff0064",
+    "scenario_id": "S6_mixed",
+    "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "strategy": "ai_only",
+    "repetition_index": 2,
+    "status": "failed",
+    "started_at": "2026-11-07T07:24:02.374624Z",
+    "completed_at": "2026-11-07T07:26:42.160905Z",
+    "converge_run_id": null,
+    "error": "AI provider failed: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "aad0c07db6bd436e426c2a714311b35e6153d8595b8f198e39fe597be22fde55",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "e9df5110-8bbb-457e-b08f-0ff27743f515",
+    "experiment_id": "916bc3ab-b06f-4bd0-b995-88dddfff0064",
+    "scenario_id": "S6_mixed",
+    "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+    "strategy": "converge",
+    "repetition_index": 0,
+    "status": "failed",
+    "started_at": "2026-11-07T07:26:42.187559Z",
+    "completed_at": "2026-11-07T07:29:38.349086Z",
+    "converge_run_id": "cdb40726-cb07-49dd-8ac2-5ecda15de547",
+    "error": "Stage 'ai_analysis' failed: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "aad0c07db6bd436e426c2a714311b35e6153d8595b8f198e39fe597be22fde55",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "7f3e9ce9-f142-42aa-bdb0-f7f2d6cb8e1d",
+    "experiment_id": "916bc3ab-b06f-4bd0-b995-88dddfff0064",
+    "scenario_id": "S6_mixed",
+    "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+    "strategy": "converge",
+    "repetition_index": 1,
+    "status": "failed",
+    "started_at": "2026-11-07T07:29:38.363110Z",
+    "completed_at": "2026-11-07T07:32:20.037918Z",
+    "converge_run_id": "97772f70-9647-4dd8-bbf2-e6262bf069ad",
+    "error": "Stage 'ai_analysis' failed: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "aad0c07db6bd436e426c2a714311b35e6153d8595b8f198e39fe597be22fde55",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  },
+  {
+    "run_id": "7a4b4566-2209-4752-b987-71b9dc9a005e",
+    "experiment_id": "916bc3ab-b06f-4bd0-b995-88dddfff0064",
+    "scenario_id": "S6_mixed",
+    "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+    "strategy": "converge",
+    "repetition_index": 2,
+    "status": "failed",
+    "started_at": "2026-11-07T07:32:20.040516Z",
+    "completed_at": "2026-11-07T07:35:03.948802Z",
+    "converge_run_id": "9607b1ab-bfbb-46ba-a5a9-117152ff40f7",
+    "error": "Stage 'ai_analysis' failed: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+    "result": null,
+    "trace": null,
+    "reproducibility": {
+      "dataset_checksum": "aad0c07db6bd436e426c2a714311b35e6153d8595b8f198e39fe597be22fde55",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:3b",
+      "model_class": "slm",
+      "deployment_mode": "local",
+      "prompt_version": "recommendation-prompt-v1",
+      "package_version": "0.1.0"
+    }
+  }
+]

@@ -1,0 +1,125 @@
+{
+  "pilot_id": "exp_seed123_qwen3b",
+  "timestamp": "2026-11-08T18:52:43.671413+00:00",
+  "scenarios": [
+    "S3_categorical",
+    "S4_missing",
+    "S6_mixed"
+  ],
+  "strategies": [
+    "ai_only",
+    "converge",
+    "spark_only"
+  ],
+  "configuration_ids": [
+    "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+    "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+    "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3"
+  ],
+  "repetition_count": 3,
+  "total_attempted_runs": 27,
+  "total_succeeded": 9,
+  "total_failed": 18,
+  "provider": "ollama",
+  "model": "qwen2.5-coder:3b",
+  "prompt_version": "recommendation-prompt-v1",
+  "package_version": "0.1.0",
+  "reliability": {
+    "S3_categorical:36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225": {
+      "experiment_id": "2fcb00a2-e7af-493a-bd0c-2ba1d6642f9a",
+      "scenario_id": "S3_categorical",
+      "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+      "attempted_runs": 3,
+      "successful_runs": 3,
+      "failed_runs": 0,
+      "success_rate": 1.0,
+      "recommendation_consistency": null
+    },
+    "S3_categorical:8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3": {
+      "experiment_id": "2fcb00a2-e7af-493a-bd0c-2ba1d6642f9a",
+      "scenario_id": "S3_categorical",
+      "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+      "attempted_runs": 3,
+      "successful_runs": 0,
+      "failed_runs": 3,
+      "success_rate": 0.0,
+      "recommendation_consistency": null
+    },
+    "S3_categorical:c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3": {
+      "experiment_id": "2fcb00a2-e7af-493a-bd0c-2ba1d6642f9a",
+      "scenario_id": "S3_categorical",
+      "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+      "attempted_runs": 3,
+      "successful_runs": 0,
+      "failed_runs": 3,
+      "success_rate": 0.0,
+      "recommendation_consistency": null
+    },
+    "S4_missing:36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225": {
+      "experiment_id": "a14bfc85-b42e-4cea-b32a-d60c5de1cff3",
+      "scenario_id": "S4_missing",
+      "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+      "attempted_runs": 3,
+      "successful_runs": 3,
+      "failed_runs": 0,
+      "success_rate": 1.0,
+      "recommendation_consistency": null
+    },
+    "S4_missing:8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3": {
+      "experiment_id": "a14bfc85-b42e-4cea-b32a-d60c5de1cff3",
+      "scenario_id": "S4_missing",
+      "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+      "attempted_runs": 3,
+      "successful_runs": 0,
+      "failed_runs": 3,
+      "success_rate": 0.0,
+      "recommendation_consistency": null
+    },
+    "S4_missing:c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3": {
+      "experiment_id": "a14bfc85-b42e-4cea-b32a-d60c5de1cff3",
+      "scenario_id": "S4_missing",
+      "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+      "attempted_runs": 3,
+      "successful_runs": 0,
+      "failed_runs": 3,
+      "success_rate": 0.0,
+      "recommendation_consistency": null
+    },
+    "S6_mixed:36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225": {
+      "experiment_id": "684f9532-d7eb-45e5-9c7a-3f5a0ec1ce1a",
+      "scenario_id": "S6_mixed",
+      "configuration_id": "36b954dfa67d9386b0360792a6ca83503225305fdb8d7b514e3e6afc0222f225",
+      "attempted_runs": 3,
+      "successful_runs": 3,
+      "failed_runs": 0,
+      "success_rate": 1.0,
+      "recommendation_consistency": null
+    },
+    "S6_mixed:8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3": {
+      "experiment_id": "684f9532-d7eb-45e5-9c7a-3f5a0ec1ce1a",
+      "scenario_id": "S6_mixed",
+      "configuration_id": "8359c9791027f64d9288d59202e3e32c7e05a3a07bc5f942715b78755c77aef3",
+      "attempted_runs": 3,
+      "successful_runs": 0,
+      "failed_runs": 3,
+      "success_rate": 0.0,
+      "recommendation_consistency": null
+    },
+    "S6_mixed:c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3": {
+      "experiment_id": "684f9532-d7eb-45e5-9c7a-3f5a0ec1ce1a",
+      "scenario_id": "S6_mixed",
+      "configuration_id": "c61be2adfc7486c3d5fdea65282c20dacbeb919f784850979866e900a5d616c3",
+      "attempted_runs": 3,
+      "successful_runs": 0,
+      "failed_runs": 3,
+      "success_rate": 0.0,
+      "recommendation_consistency": null
+    }
+  },
+  "corruption_seed": 123,
+  "scenario_checksums": {
+    "S3_categorical": "9d1407a1c0db5520ff4c9f5aae574108a88bc19035f0eefe4ce67e76529aa217",
+    "S4_missing": "58f3f9d4461de08e0debdbd614237931899d977728ec84e6fb77c41a04fa1472",
+    "S6_mixed": "36599b4ea32437c29163f9b4898b4c874bd24348ba862813e43f82e23b0fdc8c"
+  }
+}

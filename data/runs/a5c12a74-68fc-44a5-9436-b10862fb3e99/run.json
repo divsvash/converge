@@ -1,0 +1,272 @@
+{
+  "run_id": "a5c12a74-68fc-44a5-9436-b10862fb3e99",
+  "dataset_id": "S4_missing__58c68b30-111c-4a9a-b59c-89ccea8abb04__converge",
+  "dataset_path": "/mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/research/seeds/seed123/S4_missing.csv",
+  "status": "failed",
+  "profile_result": {
+    "profile": {
+      "dataset_id": "S4_missing__58c68b30-111c-4a9a-b59c-89ccea8abb04__converge",
+      "row_count": 15,
+      "column_count": 7,
+      "columns": [
+        {
+          "name": "_row_id",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": true,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "R001",
+            "R002",
+            "R003",
+            "R004",
+            "R005"
+          ]
+        },
+        {
+          "name": "name",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 15,
+            "top_values": {
+              "Alice Martin": 1,
+              "Frank Mueller": 1,
+              "Keiko Sato": 1,
+              "Elena Rossi": 1,
+              "Grace Tanaka": 1,
+              "James Wilson": 1,
+              "Liam Murphy": 1,
+              "Bob Chen": 1,
+              "Carol Diaz": 1,
+              "Henry Okonkwo": 1,
+              "Ingrid Larsson": 1,
+              "Maria Santos": 1,
+              "David Kim": 1,
+              "Nikolai Petrov": 1,
+              "Olivia Brown": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Alice Martin",
+            "Bob Chen",
+            "Carol Diaz",
+            "David Kim",
+            "Elena Rossi"
+          ]
+        },
+        {
+          "name": "department",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 3,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 3,
+            "top_values": {
+              "Engineering": 6,
+              "Sales": 5,
+              "Marketing": 4
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "Engineering",
+            "Engineering",
+            "Sales",
+            "Sales",
+            "Marketing"
+          ]
+        },
+        {
+          "name": "city",
+          "spark_dtype": "string",
+          "semantic_type": "string",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 9,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": {
+            "distinct_count": 9,
+            "top_values": {
+              "London": 3,
+              "Berlin": 3,
+              "Madrid": 2,
+              "Tokyo": 2,
+              "Dublin": 1,
+              "Stockholm": 1,
+              "Seoul": 1,
+              "Lagos": 1,
+              "Rome": 1
+            },
+            "variant_groups": [],
+            "whitespace_affected_count": 0
+          },
+          "date_format_stats": null,
+          "sample_values": [
+            "London",
+            "Berlin",
+            "Madrid",
+            "Seoul",
+            "Rome"
+          ]
+        },
+        {
+          "name": "hire_date",
+          "spark_dtype": "date",
+          "semantic_type": "unknown",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 15,
+          "is_id_like": false,
+          "numeric_stats": null,
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "2022-01-15",
+            "2022-03-20",
+            "2022-05-10",
+            "2022-07-01",
+            "2022-09-12"
+          ]
+        },
+        {
+          "name": "salary",
+          "spark_dtype": "int",
+          "semantic_type": "integer",
+          "non_null_count": 13,
+          "null_count": 2,
+          "null_percentage": 13.33,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 49000.0,
+            "max": 75000.0,
+            "mean": 61000.0,
+            "stddev": 8953.584,
+            "median_approx": 58000.0,
+            "q1": 54000.0,
+            "q3": 69000.0,
+            "outlier_lower_bound": 31500.0,
+            "outlier_upper_bound": 91500.0,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "68000",
+            "55000",
+            "58000",
+            "75000",
+            "53000"
+          ]
+        },
+        {
+          "name": "rating",
+          "spark_dtype": "double",
+          "semantic_type": "float",
+          "non_null_count": 15,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "distinct_count": 14,
+          "is_id_like": false,
+          "numeric_stats": {
+            "min": 3.5,
+            "max": 4.8,
+            "mean": 4.14,
+            "stddev": 0.405,
+            "median_approx": 4.1,
+            "q1": 3.8,
+            "q3": 4.5,
+            "outlier_lower_bound": 2.7499999999999996,
+            "outlier_upper_bound": 5.550000000000001,
+            "outlier_count": 0
+          },
+          "categorical_stats": null,
+          "date_format_stats": null,
+          "sample_values": [
+            "4.2",
+            "3.8",
+            "4.5",
+            "3.9",
+            "4.1"
+          ]
+        }
+      ],
+      "duplicate_summary": {
+        "exact_duplicate_row_count": 0,
+        "id_like_columns": [
+          "_row_id"
+        ],
+        "duplicate_candidates": []
+      },
+      "generated_at": "2026-11-07T19:32:05.483816Z"
+    },
+    "evidence": [
+      {
+        "issue_type": "missing_values",
+        "columns": [
+          "salary"
+        ],
+        "description": "2 of 15 rows have a missing value in 'salary' (13.33%).",
+        "supporting_data": {
+          "null_count": 2,
+          "null_percentage": 13.33,
+          "semantic_type": "integer"
+        }
+      }
+    ]
+  },
+  "ai_metadata": null,
+  "recommendation_records": [],
+  "execution_plan": null,
+  "execution_summary": null,
+  "after_profile_result": null,
+  "quality_comparison": null,
+  "recommendation_outcomes": [],
+  "insight_artifact": null,
+  "timeline": [
+    {
+      "status": "ingested",
+      "message": "Dataset 'S4_missing__58c68b30-111c-4a9a-b59c-89ccea8abb04__converge' ingested from /mnt/c/Users/divya/Projects/converge_fixed/converge_fixed/data/research/seeds/seed123/S4_missing.csv.",
+      "timestamp": "2026-11-07T19:31:51.643716Z"
+    },
+    {
+      "status": "profiled",
+      "message": "Profiled dataset: 15 rows, 7 columns, 1 evidence item(s).",
+      "timestamp": "2026-11-07T19:32:05.508450Z"
+    },
+    {
+      "status": "failed",
+      "message": "[ai_analysis] AIProviderTimeoutError: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+      "timestamp": "2026-11-07T19:34:15.260173Z"
+    }
+  ],
+  "error": "[ai_analysis] AIProviderTimeoutError: Ollama request timed out: <urlopen error [Errno 110] Connection timed out>",
+  "created_at": "2026-11-07T19:31:51.643143Z",
+  "updated_at": "2026-11-07T19:34:15.259858Z"
+}

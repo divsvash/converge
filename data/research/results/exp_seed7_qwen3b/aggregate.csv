@@ -1,0 +1,10 @@
+scenario_id,strategy,provider,model,attempted_runs,successful_runs,failed_runs,success_rate,mean_repair_recall,std_repair_recall,mean_false_modification_rate,mean_issues_before,mean_issues_after,mean_strategy_execution_wall_seconds,mean_total_wall_seconds,mean_input_tokens,mean_output_tokens,mean_total_tokens
+S3_categorical,ai_only,ollama,qwen2.5-coder:3b,3,3,0,1.0,0.0,0.0,0.13793103448275862,2.0,0.0,241.54657805966667,299.4441676013333,,,
+S3_categorical,converge,ollama,qwen2.5-coder:3b,3,3,0,1.0,0.0,0.0,0.0,2.0,2.0,137.6579020196667,161.11055582300006,,,
+S3_categorical,spark_only,,,3,3,0,1.0,0.0,0.0,0.0,2.0,2.0,17.136610898999987,45.481126814000014,0.0,0.0,0.0
+S4_missing,ai_only,ollama,qwen2.5-coder:3b,3,0,3,0.0,,,,,,,,,,
+S4_missing,converge,ollama,qwen2.5-coder:3b,3,0,3,0.0,,,,,,,,,,
+S4_missing,spark_only,,,3,3,0,1.0,0.0,0.0,0.0,1.0,1.0,15.412713445999998,36.24128882933322,0.0,0.0,0.0
+S6_mixed,ai_only,ollama,qwen2.5-coder:3b,3,0,3,0.0,,,,,,,,,,
+S6_mixed,converge,ollama,qwen2.5-coder:3b,3,0,3,0.0,,,,,,,,,,
+S6_mixed,spark_only,,,3,3,0,1.0,0.23076923076923075,3.3993498887762956e-17,0.0,6.0,4.0,15.595719449333501,39.06282039233338,0.0,0.0,0.0
